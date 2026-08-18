@@ -412,6 +412,81 @@ explicit arguments for the filled-in spreadsheet cells.
 
    ## and so on....
 
+
+Mounting samples on the sample wheel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sample wheels are intended to be an easy way of mounting and
+automating *ex situ* measurements.  There are, however, some rules to
+their use.
+
+1. Note that the slots are numbered from 1 to 24.  This indexing is
+   indicated by the numbers 1, 7, 13, and 19 cut into the plastic.
+
+2. As shown in :numref:`Figure %s <fig-doublewheel-spreadsheet>`, the
+   inner and outer slots are labeled as such.  Thus there is an inner
+   slot #1 and an outer slot #1.  The slots are **not** numbered from
+   1 to 48.  The numbering is inner 1 to inner 24 and outer 1 to
+   outer 24.
+
+3. The side the wheel on which the numbers are read normally is the
+   side that faces the beam.  The side facing the beam is refered to
+   as the "front" of the wheel.
+
+4. Samples, when mounted on the wheel using tape as in the left side
+   of :numref:`Figure %s <fig-mountsamplewheel>`, should be taped to
+   the front of the wheel.
+
+5. As shown in :numref:`Figure %s <fig-mountsamplewheel>`, samples can
+   fill the slots or they can be affixed to the front of the wheel
+   over the slots.  The choice is yours.  Do which ever seems more
+   convenient for your samples.
+
+6. Note that there are lines scored into the plastic going through the
+   centers of the slots.  Take care to mount your samples such that
+   they are well-centered in each slot.  The better a job you do
+   aligning the mounted samples, the easier it will be to correctly
+   align each sample in the beam.
+
+7. While completely filling or covering each slot makes the wheel very
+   easy to use, that is not always possible.  Slit size and sample
+   stage positions can be adjusted in the spreadsheet, as needed for
+   each sample individually.  That said, centering your samples
+   carefully in each slot is especially helpful when the sample is
+   smaller than the slot.
+
+8. Feel free to write directly on the wheel with a Sharpie.  The
+   sample holder will be in view of multiple cameras.  Clearly
+   readable labels seen in the cameras are helpful when setting up the
+   experiment and provide a :numref:`useful visual record of the
+   experiment (Section %s) <snap>`.
+
+
+
+.. subfigure::  AB
+   :layout-sm: AB
+   :subcaptions: above
+   :gap: 8px
+   :name: fig-mountsamplewheel
+   :class-grid: outline
+
+   .. image:: _images/instrumentation/ontop.jpg
+
+   .. image:: _images/instrumentation/filled.jpg
+
+   (Left) An example of samples taped to the front of the sample wheel
+   (Right) An example of samples filling the slots in the sample wheel.
+
+
+
+.. admonition:: Do not make up your own numbering scheme!
+   :class: caution
+
+   The spreadsheet automation system expects the indexing as described
+   above.  If you make up your own indexing scheme, you **will** get
+   confused at the beamline and you run the risk of mislabeling your
+   data.
+
 .. _auto_linkam:
 
 Linkam stage automation
