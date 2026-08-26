@@ -27,6 +27,83 @@ experimental options, contact the beamline staff.
 See :numref:`Section %s <iocs>` for details about the IOCs running the
 beamline instrumentation.
 
+Ionization chambers
+-------------------
+
+At BMM, we use `ion chambers designed
+<https://doi.org/10.1109/NSSMICRTSD49126.2023.10338518>`__ by Pete
+Siddons and built in the BNL Instrumentation Division.  One of these
+is shown in :numref:`Figure %s <fig-ionchamber>`.
+
+These are compact, all-in-one solutions containing a gas-filled volume
+for capacitor plates constructed from integrated circuit board.  The
+circuit boards are patterned to provide guard plates at the entrance
+and exit from the ion chamber.  The patterning also provides a zig-zag
+separation between two plates.  In normal operation, the beam passes
+over the outboard plate, leaving the inboard plate unused.  However,
+the ion chamber can be used as a beam positioning device in one
+dimension by passing the beam over the zig-zag pattern and using the
+difference signal as a feedback signal.
+
+.. _fig-ionchamber:
+.. figure:: _images/instrumentation/new_IC.jpg
+   :target: _images/new_IC.jpg
+   :width: 50%
+   :align: center
+
+   Home build ion chamber.
+
+The top part of the box shown in :numref:`Figure %s <fig-ionchamber>`
+contains all of the electronics.  There are two circuit boards
+containing an electrometer for measuring current, an adjustable
+voltage supply for charging the bottom plate of the capacitor, and a
+microcomputer for running an EPICS IOC, a slightly modified version of
+the standard `quadEM module
+<https://epics-modules.github.io/quadEM/>`__.  This has been modified
+to use only two of the normal four channels, with all PVs associated
+with unused channels forced to be zero-valued.
+
+The voltage supply is software adjustable from 0 V to 500 V.  At BMM,
+we run at 200 V, which was determined by the plateau of the IV curve
+and selecting a point well within the plateau, but towards the
+low-voltage end.
+
+.. note:: The ion chambers are on the EPICS subnet.  This is different
+   from the black-box electrometer, which sit on the INST subnet.  The
+   reason for this is because the ion chambers run their own IOCs,
+   thus need to be on the a subnet with no routing to the outside
+   world.  The black box electrometers use IOCs running on
+   ``xf06bm-inst-ioc1``.
+   
+   ============  ============  ==============
+    chamber       DNS entry     IP address
+   ============  ============  ==============
+    I\ :sub:`0`   xf06bm-ic1    10.68.43.196
+    I\ :sub:`t`   xf06bm-ic2    10.68.43.197
+    I\ :sub:`r`   xf06bm-ic3    10.68.43.198
+   ============  ============  ==============
+
+In normal operations, the ion chambers are always filled with nitrogen
+taken from the house boil-off supply.  100% nitrogen is, of course,
+rather too thick for the Ti K edge and rather too thin for the Mo K
+edge.  However, a benefit of being at a bright, 3\ :sup:`rd`
+generation source is that the flux is so high that running the ion
+chambers in with non-optimal gas filling has scant impact on data
+quality.  The shot noise in the ion chamber signals is simply not a
+large part of the noise budget of most experiments.
+
+The advantage of running the ion chambers in this way is ease of use.
+Not changing the gas mixture when :numref:`changing edge (see Section
+%s) <change_edge>`, simplifies the procedure and eliminates the time
+required to let the gas mixture equilibrate in the ion chamber.
+
+For experiments outside the range of 5 keV to 20 keV |nd| i.e. Ti K edge
+to Mo K edge |nd| we might change the gas mixture.  When measuring Tc or
+Ru K edge, argon is usually added to the ion chambers.  When measuring
+below Ti |nd| for example, Sc K edge or Te L3 edge |nd| helium is
+added to the ion chambers.
+
+
 
 Fluorescence detectors
 ----------------------
