@@ -95,8 +95,7 @@ These stages sit on top of the XAFS optical table.
    ``xafs_adx``    linear       mm         area detector stage      |plus| outboard, - inboard
    ``xafs_ady``    linear       mm         area detector stage      |plus| up, - down
    ``xafs_yu``     linear       mm         u.s. table jack          |plus| up, - down
-   ``xafs_ydo``    linear       mm         d.s. o.b. table jack     |plus| up, - down
-   ``xafs_ydi``    linear       mm         d.s. i.b. table jack     |plus| up, - down
+   ``xafs_yd``     linear       mm         d.s. table jack          |plus| up, - down
    =============== ===========  =========  =======================  =====================================
 
 g.a. = glancing angle |blackcircle|
@@ -108,6 +107,8 @@ d.s. = downstream
 Note that the ``xafs_pitch`` stage is not right handed in the beamline
 coordinate system.  This is the more intuitive setting for how that
 stage is typically used.
+
+``xafs_yd`` is the motor driving the coupled downstream jacks.
 
 ----
 
@@ -197,6 +198,15 @@ Here are some photos identifying these axes:
    (Left) The area detector stages: ``xafs_adx`` and ``xafs_ady``.
    (Right) Mounting rigs for the Eiger and Pilatus detectors.
 
+
+.. _fig-coupled_xafs_yd:
+.. figure:: _images/stages/coupled_xafs_yd.gif
+   :target: _images/coupled_xafs_yd.gif
+   :width: 70%
+   :align: center
+
+   The inboard and outboard jacks on the downstream end of the
+   XAFS table, coupled together to be run by a single motor.
 
    
 
@@ -475,6 +485,8 @@ across or larger, this alignment algorithm is very robust.  For oddly
 shaped samples, verify that the automation works before relying upon
 it.  Otherwise, you will need to do the alignment by hand.
 
+.. _xafs_table:
+
 Table motors
 ------------
 
@@ -486,6 +498,8 @@ the beamline in a confusing state by changing the table motors outside
 of the ``change_mode()`` command.
 
 The lateral table motors |nd| and its yaw |nd| are normally disabled.
+The downstream jacks are coupled and driven by a single motor.  Roll
+is no longer available (as of Summer 2026).
 
 
 .. table:: XAFS table motors
@@ -496,11 +510,9 @@ The lateral table motors |nd| and its yaw |nd| are normally disabled.
    motor                units     notes
    ===================  ========  =================================
    xafs_yu              mm        upstream table jack
-   xafs_ydi             mm        downstream, inboard table jack
-   xafs_ydo             mm        downstream, outboard table jack
+   xafs_yd              mm        downstream
    xafs_table.vertical  mm        coordinated linear motion
    xafs_table.pitch     degrees   coordinated table pitch
-   xafs_table.roll      degrees   coordinated table roll
    ===================  ========  =================================
 
 
@@ -524,7 +536,7 @@ The lateral table motors |nd| and its yaw |nd| are normally disabled.
    The normal movement commands work on the real and virtual motors,
    e.g.::
 
-      RE(mvr(xafs_ydi, 3))
+      RE(mvr(xafs_yd, 3))
       RE(mv(xafs_table.vertical, 107))
 
    Again, this is rarely necessary.  The mode changing plan should

@@ -1204,8 +1204,8 @@ XAFS Table
 PV                                        alias                 Motor Description         controller              motor number
 ========================================  ====================  ========================= ======================  ==============
 XF:06BMA-BI{XAFS-Ax:Tbl_YU}Mtr            xafs_yu               xafs table y us            MC07 (RGC1)             1
-XF:06BMA-BI{XAFS-Ax:Tbl_YDO}Mtr           xafs_ydo              xafs table y ds ob         MC07 (RGC1)             2
-XF:06BMA-BI{XAFS-Ax:Tbl_YDI}Mtr           xafs_ydi              xafs table y ds ib         MC07 (RGC1)             3
+XF:06BMA-BI{XAFS-Ax:Tbl_YDO}Mtr           <unused>              <available>                MC07 (RGC1)             2
+XF:06BMA-BI{XAFS-Ax:Tbl_YDI}Mtr           xafs_yd               xafs table y ds            MC07 (RGC1)             3
 :strike:`XF:06BMA-BI{XAFS-Ax:Tbl_XU}Mtr`  :strike:`xafs_xu`     :strike:`xafs table x us`  :strike:`MC07 (RGC1)`   :strike:`4`
 XF:06BMA-BI{XAFS-Ax:Tbl_XD}Mtr            :red:`xafs_detx`      xafs detector stage x      MC07 (RGC1)             5
 ========================================  ====================  ========================= ======================  ==============
@@ -1219,6 +1219,13 @@ XF:06BMA-BI{XAFS-Ax:Tbl_XD}Mtr            :red:`xafs_detx`      xafs detector st
 
    Axis 4 on MC07 is out of service. ``xafs_xu`` and ``xafs_xd`` are
    not currently connected to a motor controller.
+
+   In Summer 2026, ``xafs_ydi`` and ``xafs_ydo`` were coupled together
+   after leveling the table.  ``xafs_ydi`` was renamed to ``xafs_yd``.
+   The controls for the :numref:`XAFS table (see Section %s)
+   <xafs_table>` were rewritten to use the single motor and to remove
+   roll from the list of coordinated motions.  Axis 2 on MC07 is
+   currently unused and available.
 
 
 XAFS Stages
