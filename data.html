@@ -1,0 +1,1003 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>4. Data access &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Beamline instrumentation" href="instruments.html" />
+    <link rel="prev" title="3. Before your Beamtime" href="before.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fdata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data access</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">4.1. Downloading data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sftp-client">4.1.1. SFTP Client</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-short-version">4.1.2. The Short Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-guide-with-pictures">4.1.3. A Guide with Pictures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-with-globus">4.2. Accessing data with Globus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-from-the-beamline-computers">4.3. Accessing data from the beamline computers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-vdi-virtual-desktop">4.4. Using the VDI virtual Desktop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-via-tiled">4.5. Accessing data via Tiled</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-tiled-records">4.5.1. Reading Tiled records</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data">4.5.2. Searching for data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter">4.5.3. Using Jupyter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-data-security-important">4.6. Why is data security important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-the-data-server">4.7. Map of the data server</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-ABC { grid-template-areas: 'A B C'; }
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-ABC { grid-template-areas: 'A B C'; }
+  .ss-layout-sm-AB { grid-template-areas: 'A B'; }
+}
+</style>
+<section id="data-access">
+<span id="data"></span><h1><span class="section-number">4. </span>Data access<a class="headerlink" href="#data-access" title="Permalink to this heading">#</a></h1>
+<p>In May 2024, data security policies were implemented at BMM.  This has
+impact on user operations and data access.</p>
+<p>Data is now written to a secure location on central storage.  Access
+to your data now requires authentication using your BNL domain
+account, your password, and two-factor authentication with DUO or a
+Yubi key.</p>
+<p>The beamline operator account does not have access to user’s data.</p>
+<p>This section of the beamline manual explains how to access your data
+during and after your experiment.</p>
+<section id="downloading-data">
+<h2><span class="section-number">4.1. </span>Downloading data<a class="headerlink" href="#downloading-data" title="Permalink to this heading">#</a></h2>
+<section id="sftp-client">
+<h3><span class="section-number">4.1.1. </span>SFTP Client<a class="headerlink" href="#sftp-client" title="Permalink to this heading">#</a></h3>
+<p>You will need an sftp client.</p>
+<ul>
+<li><p><strong>Cross-platform:</strong> <a class="reference external" href="https://filezilla-project.org/">FileZilla</a>.
+This is a free program available for Windows, Apple, and Linux.  The
+explanation below will be made using FileZilla.</p></li>
+<li><p><strong>Windows users:</strong> A popular option is <a class="reference external" href="https://winscp.net/eng/index.php">WinSCP</a>. Be careful at the WinSCP
+website.  You will see multiple pop-up adds with download links to
+other software packages.  Be careful to click on the link to the
+WinSCP package.</p></li>
+<li><p><strong>Mac users:</strong> Other options are <a class="reference external" href="https://termius.com/download/macos">Termius</a>
+and <a class="reference external" href="http://fivedetails.com/flow/">Flow</a>.</p></li>
+<li><p><strong>Linux users:</strong> Your desktop file manager likely has an sftp client
+built in.  Try typing
+<code class="docutils literal notranslate"><span class="pre">sftp://&lt;username&gt;&#64;sftp.nsls2.bnl.gov</span></code> into your file
+manager or create a new network drive using <code class="docutils literal notranslate"><span class="pre">ssh</span></code> and
+<code class="docutils literal notranslate"><span class="pre">sftp.nsls2.bnl.gov</span></code>.</p>
+<p><a class="reference external" href="https://github.com/libfuse/sshfs">sshfs</a> is an
+excellent solution.  <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> allows you to easily
+mount the remote sftp site to a local mount point,
+allowing you to browse the remote site as if it were a
+local folder.  For example, I do the following to mount
+the data folder locally on my laptop:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sshfs<span class="w"> </span>bravel@sftp.nsls2.bnl.gov:/nsls2/data/bmm<span class="w"> </span>~/mnt/bmm<span class="w"> </span>-o<span class="w"> </span>follow_symlinks
+</pre></div>
+</div>
+<p>and this to unmount the data folder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fusermount<span class="w"> </span>-u<span class="w"> </span>mnt/bmm
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="the-short-version">
+<h3><span class="section-number">4.1.2. </span>The Short Version<a class="headerlink" href="#the-short-version" title="Permalink to this heading">#</a></h3>
+<div class="admonition-executive-summary admonition">
+<p class="admonition-title">Executive Summary</p>
+<ol class="arabic simple">
+<li><p>Connect to sftp.nsls2.bnl.gov in your sftp client</p></li>
+<li><p>Authenticate using your BNL username/password and DUO two-factor
+authentication</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals/</span></code>, then to the cycle
+folder corresponding to the date of your experiment, then to the
+folder with your proposal number.  So, something like
+<code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals/2026-2/pass-333333</span></code>.</p></li>
+<li><p>Transfer your data to your local computer.</p></li>
+</ol>
+</div>
+<p>If you preserve the folder structure from the remote host, the
+<a class="reference internal" href="log.html#dossier"><span class="std std-numref">the dossier files (Section 12.4)</span></a> will work as
+expected.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder contains raw image and HDF5 from your
+experiment.  Those files will have database-friendly but
+user-unfriendly names.  The HDF5 files are rather large and will take
+some time to download.  You can skip downloading the <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder
+if you do not plan on using the HDF5 files directly.</p>
+</section>
+<section id="a-guide-with-pictures">
+<h3><span class="section-number">4.1.3. </span>A Guide with Pictures<a class="headerlink" href="#a-guide-with-pictures" title="Permalink to this heading">#</a></h3>
+<p>What follows is a guide with screenshots of using FileZilla to connect
+to the SFTP download site and begin downloading data.</p>
+<p>To begin, open your sftp client.  Here is FileZilla at startup.  For
+FileZilla, click on the File menu, then click on Site Manager.</p>
+<figure class="align-center" id="id2">
+<span id="fig-fz-startup"></span><a class="reference external image-reference" href="_images/filezilla_startup.png"><img alt="_images/filezilla_startup.png" src="_images/filezilla_startup.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">FileZilla startup.  Go to the Site Manager to establish a new
+location.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the site manager, click on the “New site” button and fill in the
+details as shown below.  Select the SFTP protocol, enter
+<code class="docutils literal notranslate"><span class="pre">sftp.nsls2.bnl.gov</span></code> as the Host.  The correct port number is 22,
+but you can usually leave that blank.  22 is the default port for the
+sftp protocol.</p>
+<p>Finally, select “Interactive” as the logon type.  That will tell
+FileZilla to prompt you for both user name and two-factor authentication.</p>
+<figure class="align-center" id="id3">
+<span id="fig-fz-site-manager"></span><a class="reference external image-reference" href="_images/filezilla_site_manager.png"><img alt="_images/filezilla_site_manager.png" src="_images/filezilla_site_manager.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Fill in the site manager with the location and logon type for the
+NSLS2 data center.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Click OK to finish this configuration, then connect to the host.</p>
+<figure class="align-center" id="id4">
+<span id="fig-fz-connect"></span><a class="reference external image-reference" href="_images/filezilla_connect.png"><img alt="_images/filezilla_connect.png" src="_images/filezilla_connect.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Select the NSLS2 host from the drop-down list and click to connect.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Connecting to the NSLS2 SFTP host will open up the password entry dialog.</p>
+<figure class="align-center" id="id5">
+<span id="fig-fz-password"></span><a class="reference external image-reference" href="_images/filezilla_password.png"><img alt="_images/filezilla_password.png" src="_images/filezilla_password.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Enter your BNL password and click OK.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After entering your password, you will be prompted for two factor
+authentication.  In the “Password” box, type <code class="docutils literal notranslate"><span class="pre">1</span></code> and hit OK.  Then
+go to your phone and accept the DUO push.</p>
+<p>If you use a Yubikey, click on the “Password” box and touch the button
+on your Yubikey.</p>
+<p>Once you have completed the DUO push, you will be able to navigate on
+the remote site.  Click your way to <code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/</span></code> as shown below.</p>
+<figure class="align-center" id="id6">
+<span id="fig-fz-remote"></span><a class="reference external image-reference" href="_images/filezilla_remote.png"><img alt="_images/filezilla_remote.png" src="_images/filezilla_remote.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Navigate down to the BMM proposals area on the SFTP server.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Click into <code class="docutils literal notranslate"><span class="pre">proposals</span></code> then into the folder for the cycle in which
+your experiment happened, then into the folder for your proposal
+number:</p>
+<figure class="align-center" id="id7">
+<span id="fig-fz-folder"></span><a class="reference external image-reference" href="_images/filezilla_folder.png"><img alt="_images/filezilla_folder.png" src="_images/filezilla_folder.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Navigate into the folder for your proposal and the cycle in which
+it ran.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now select the data files you want to transfer.  You may select
+multiple files or even entire folders.</p>
+<figure class="align-center" id="id8">
+<span id="fig-fz-queue"></span><a class="reference external image-reference" href="_images/filezilla_queue.png"><img alt="_images/filezilla_queue.png" src="_images/filezilla_queue.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Select some or all of your data and add it to the queue.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Click on the transfer button at the top of the screen to initiate the
+transfer.  At the beginning of the transfer, you will have to
+re-authenticate yourself.</p>
+<figure class="align-center" id="id9">
+<span id="fig-fz-transfer"></span><a class="reference external image-reference" href="_images/filezilla_transfer.png"><img alt="_images/filezilla_transfer.png" src="_images/filezilla_transfer.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Click the transfer button to download your data.  You may need to
+re-authenticate at the start of transfer.</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Your data is now on your computer.  Yay!</p>
+</section>
+</section>
+<section id="accessing-data-with-globus">
+<h2><span class="section-number">4.2. </span>Accessing data with Globus<a class="headerlink" href="#accessing-data-with-globus" title="Permalink to this heading">#</a></h2>
+<p>Data volumes at BMM are such that sftp is usually easier and more
+efficient than using <a class="reference external" href="https://www.globus.rog">Globus</a>.  We
+recommend that you use sftp to access your data.  However,
+Globus is an option.</p>
+<p>To use Globus, you must transfer data to a Globus endpoint at your
+institution to which you have access.</p>
+<p>Alternately, you can run <a class="reference external" href="https://app.globus.org/collections/gcp">Globus Connect Personal (GCP)</a> on your own computer.
+Follow the download and installation instructions and start an
+instance of GCP on your computer.</p>
+<p>Once you have identified either an institutional endpoint or you have
+GCP running, point your web browser at <a class="reference external" href="http://globus.nsls2.bnl.gov/">http://globus.nsls2.bnl.gov/</a>.</p>
+<p>In the remote panel on the left side of the page, navigate to your
+proposal directory, which will be something like
+<code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals/2026-2/pass-333333</span></code>, where you would
+replace <code class="docutils literal notranslate"><span class="pre">2026-2</span></code> with the operations cycle of your visit to BMM and
+replace <code class="docutils literal notranslate"><span class="pre">333333</span></code> with the proposal number of your experiment.</p>
+<p>In the local panel on the right side of the page, navigate to the
+location to which you want to download your data.</p>
+<p>Select the data (or data folder) you wish to download and hit the
+start button above the remote folder.</p>
+</section>
+<section id="accessing-data-from-the-beamline-computers">
+<h2><span class="section-number">4.3. </span>Accessing data from the beamline computers<a class="headerlink" href="#accessing-data-from-the-beamline-computers" title="Permalink to this heading">#</a></h2>
+<p>Under the new data security regime, the beamline computer does not
+have normal access to your data.  This is because all users run their
+experiment as the beamline operator.  If the beamline operator –
+<code class="docutils literal notranslate"><span class="pre">xf06bm</span></code> – could see data, than any user could look at any other
+user’s data.</p>
+<p>Instead, data are stored on central storage with read permission
+granted to everyone named on the user proposal.  In this way, data are
+secured from other users and access to the data requires
+authentication.</p>
+<p>To look at your data while at the beamline, do the following</p>
+<ul>
+<li><p>Open a terminal window.  Sometimes a terminal window with a white
+background is open on screen and intended for this purpose.
+<span class="bolditalic">bsui</span> is typically run from a window with a black background, so
+the white background is meant as a visual cue indicating that it is
+the place for data access.</p></li>
+<li><p>In that terminal window type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su<span class="w"> </span>-<span class="w"> </span>&lt;username&gt;
+</pre></div>
+</div>
+<p>replacing <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> with your actual user name. Enter your
+password and respond to the DUO push.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> to <code class="docutils literal notranslate"><span class="pre">/nsls2/data3/bmm/proposals/2024-2/pass-123456</span></code>, replacing
+<code class="docutils literal notranslate"><span class="pre">2024-2</span></code> with the cycle of your visit and <code class="docutils literal notranslate"><span class="pre">123456</span></code> with your
+proposal number.</p></li>
+</ul>
+<p><span class="smallcaps">athena</span> can be launched from the command line.  The best way to do this
+is to type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dathena<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span><span class="p">&amp;</span>&gt;1<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>at the command line.  That incantation will suppress spurious screen
+messages and put <span class="smallcaps">athena</span> into the background so you can continue using
+the command line.  From there, simply use <span class="smallcaps">athena</span>’s <a class="reference external" href="https://bruceravel.github.io/demeter/documents/Athena/import/index.html">File menu</a>
+to load data from your proposal folder.</p>
+</section>
+<section id="using-the-vdi-virtual-desktop">
+<span id="using-vdi"></span><h2><span class="section-number">4.4. </span>Using the VDI virtual Desktop<a class="headerlink" href="#using-the-vdi-virtual-desktop" title="Permalink to this heading">#</a></h2>
+<p>NSLS-II offers a virtual desktop which can be used to examine your
+data and perform other chores related to your beamline visit.  This
+virtual desktop will open a Red Hat Enterprise Linux session either in
+your web browser or in the Omnissa client app.</p>
+<p>To start, point your browser at <a class="reference external" href="https://vdi.nsls2.bnl.gov/">https://vdi.nsls2.bnl.gov/</a>.</p>
+<p>Either download the client app or use the browser.  The client
+performs better than the browser app, but does involved installation
+of the Omnissa software on your computer.</p>
+<figure class="align-center" id="id10">
+<span id="fig-omnissa-download"></span><a class="reference external image-reference" href="_images/omnissa_download.png"><img alt="_images/omnissa_download.png" src="_images/omnissa_download.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.9 </span><span class="caption-text">The landing page at <a class="reference external" href="https://vdi.nsls2.bnl.gov/">https://vdi.nsls2.bnl.gov/</a> prompts you to
+download the Omnissa client or continue with the browser app.</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In either the client or the browser, configure the app to use the VDI
+server at <code class="docutils literal notranslate"><span class="pre">vdi.nsls2.bnl.gov</span></code>.</p>
+<figure class="align-center" id="id11">
+<span id="fig-omnissa-config"></span><a class="reference external image-reference" href="_images/omnissa_config.png"><img alt="_images/omnissa_config.png" src="_images/omnissa_config.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.10 </span><span class="caption-text">Once in the Omnissa app, click the “New Server” button and enter
+<code class="docutils literal notranslate"><span class="pre">vdi.nsls2.bnl.gov</span></code> in the box.</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now double click on the box labeled <code class="docutils literal notranslate"><span class="pre">vdi.nsls2.bnl.gov</span></code>.
+Alternately, right click <img alt="rightclick" title="Right mouse button" src="./_static/rightclick.png" hspace="3"> on the box and select
+“Connect”.</p>
+<figure class="align-center" id="id12">
+<span id="fig-omnissa-connect"></span><a class="reference external image-reference" href="_images/omnissa_connect.png"><img alt="_images/omnissa_connect.png" src="_images/omnissa_connect.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.11 </span><span class="caption-text">Connect to the server at <code class="docutils literal notranslate"><span class="pre">vdi.nsls2.bnl.gov</span></code>.</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You will be presented with a dialog asking you to authenticate using
+your BNL domain name and password + DUO two factor authentication.
+Once you have done so, you are presented with two options for VMs.
+One is configured to be a working desktop, the other is configured for
+monitoring the beamline.</p>
+<p>Double click on the “N2SN Linux Desktop” or right click
+<img alt="rightclick" title="Right mouse button" src="./_static/rightclick.png" hspace="3"> and select “Launch”.</p>
+<figure class="align-center" id="id13">
+<span id="fig-omnissa-vms"></span><a class="reference external image-reference" href="_images/omnissa_vms.png"><img alt="_images/omnissa_vms.png" src="_images/omnissa_vms.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.12 </span><span class="caption-text">Virtual machine choices at <code class="docutils literal notranslate"><span class="pre">vdi.nsls2.bnl.gov</span></code>.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once the VM opens, you can open a terminal window (or a web browser or
+a bunch of other things) by clicking on the “Activities” button in the
+upper left corner.</p>
+<p>In the terminal window, you can navigate to your proposal folder by
+issuing the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/nsls2/data/bmm/proposal/2026-2/333333
+</pre></div>
+</div>
+<p>Substituting the <code class="docutils literal notranslate"><span class="pre">2026-2/333333</span></code> with the location of your
+experiment’s proposal folder.  You can then open Athena.  This command
+hides on-screen warnings which are usually pointless.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dathena<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id14">
+<span id="fig-virtual-desktop"></span><a class="reference external image-reference" href="_images/virtual_desktop.png"><img alt="_images/virtual_desktop.png" src="_images/virtual_desktop.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.13 </span><span class="caption-text">The Linux desktop with an open terminal window, Athena, and plot of
+data.</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="accessing-data-via-tiled">
+<h2><span class="section-number">4.5. </span>Accessing data via Tiled<a class="headerlink" href="#accessing-data-via-tiled" title="Permalink to this heading">#</a></h2>
+<p>First off, here is the <a class="reference external" href="https://blueskyproject.io/tiled/index.html">Tiled documentation</a> .</p>
+<p>To start, you must first <a class="reference external" href="https://blueskyproject.io/tiled/tutorials/installation.html">install Tiled</a> on
+your computer:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;tiled[all]&quot;</span>
+</pre></div>
+</div>
+<p>To upgrade from an earlier version of Tiled:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span><span class="s2">&quot;tiled[all]&quot;</span>
+</pre></div>
+</div>
+<p>In a python program, jupyter notebook, or ipython session, do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tiled.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_uri</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">from_uri</span><span class="p">(</span><span class="s1">&#39;https://tiled.nsls2.bnl.gov/api/v1/metadata/bmm/raw&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will be prompted for your BNL username and password.  A DUO push
+will be sent to your phone (the DUO push may happen silently … if
+things appear to be hung, check your phone to see if a DUO push has
+arrived).</p>
+<section id="reading-tiled-records">
+<h3><span class="section-number">4.5.1. </span>Reading Tiled records<a class="headerlink" href="#reading-tiled-records" title="Permalink to this heading">#</a></h3>
+<p>At this point you have access to data from BMM.  To interact with the
+data, you will need scan UIDs.  For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>In [8]: client[&#39;5b3b526c-f3d4-4bac-86a5-394835fe06a7&#39;][&#39;primary&#39;][&#39;data&#39;]
+Out[8]: &lt;DatasetClient [&#39;time&#39;, &#39;It&#39;, &#39;dcm_energy&#39;,
+             &#39;dcm_energy_setpoint&#39;, &#39;I0&#39;,
+             &#39;7-element SDD_channel01_xrf&#39;, &#39;Hf1&#39;,
+             &#39;7-element SDD_channel02_xrf&#39;, &#39;Hf2&#39;,
+             &#39;7-element SDD_channel03_xrf&#39;, &#39;Hf3&#39;,
+             &#39;7-element SDD_channel04_xrf&#39;, &#39;Hf4&#39;,
+             &#39;7-element SDD_channel05_xrf&#39;, &#39;Hf5&#39;,
+             &#39;7-element SDD_channel06_xrf&#39;, &#39;Hf6&#39;,
+             &#39;7-element SDD_channel07_xrf&#39;, &#39;Hf7&#39;,
+             &#39;dwti_dwell_time&#39;, &#39;dwti_dwell_time_setpoint&#39;, &#39;Ir&#39;]&gt;
+</pre></div>
+</div>
+<p>The measurement in this example was fluorescence XAS using the
+7-element detector.  So μ(E) data can be plotted like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="s1">&#39;5b3b526c-f3d4-4bac-86a5-394835fe06a7&#39;</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">uid</span><span class="p">][</span><span class="s1">&#39;primary&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;dcm_energy&#39;</span><span class="p">]</span>
+<span class="n">i0</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;I0&#39;</span><span class="p">]</span>
+<span class="n">ifluo</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf1&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf3&#39;</span><span class="p">]</span> <span class="o">+</span>
+         <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf4&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf5&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf6&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Hf7&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">energy</span><span class="p">,</span> <span class="n">ifluo</span><span class="o">/</span><span class="n">i0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ion chamber signals will always be called <code class="docutils literal notranslate"><span class="pre">I0</span></code>, <code class="docutils literal notranslate"><span class="pre">It</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Ir</span></code>.  The fluorescence signals will always be the one- or
+two-letter symbol of the element being measured followed by the
+detector channel number.</p>
+<p>You can know the element being measured in any XAS record by checking
+the metadata:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">][</span><span class="s1">&#39;XDI&#39;</span><span class="p">][</span><span class="s1">&#39;Element&#39;</span><span class="p">][</span><span class="s1">&#39;symbol&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can find the UID of a scan by examining the header of an
+<a class="reference internal" href="xafs.html#xdiexample"><span class="std std-numref">XAS data file (see Section 9.7)</span></a>.  Look for
+the line that starts <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Scan.uid:</span></code>.</p>
+</section>
+<section id="searching-for-data">
+<h3><span class="section-number">4.5.2. </span>Searching for data<a class="headerlink" href="#searching-for-data" title="Permalink to this heading">#</a></h3>
+<div class="todo admonition">
+<p class="admonition-title">Searching</p>
+<ol class="arabic simple">
+<li><p>Need an explanation of doing datetime searches to get data
+from a specific experiment.</p></li>
+<li><p>Need an example of searching for a specific GUP or SAF to
+get data from a specific experiment.</p></li>
+</ol>
+</div>
+</section>
+<section id="using-jupyter">
+<h3><span class="section-number">4.5.3. </span>Using Jupyter<a class="headerlink" href="#using-jupyter" title="Permalink to this heading">#</a></h3>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Details needed</p>
+</div>
+</section>
+</section>
+<section id="why-is-data-security-important">
+<h2><span class="section-number">4.6. </span>Why is data security important?<a class="headerlink" href="#why-is-data-security-important" title="Permalink to this heading">#</a></h2>
+<p>For those who have been coming to NSLS-II over the last decade, this
+new emphasis on data security might be a bit surprising.  In short,
+the new data security model is consistent with Department of Energy
+data policies.</p>
+<p>Recently, there were a pair of incidents involving accidental leaks of
+sensitive synchrotron data to unauthorized parties.  This sort of
+violation of DOE policy can have an impact on the authorization to
+operate NSLS-II as a user facility.  Safe operations of the facility
+includes data security.</p>
+<p>As a result, our Data Science and Systems Integration team at NSLS-II
+has been begun moving the beamlines to a data acquisition model that
+includes sound data security practices.  BMM volunteered to be an
+early adopter of the new data security practices.  We now provide an
+excellent user experience at BMM that also includes secure data
+management.</p>
+</section>
+<section id="map-of-the-data-server">
+<h2><span class="section-number">4.7. </span>Map of the data server<a class="headerlink" href="#map-of-the-data-server" title="Permalink to this heading">#</a></h2>
+<p>Each beamline has a storage location.  In the case of BMM, the data
+are at <code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals</span></code>.  As show in the right of
+<a class="reference internal" href="#datastorage"><span class="std std-numref">Figure 4.14</span></a>, the proposals folder has
+folders for each cycle.  In each cycle folder, there are folders for
+the experiments in that cycle.</p>
+<p>The permissions in the cycle folder,
+e.g. <code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals/2025-1</span></code>, are such that no one can
+write files, although anyone is able to see the list of experiment
+folders.</p>
+<p>The permissions in an experiment folder,
+e.g. <code class="docutils literal notranslate"><span class="pre">/nsls2/data/bmm/proposals/2025-1/pass-316886</span></code>, are such that
+anyone listed on the proposal can read and write.  Beamline staff are
+also able to read and write in all experiment folders.  This extends
+to making new folders, which will inherit the same permissions.  Thus,
+the user is able to organize their data as they wish.  New files –
+<span class="smallcaps">athena</span> project files, spreadsheets, PowerPoint files, whatever –
+can also be written to this folder.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The beamline user, <code class="docutils literal notranslate"><span class="pre">xf06bm</span></code>, <strong>cannot</strong> read or write in the
+experiment folder.  To interact with the contents of the experiment
+folder, users must authenticate themselves.  This can be done with
+<a class="reference internal" href="#using-vdi"><span class="std std-numref">VDI (see Section 4.4)</span></a> or by using the <code class="docutils literal notranslate"><span class="pre">su</span></code>
+command in a terminal window.</p>
+</div>
+<figure class="sphinx-subfigure align-default" id="datastorage">
+<div class="sphinx-subfigure-grid ss-layout-default-ABC ss-layout-sm-ABC outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/proposals.png" src="_images/proposals.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/cycle.png" src="_images/cycle.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/data.png" src="_images/data.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4.14 </span><span class="caption-text">(Left) The beamline proposals folder contains a folder for every
+cycle since 2014-3, when NSLS-II started.  (Middle) Each cycle
+folder contains a folder for each experiment that cycle. (Right)
+The experiment folder is where your data are written.</span><a class="headerlink" href="#datastorage" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In each experiment folder is a folder called <code class="docutils literal notranslate"><span class="pre">assets</span></code>.  The
+permissions in the assets folder and all its subfolders are such that
+users and beamline staff can read files, but cannot write, modify, or
+delete files.</p>
+<p>In the asstes folder, there is one folder for each instrument at the
+beamline.  Each instrument is configured to write its data into its
+assets folder.  Because this is raw, unprocessed, uninterpreted data,
+it is considered a sort of ground truth of the measurement.  That is
+the reason for the restrictive permissions on the assets folder.  Any
+interpretation of assets data by the user should be written elsewhere
+in the experiments folder.</p>
+<p>For example, the HDF5 files containing the XRF spectra from the
+Xspress3 at each point in an XAFS scan are written to the
+<code class="docutils literal notranslate"><span class="pre">xspress3-1</span></code> folder.</p>
+<figure class="sphinx-subfigure align-default" id="assetsfolder">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/assets.png" src="_images/assets.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/dated.png" src="_images/dated.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4.15 </span><span class="caption-text">(Left) Assets folder contains one folder for each instrument at the
+beamline. (Right) Instrument folders often have dated subfolders.
+The Ophyd objects interacting with these instruments are often
+configured to use the dated folders automatically.</span><a class="headerlink" href="#assetsfolder" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="before.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Before your Beamtime</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="instruments.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Beamline instrumentation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">4.1. Downloading data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sftp-client">4.1.1. SFTP Client</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-short-version">4.1.2. The Short Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-guide-with-pictures">4.1.3. A Guide with Pictures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-with-globus">4.2. Accessing data with Globus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-from-the-beamline-computers">4.3. Accessing data from the beamline computers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-vdi-virtual-desktop">4.4. Using the VDI virtual Desktop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-via-tiled">4.5. Accessing data via Tiled</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-tiled-records">4.5.1. Reading Tiled records</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data">4.5.2. Searching for data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter">4.5.3. Using Jupyter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-data-security-important">4.6. Why is data security important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-the-data-server">4.7. Map of the data server</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

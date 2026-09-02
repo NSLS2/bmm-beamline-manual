@@ -1,0 +1,993 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>2. An overview of BMM’s profile &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'profile';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Kafka workers at BMM" href="kafka.html" />
+    <link rel="prev" title="1. BMM’s Desktop" href="desktop.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fprofile.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/profile.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>An overview of BMM’s profile</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-startup-folder">B.1. The startup folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bmm-configuration-ini">B.2. BMM_configuration.ini</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ipython-namespace">B.3. The IPython namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-bsui-and-qs">B.4. Managing <span class="bolditalic">bsui</span> and <span class="bolditalic">queueserver</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profile-start-up-as-a-narrative">B.5. Profile start-up as a narrative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profile-start-up-as-acceptance-testing">B.6. Profile start-up as acceptance testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-bluesky-functionality">B.7. Core Bluesky functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-in-the-bmm-folder">B.8. Everything in the BMM folder</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="an-overview-of-bmm-s-profile">
+<span id="profile"></span><h1><span class="section-number">B. </span>An overview of BMM’s profile<a class="headerlink" href="#an-overview-of-bmm-s-profile" title="Permalink to this heading">#</a></h1>
+<p>Once upon a time, the advice from Bluesky’s developers was to populate
+a <code class="docutils literal notranslate"><span class="pre">profile_collection</span></code> folder with python files containing the
+beamline customizations.  These files would start with a two digit
+number from <code class="docutils literal notranslate"><span class="pre">00-</span></code> to <code class="docutils literal notranslate"><span class="pre">99-</span></code> – that is, files like
+<code class="docutils literal notranslate"><span class="pre">30-detectors.py</span></code> or <code class="docutils literal notranslate"><span class="pre">17-motors.py</span></code>.  These files would be
+imported into the main namespace of the IPython session in
+numeric order.</p>
+<p>As BMM’s profile grew in size and complexity, this system of ordered,
+numbered files all imported into the main namespace became
+increasingly unweilding, hard to maintain, and hard to extend.</p>
+<p>At Dan Allan’s suggestion, we took a different approach.</p>
+<section id="the-startup-folder">
+<h2><span class="section-number">B.1. </span>The startup folder<a class="headerlink" href="#the-startup-folder" title="Permalink to this heading">#</a></h2>
+<p>The startup folder is a symlink to a folder on central storage where
+BMM’s profile is kept.  If <span class="bolditalic">bsui</span> does not start with BMM’s profile,
+make that symlink by doing the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ipython
+ln<span class="w"> </span>-s<span class="w"> </span>/nsls2/data3/bmm/shared/config/bluesky/profile_collection
+</pre></div>
+</div>
+<p>If a folder called <code class="docutils literal notranslate"><span class="pre">profile_collection</span></code> already exists at that
+location – which would be the case if you have already used <span class="bolditalic">bsui</span>
+or ipython – go ahead and rename or delete that folder.</p>
+<p>The top folder of the profile contains a single python file.  It
+follows the old convention in that it is named
+<code class="docutils literal notranslate"><span class="pre">00-populate-namespace.py</span></code> and is read as soon as IPython starts.</p>
+<p>There are three files in the <code class="docutils literal notranslate"><span class="pre">startup</span></code> folder:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">00-populate-namespace.py</span></code></dt><dd><p>This is the first file ipython loads as it starts <span class="bolditalic">bsui</span>.
+<a class="reference internal" href="#namespace"><span class="std std-numref">See Section B.3</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">BMM_configuration.ini</span></code></dt><dd><p>This windows-style INI file contains configuration information for
+the instrumentation and network services at the beamlines.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">rois.json</span></code></dt><dd><p>This is a small database of ROI definitions used by the XSpress3
+configuration.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">user_group_permissions.yaml</span></code></dt><dd><p>This is a configuration file used by <span class="bolditalic">queueserver</span> to grant access to plans
+according to authentication</p>
+</dd>
+</dl>
+<p>Beneath the <code class="docutils literal notranslate"><span class="pre">startup</span></code> folder, there are several sub-folders:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BMM/</span></code></dt><dd><p>the bulk of the code used for data acquisition.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">consumer/</span></code></dt><dd><p>the code used by the process that captures Kafka messages and
+generates plots for real-time and other data visualization
+<a class="reference internal" href="kafka.html#plotting"><span class="std std-numref">(Section C)</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">BMM_common/</span></code></dt><dd><p>code shared by data acquisition and the Kafka consumer</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">lookup_table/</span></code></dt><dd><p>the spreadsheet with the look up table of motor positions used by
+the <code class="docutils literal notranslate"><span class="pre">change_edge()</span></code> command <a class="reference internal" href="pds.html#pds"><span class="std std-numref">(Section 7)</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">standards/</span></code></dt><dd><p>the spreadsheet for working with <a class="reference external" href="https://nsls2.github.io/bmm-standards/BMM-standards.html">BMM’s collection of measurement
+standards</a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ML/</span></code></dt><dd><p>the data used for the machine learning data evaluation
+model <a class="reference internal" href="xafs.html#dataevaluation"><span class="std std-numref">(Section 9.9)</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">telemetry/</span></code></dt><dd><p>the data used for the time estimates of XAFS and other
+scans <a class="reference internal" href="xafs.html#telemetry"><span class="std std-numref">(Section 9.8)</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">dossier/</span></code></dt><dd><p>files used to construct dossiers <a class="reference internal" href="log.html#dossier"><span class="std std-numref">(Section 12.4)</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tmpl/</span></code></dt><dd><p>template files used for dossiers, INI files, and other
+templated materials</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">xlsx/</span></code></dt><dd><p>empty spreadsheet examples for the various forms of
+automation <a class="reference internal" href="automation.html#automation"><span class="std std-numref">(Section 11)</span></a></p>
+</dd>
+</dl>
+</section>
+<section id="bmm-configuration-ini">
+<span id="config-ini"></span><h2><span class="section-number">B.2. </span>BMM_configuration.ini<a class="headerlink" href="#bmm-configuration-ini" title="Permalink to this heading">#</a></h2>
+<p>This files controls configuration details for measurement
+instrumentation and network services.  The concept is that this file
+is edited prior to starting <span class="bolditalic">bsui</span> to reflect the current state of the
+beamline and the needs of the current experiment.</p>
+<p>Much of this file consists of flags for turning specific instruments
+on and off when starting <span class="bolditalic">bsui</span>.  For example, this section is used to
+enable or disable the use of the Pilatus 100K area detector and the
+Dante readout for the NSLS-II germanium detector in XAS experiments.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[detectors]</span>
+<span class="c1"># use Pilatus 100K as an available detector</span>
+<span class="na">pilatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">False</span>
+<span class="c1"># use the DANTE at xf06bm-edxd1</span>
+<span class="na">dante</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">False</span>
+</pre></div>
+</div>
+<p>Additionally, there are sections with flags for controlling</p>
+<ul class="simple">
+<li><p>electrometer use for ion chambers and the
+electron yield detector</p></li>
+<li><p>which silicon drift detectors are in use</p></li>
+<li><p>which cameras (usb, analog, web) are in use</p></li>
+<li><p>special instrumentation needs, e.g. Linkam stage, Lakeshore
+temperature controller, or radiological enclosure</p></li>
+</ul>
+<p>Additional sections control configuration for</p>
+<ul class="simple">
+<li><p>the network addresses of various services or disk locations
+containing files and folders needed for proper operation of <span class="bolditalic">bsui</span>
+at BMM</p></li>
+<li><p>for both the new NSLS-II Slack workspace and the older, deprecated
+BMM Slack workspace</p></li>
+</ul>
+</section>
+<section id="the-ipython-namespace">
+<span id="namespace"></span><h2><span class="section-number">B.3. </span>The IPython namespace<a class="headerlink" href="#the-ipython-namespace" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">00-populate-namespace.py</span></code> file contains a single line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">BMM.user_ns</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>This tells python to read the <code class="docutils literal notranslate"><span class="pre">BMM/user_ns/__init__.py</span></code> file and
+follow it’s instructions.  That file, in turn, imports each of the
+files in the <code class="docutils literal notranslate"><span class="pre">BMM/user_ns/</span></code> and imports those symbols into the main
+IPython namespace.</p>
+<p>This is different from the old-fashioned approach in that the files in
+<code class="docutils literal notranslate"><span class="pre">BMM/user_ns/</span></code> contain a more carefully curated group of symbols to
+be imported into the main namespace.</p>
+<p>Most of the code for creating ophyd objects, defining plans,
+establishing automation, and so on is contained in the files found in
+the <code class="docutils literal notranslate"><span class="pre">BMM</span></code> folder.  And most of that is not imported into the main
+namespace.</p>
+<p>A motif used in almost every file in the profile is this one:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">BMM</span><span class="w"> </span><span class="kn">import</span> <span class="n">user_ns</span> <span class="k">as</span> <span class="n">user_ns_module</span>
+<span class="n">user_ns</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">user_ns_module</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This allows functions and plans defined in the files in the <code class="docutils literal notranslate"><span class="pre">BMM</span></code>
+folder to have access to symbols from the user namespace without
+either importing the entire main namespace or exporting additional
+symbols to the main namespace.</p>
+<p>This, perhaps, makes the code in <code class="docutils literal notranslate"><span class="pre">BMM</span></code> a bit clunkier.  For example,
+a motor name like <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> which is defined in the main namespace
+cannot be directly accessed by a module in <code class="docutils literal notranslate"><span class="pre">BMM</span></code>.  Instead, it is
+accessed as <code class="docutils literal notranslate"><span class="pre">user_ns['xafs_x']</span></code>.  A bit of extra typing, but it
+makes for code that is more robust and more readily maintainable and
+extensible.</p>
+</section>
+<section id="managing-bsui-and-qs">
+<h2><span class="section-number">B.4. </span>Managing <span class="bolditalic">bsui</span> and <span class="bolditalic">queueserver</span><a class="headerlink" href="#managing-bsui-and-qs" title="Permalink to this heading">#</a></h2>
+<p>A common motif found in many files, including
+<code class="docutils literal notranslate"><span class="pre">BMM/user_ns/__init__.py</span></code>, looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+   <span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_queueserver</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_re_worker_active</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">is_re_worker_active</span><span class="p">():</span>
+       <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>This is used to allow a plan or some other bit of code to know whether
+it is being run under <span class="bolditalic">bsui</span> or <span class="bolditalic">queueserver</span>.</p>
+<p><span class="bolditalic">bsui</span> is, by design, run on the same workstation with which the
+experimenter is interacting.  <span class="bolditalic">queueserver</span> is, by design, run on a
+remote server.  Having a way to distinguish the two is essential.  For
+example, there are many plans which, when run with <span class="bolditalic">bsui</span>, stop to
+prompt for an interaction from the user.  Such prompts need to be
+disabled when running under <span class="bolditalic">queueserver</span>.</p>
+</section>
+<section id="profile-start-up-as-a-narrative">
+<h2><span class="section-number">B.5. </span>Profile start-up as a narrative<a class="headerlink" href="#profile-start-up-as-a-narrative" title="Permalink to this heading">#</a></h2>
+<p>Early in the loading of the profile, a function called
+<code class="docutils literal notranslate"><span class="pre">run_report()</span></code> is defined.  This function is defined in
+<code class="docutils literal notranslate"><span class="pre">BMM/functions.py</span></code> and called near the top of
+<code class="docutils literal notranslate"><span class="pre">BMM/user_ns/bmm.py</span></code>, which is the second file loaded by
+<code class="docutils literal notranslate"><span class="pre">BMM/user_ns/__init__.py</span></code>.  So, it is defined very early in the
+process of loading the profile.</p>
+<p>This is used to write a message to the screen explaining what chore is
+being done during start-up or what file is being loaded.  As such it
+is very similar to the common python idiom of</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to identify the module or source code file being loaded.  While
+similar in concept, it is a bit more suited to our purpose.</p>
+<figure class="align-center" id="id1">
+<span id="fig-bsui-startup"></span><a class="reference external image-reference" href="_images/bsui_startup.png"><img alt="_images/bsui_startup.png" src="_images/bsui_startup.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. B.1 </span><span class="caption-text">Screen messages during <span class="bolditalic">bsui</span> start-up.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For one thing, it applies consistent coloring to the text.  In that
+way the user knows that that color is a progress report explaining
+what is happening at that moment.  That is helpful for debugging
+problems in that it gives a hint where to look when the problem
+presents itself.</p>
+<p>For another, it is a consistent way to write any progress message to
+the screen.  For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_report</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>would behave very similarly to the idiom.  However, the way it is used
+throughout the profile is in lines like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_report</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">glancing angle stage&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the message that appears on screen as the ophyd objects and
+automation procedures related to the glancing angle stage
+<a class="reference internal" href="instruments.html#glancing-angle-stage"><span class="std std-numref">(Section 5.8)</span></a> are imported.  As you
+can see in the screenshot, one such message is issued for every major
+component of the profile.</p>
+<p>Taken together, this sequence of messages provides a start-up
+narrative that tells the user something about what capabilities are
+available and provides the code maintainer/developer some hints about
+where to look in the code base for various features.</p>
+</section>
+<section id="profile-start-up-as-acceptance-testing">
+<h2><span class="section-number">B.6. </span>Profile start-up as acceptance testing<a class="headerlink" href="#profile-start-up-as-acceptance-testing" title="Permalink to this heading">#</a></h2>
+<p>At NSLS-II, beamline staff are asked to develop ways to do acceptance
+testing to verify things like recovery from power failures, or upgrades
+of computer operating systems, upgrades of conda and python.</p>
+<p>At BMM, we have chosen <em>not</em> to develop one-off or on-delivery
+acceptance testing practices.  Instead, acceptance testing is built
+right into BMM’s profile.</p>
+<p>Very early in profile start-up, several basic functions are checked
+for, including:</p>
+<ol class="arabic simple">
+<li><p>Verify that Channel Access Security is configured for read/write
+access</p></li>
+<li><p>Verify that the LAN is up and that IOC servers can be pinged</p></li>
+<li><p>Verify that various necessary folders on the local machine can be
+found</p></li>
+<li><p>Verify that Lustre mounts can be found</p></li>
+<li><p>Verify that authentication keys (e.g. for Slack) can be found</p></li>
+<li><p>Verify that a redis server can be found</p></li>
+</ol>
+<p>If any of these tests fail, the profile stops loading and issues a
+(hopefully) useful error message.</p>
+<p>As the profile continues loading, it runs a variety of tests, such as:</p>
+<ol class="arabic simple">
+<li><p>Verify that beamline state and user configuration can be obtained
+from redis</p></li>
+<li><p>Establish all necessary user configuration</p></li>
+<li><p>Check each axis to verify that it is connected</p></li>
+<li><p>Check each axis to verify that it is homed, or identify those that
+are used without homing</p></li>
+<li><p>Verify that detectors are started correctly (e.g. the XSpress3
+needs to save an HDF5 file to initialize file saving)</p></li>
+<li><p>Initialize the hinted ROI from the XSpress3 using data from redis</p></li>
+</ol>
+<p>In short, the concept is that the profile is instrumented to do
+acceptance testing <em>every time it starts</em>. If anything is found to be
+missing, it can be noticed and addressed immediately.</p>
+</section>
+<section id="core-bluesky-functionality">
+<h2><span class="section-number">B.7. </span>Core Bluesky functionality<a class="headerlink" href="#core-bluesky-functionality" title="Permalink to this heading">#</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">BMM/user_ns/base.py</span></code> is used to define core features of
+the bluesky ecosystem:</p>
+<ul class="simple">
+<li><p>The plan stubs <code class="docutils literal notranslate"><span class="pre">mv</span></code>, <code class="docutils literal notranslate"><span class="pre">mvr</span></code>, and <code class="docutils literal notranslate"><span class="pre">sleep</span></code> are imported into the
+main namespace</p></li>
+<li><p><a class="reference external" href="https://github.com/NSLS-II/nslsii/blob/55fad71851d61eb7dbae9823d216296b072344fd/nslsii/__init__.py#L29">nslsii.configure_base()</a>
+is called appropriately for <span class="bolditalic">bsui</span> or <span class="bolditalic">queueserver</span></p></li>
+<li><p>Some configuration of best effort callbacks is done</p></li>
+<li><p>A <a class="reference external" href="https://blueskyproject.io/tiled/">Tiled</a> catalog is created</p></li>
+<li><p>A ZeroMQ publisher is defined.</p></li>
+</ul>
+<p>All of this happens before any BMM-specific code is run.</p>
+</section>
+<section id="everything-in-the-bmm-folder">
+<h2><span class="section-number">B.8. </span>Everything in the BMM folder<a class="headerlink" href="#everything-in-the-bmm-folder" title="Permalink to this heading">#</a></h2>
+<p>Here’s a brief summary of every module in the BMM profile.</p>
+<blockquote>
+<div><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>file</p></th>
+<th class="head"><p>purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actuators.py</span></code></p></td>
+<td><p>define shutters and valves</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">agent_plans.py</span></code></p></td>
+<td><p>BMM-specific ML agents</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">areascan.py</span></code></p></td>
+<td><p>define an area scan plan</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">busy.py</span></code></p></td>
+<td><p>define a “wall clock” motor</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">camera_device.py</span></code></p></td>
+<td><p>interact with AD and non-AD cameras</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">db.py</span></code></p></td>
+<td><p>utilities for working with <em>DataBroker</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dcm.py</span></code></p></td>
+<td><p>define monochromator ophyd objects</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dcm_parameters.py</span></code></p></td>
+<td><p>mono calibration parameters</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">demeter.py</span></code></p></td>
+<td><p><span class="smallcaps">athena</span> and <span class="smallcaps">hephaestus</span> integration</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">derivedplot.py</span></code></p></td>
+<td><p><span class="silver">deprecated plotting capabilities</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">desc_string.py</span></code></p></td>
+<td><p>fix epics motor <code class="docutils literal notranslate"><span class="pre">DESC</span></code> fields for CSS</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">detector_mount.py</span></code></p></td>
+<td><p>mostly deprecated tools for <code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dossier.py</span></code></p></td>
+<td><p>manage writing of dossier files</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dwelltime.py</span></code></p></td>
+<td><p>coordinate dwell time across detectors</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">edge.py</span></code></p></td>
+<td><p>change edge</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">electrometer.py</span></code></p></td>
+<td><p>ophyd objects for QuadEM and related</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">energystep.py</span></code></p></td>
+<td><p>simple plan for I0 vs. energy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fmbo.py</span></code></p></td>
+<td><p>FMBO motor controller tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">frontend.py</span></code></p></td>
+<td><p>ophyd objects for front-end devices</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">functions.py</span></code></p></td>
+<td><p>miscellaneous utilities</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gdrive.py</span></code></p></td>
+<td><p><span class="silver">interact with Google drive (deprecated)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">glancing_angle.py</span></code></p></td>
+<td><p>define glancing angle stage + automation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">grid.py</span></code></p></td>
+<td><p>generic grid automation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">handler.py</span></code></p></td>
+<td><p>DataBroker handler for images</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kafka.py</span></code></p></td>
+<td><p>Kafka producer for profile</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">killswitch.py</span></code></p></td>
+<td><p>interact with FMBO controller kill switches</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lakeshore.py</span></code></p></td>
+<td><p>LakeShore temp. controller</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">larch_interface.py</span></code></p></td>
+<td><p>connect to Larch XAFS functionality</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">linescans.py</span></code></p></td>
+<td><p>generic and specific motor scans</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">linkam.py</span></code></p></td>
+<td><p>Linkam stage temp. controller</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging.py</span></code></p></td>
+<td><p>various logging tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">macrobuilder.py</span></code></p></td>
+<td><p>base class for automation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">metadata.py</span></code></p></td>
+<td><p>manage metadata</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mirror_trigonometry.py</span></code></p></td>
+<td><p>incomplete tools for mirrors and distances</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ml.py</span></code></p></td>
+<td><p>data evaluation tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">modes.py</span></code></p></td>
+<td><p>manage lookup table and PDS modes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mono_calibration.py</span></code></p></td>
+<td><p>energy calibration tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">motor_status.py</span></code></p></td>
+<td><p>motor status reporting tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">motors.py</span></code></p></td>
+<td><p>ophyd objects for motors</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">periodictable.py</span></code></p></td>
+<td><p>periodic table tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pilatus.py</span></code></p></td>
+<td><p>Pilatus tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plans.py</span></code></p></td>
+<td><p>simple plans, power cycle recovery plans</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prompt.py</span></code></p></td>
+<td><p>customize IPython prompts</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">purpose.py</span></code></p></td>
+<td><p><span class="silver">deprecated</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raster.py</span></code></p></td>
+<td><p>areascan measurement + dossier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resting_state.py</span></code></p></td>
+<td><p>put beamline in a defined resting state</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rois.py</span></code></p></td>
+<td><p><span class="silver">deprecated, struck tools</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slits.py</span></code></p></td>
+<td><p>ophyd objects and tools for BL slits</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">struck.py</span></code></p></td>
+<td><p><span class="silver">deprecated |nd| interact with Struck</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">suspenders.py</span></code></p></td>
+<td><p>define suspenders</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">telemetry.py</span></code></p></td>
+<td><p>tools for scan telemetry and time estimates</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timescan.py</span></code></p></td>
+<td><p>time sequence plan</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">usb_camera.py</span></code></p></td>
+<td><p>interact with USB cameras</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user.py</span></code></p></td>
+<td><p>define and manage the BMMuser object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">utilities.py</span></code></p></td>
+<td><p>inetract with BL EPS and utilities</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">video.py</span></code></p></td>
+<td><p>record videos from USB cameras</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wafer.py</span></code></p></td>
+<td><p>tools for wafer samples</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wdywtd.py</span></code></p></td>
+<td><p><span class="silver">deprecated user help tools</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webcam_device.py</span></code></p></td>
+<td><p>interact with Axis webcams</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wheel.py</span></code></p></td>
+<td><p>tools for <em>ex situ</em> sample wheel</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">workspace.py</span></code></p></td>
+<td><p>acceptance tests for working environment</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs.py</span></code></p></td>
+<td><p>XAFS plan definition + dossier</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_functions.py</span></code></p></td>
+<td><p>XAFS-related tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xdi.py</span></code></p></td>
+<td><p>XDI formatting tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xspress3.py</span></code></p></td>
+<td><p>XSpress3 tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xspress3_1element.py</span></code></p></td>
+<td><p>customizations for 1 element detector</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xspress3_4element.py</span></code></p></td>
+<td><p>customizations for 4 element detector</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xspress3_7element.py</span></code></p></td>
+<td><p>customizations for 7 element detector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></blockquote>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="desktop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>BMM’s Desktop</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="kafka.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Kafka workers at BMM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-startup-folder">B.1. The startup folder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bmm-configuration-ini">B.2. BMM_configuration.ini</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ipython-namespace">B.3. The IPython namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-bsui-and-qs">B.4. Managing <span class="bolditalic">bsui</span> and <span class="bolditalic">queueserver</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profile-start-up-as-a-narrative">B.5. Profile start-up as a narrative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profile-start-up-as-acceptance-testing">B.6. Profile start-up as acceptance testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-bluesky-functionality">B.7. Core Bluesky functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-in-the-bmm-folder">B.8. Everything in the BMM folder</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

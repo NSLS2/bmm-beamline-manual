@@ -1,0 +1,3145 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>5. Instrumentation Details &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'details';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Reflectivity Set-Up" href="reflectivity.html" />
+    <link rel="prev" title="4. Ion chamber signal chains" href="ionchambers.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fdetails.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/details.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Instrumentation Details</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-video-capture">E.1. Analog Video Capture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beamline-maintenance-tools">E.2. Beamline maintenance tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-controllers">E.2.1. Motor Controllers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moxa-configuration">E.2.2. MOXA Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#camera-configuration">E.2.3. Camera Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bnc-cable-map">E.3. BNC Cable Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controls-chores-unfinished">E.4. Controls chores, unfinished</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcm-1st-xtal-equilibration">E.5. DCM 1st Xtal Equilibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#di-water-flow">E.6. DI Water Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disabling-mcs8-axes-after-move">E.7. Disabling MCS8 axes after move</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-adam-young-at-fmbo">E.7.1. From Adam Young at FMBO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-follow-up-from-graeme-elliner-fmbo">E.7.2. A follow up from Graeme Elliner, FMBO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">E.7.3. Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3-cat6-patch-panel">E.8. DM3 CAT6 Patch Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3-bct">E.9. DM3_BCT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eiger2-si-4m">E.10. Eiger2 Si 4M</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder-loss-second-crystal-roll">E.11. Encoder loss second crystal roll</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inert-gas-plumbing">E.12. Inert Gas Plumbing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logitech-controller">E.13. Logitech controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m2-bender">E.14. M2 Bender</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc09-patch-panel">E.15. MC09 patch panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcs8-network-configuration">E.16. MCS8 network configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monochromator-notes">E.17. Monochromator notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bragg-axis-failure">E.17.1. Bragg axis failure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bragg-encoder">E.17.2. Bragg encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch-motor-cable">E.17.3. Pitch motor cable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">E.18. Motor controllers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collimating-mirror-m1">E.18.1. Collimating mirror, M1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-dm1">E.18.2. Filters, DM1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dcm">E.18.3. DCM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slits-2-dm2">E.18.4. Slits 2, DM2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dm2-fluorescence-screen">E.18.5. DM2 fluorescence screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focusing-mirror-m2">E.18.6. Focusing mirror, M2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-rejection-mirror-m3">E.18.7. Harmonic rejection mirror, M3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slits-3-dm3">E.18.8. Slits 3, DM3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3">E.18.9. DM3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-table">E.18.10. XAFS Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages">E.18.11. XAFS Stages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc08">E.18.11.1. XAFS stages on MC08</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc07">E.18.11.2. XAFS stages on MC07</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc09">E.18.11.3. XAFS stages on MC09</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gonimeter-circles">E.18.12. Gonimeter circles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goniometer-motors">E.18.13. Goniometer motors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goniometer-table">E.18.14. Goniometer table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutters-and-screen">E.18.15. Shutters and screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#front-end-slits">E.18.16. Front-end slits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-configuration">E.19. Network configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pilatus-100k">E.20. Pilatus 100K</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-the-system">E.20.1. Starting the system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-file-saving">E.20.2. Overview of file saving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-pilatus-and-tiff-ad-plugins">E.20.3. Configuring the pilatus and tiff AD plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-rois">E.20.4. Setting ROIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-with-the-pilatus-in-bluesky">E.20.5. Measurements with the Pilatus in bluesky</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-the-detector-between-end-stations">E.20.6. Moving the detector between end stations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#provision-a-new-beamline-computer">E.21. Provision a new beamline computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-additional-packages">E.21.1. install additional packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desktop-wallpaper">E.21.2. Desktop wallpaper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-install-from-git">E.21.3. Things to install from git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-folders">E.21.4. Workspace folders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shelving-units-and-cabinets">E.22. Shelving Units and Cabinets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-table-height">E.23. Setting the table height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-table-holding-current">E.24. XAFS table holding current</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-pressure">E.25. Vortex pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zoom-calls-in-the-hutch">E.26. Zoom calls in the hutch</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-ABC { grid-template-areas: 'A B C'; }
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-ABC { grid-template-areas: 'A B C'; }
+  .ss-layout-sm-AB { grid-template-areas: 'A B'; }
+}
+</style>
+<section id="instrumentation-details">
+<span id="details"></span><h1><span class="section-number">E. </span>Instrumentation Details<a class="headerlink" href="#instrumentation-details" title="Permalink to this heading">#</a></h1>
+<p>This section is a scattershot assortment of details about things at
+the beamline, presented in no special order.  Subsection titles have
+been alphabetized to make them a bit easier to find when reading this
+page.  This is basically an attempt to capture institutional knowledge
+… someplace.</p>
+<p>All DNS names and IP addresses at 6BM are recorded at
+<a class="reference external" href="https://docs.nsls2.bnl.gov/docs/admin/network/beamline_ipaddresses.html#bm-bmm-ip-addresses">https://docs.nsls2.bnl.gov/docs/admin/network/beamline_ipaddresses.html#bm-bmm-ip-addresses</a></p>
+<p>See <a class="reference internal" href="restore.html#iocs"><span class="std std-numref">Section G.5</span></a> for details about the IOCs running the
+beamline instrumentation.</p>
+<section id="analog-video-capture">
+<h2><span class="section-number">E.1. </span>Analog Video Capture<a class="headerlink" href="#analog-video-capture" title="Permalink to this heading">#</a></h2>
+<div class="note admonition">
+<p class="admonition-title">Deprecated</p>
+<p>This camera is still in place and displayed on the screen to the
+left of the main control computer.  The REDGO dongle is still
+plugged into xf06bm-ws3 and can be used to capture images.  But
+images are no longer captured as part of the dossier as there is no
+way to write those images to project folders and capture the
+resource link in Tiled.  (May, 2026)</p>
+</div>
+<p>Implementing <a class="reference external" href="https://www.amazon.com/REDGO-Video-Capture-Converter-Adapter/dp/B01E5ITE2W">the REDGO Video Audio VHS VCR USB Video Capture Card to
+DVD Converter Capture Card Adapter</a>
+to capture video from the small analog cameras in the hutch took a bit
+of doing.</p>
+<p>First, the adapter must be plugged directly into the computer.  Using
+a USB hub makes for an unreliable interface to the camera.</p>
+<p>Second, the file <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/99-usb-camera-capture.rules</span></code> is
+needed to set permissions on <code class="docutils literal notranslate"><span class="pre">/dev/video0</span></code> correctly when the adapter is
+plugged in.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ACTION!=&quot;add|change&quot;, GOTO=&quot;webcam_capture_end&quot;
+SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;534d&quot;, ATTRS{idProduct}==&quot;0021&quot;, MODE=&quot;0666&quot;
+KERNEL==&quot;video*&quot;, ATTRS{idVendor}==&quot;534d&quot;, ATTRS{idProduct}==&quot;0021&quot;, GROUP=&quot;video&quot;, MODE=&quot;0666&quot;
+KERNEL==&quot;video*&quot;, ATTRS{idVendor}==&quot;534d&quot;, ATTRS{idProduct}==&quot;0021&quot;, ATTRS{avoid_reset_quirk}=1
+KERNEL==&quot;video*&quot;, ATTRS{idVendor}==&quot;534d&quot;, ATTRS{idProduct}==&quot;0021&quot;, ATTRS{quirks}=0x100
+LABEL=&quot;webcam_capture_end&quot;
+</pre></div>
+</div>
+<p>Putting this file in place will require assistance from DSSI. Beamline
+staff do not have permission to make a file in that folder. See <a class="reference external" href="https://jira.nsls2.bnl.gov/browse/HXSS-779">this
+Jira ticket</a> for an
+example of what to ask for.</p>
+<p>This recognizes the vendor and product IDs of the specific adapter
+that I bought.  When inserted, it sets the device to RW for all users
+and sets a couple of possibly relevant attributes.  (This udev rules
+file was adapted from the rules file that comes with the easycap dc60
+package – info and links <a class="reference external" href="http://easycap.blogspot.com/p/easycap-dc60.html">here</a>).</p>
+<p>Next a small function was written as a wrapper around <a class="reference external" href="https://github.com/fsphil/fswebcam">fswebcam</a> to grab frames from the
+camera. The function is basically a wrapper around a call to
+<code class="docutils literal notranslate"><span class="pre">fswebcam</span></code> like so:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>fswebcam<span class="w"> </span>-d<span class="w"> </span>/dev/video0<span class="w"> </span>-r<span class="w"> </span>640x480<span class="w"> </span>-S<span class="w"> </span><span class="m">30</span><span class="w"> </span>-F<span class="w"> </span><span class="m">5</span><span class="w"> </span>foo.jpg
+</pre></div>
+</div>
+<p>along with some image processing using python’s <code class="docutils literal notranslate"><span class="pre">wand</span></code> package.</p>
+<p>Required packages:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fswebcam</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python-wand</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imagemagick</span></code></p></li>
+</ul>
+<p>This whole setup is filled with quirk.  There is a delay accessing the
+video capture.  The <code class="docutils literal notranslate"><span class="pre">-S</span></code> switch builds in a 1 second delay, giving the
+capture device enough time to begin displaying the image.  The <code class="docutils literal notranslate"><span class="pre">-F</span></code>
+switch tells the script how many frames to accumulate for good signal.
+5 is probably overkill.</p>
+<p>In any case, it is now possible to grab screen shots of the currently
+displayed analog video while collecting data.</p>
+<p>All of this is implemented in <code class="docutils literal notranslate"><span class="pre">BMM/camera_device.py</span></code> for use in
+Bluesky. The heart of the implementation is a system call to
+<code class="docutils literal notranslate"><span class="pre">fswebcam</span></code>. From there, the image is saved as an asset and correctly
+pointed to in databroker.  See:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/BMM/user_ns/detectors.py#L253">BMM/user_ns/detectors.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/BMM/camera_device.py#L62-L164">BMM/camera_device.py</a></p></li>
+</ul>
+<p>While this resembles a properly integrated camera and counting on the
+<code class="docutils literal notranslate"><span class="pre">anacam</span></code> object will get recorded in the database, the resource file
+– the jpeg image – gets written to the local machine, thus is
+not recoverable via Tiled.  A future todo would be to make a caproto
+IOC as a wrapper around <code class="docutils literal notranslate"><span class="pre">fswebcam</span></code> and give it proper authority to
+write to storage.</p>
+<div class="note admonition">
+<p class="admonition-title">Update</p>
+<p>As of December 2024, this has been captured in BMM’s ansible
+configuration.  Thus xf06bm-ws3 should always have this udev rule
+available, even after a system upgrade or installation.</p>
+</div>
+</section>
+<section id="beamline-maintenance-tools">
+<h2><span class="section-number">E.2. </span>Beamline maintenance tools<a class="headerlink" href="#beamline-maintenance-tools" title="Permalink to this heading">#</a></h2>
+<p>(The next three subsections were copied verbatim from the BMM wiki
+page.  Links and other information should be verified.  February 2025)</p>
+<section id="motor-controllers">
+<h3><span class="section-number">E.2.1. </span>Motor Controllers<a class="headerlink" href="#motor-controllers" title="Permalink to this heading">#</a></h3>
+<p>On the Windows Laptop, use PEWIN.  PMAC User’s Manual</p>
+<p>The motor controllers are 10.6.130.81, .82, etc.  You can communicate
+using PEWIN with the laptop on the 10.6.130.X network, <span class="strike">with
+the laptop plugged into a DHCP port (it’s address will be
+10.6.128.213)</span>, or using a USB cable.  Unplug the network adapter from
+the Delta Tau before plugging in the USB cable. The USB cable is the
+sort with an A-type plug on one end and a B-type on the other end.</p>
+<figure class="align-center" id="fig-usb">
+<a class="reference external image-reference" href="_images/USB.png"><img alt="_images/USB.png" src="_images/USB.png" style="width: 30%;" /></a>
+</figure>
+</section>
+<section id="moxa-configuration">
+<h3><span class="section-number">E.2.2. </span>MOXA Configuration<a class="headerlink" href="#moxa-configuration" title="Permalink to this heading">#</a></h3>
+<p>On the Windows Laptop, use the NPort Admin Suite.  It is pretty
+self-explanatory.  Put the computer on the 10.6.130.X network, then
+ask the suite to do a search.  When it finds a MOXA device (they
+should be 10.6.130.51, .52, etc), click on the configure button.  It
+will query the device, then give a fairly self-explanatory set of tabs
+for configuring things on the device.</p>
+<p><a class="reference external" href="https://www.moxa.com/doc/manual/nport/5200/NPort5200_v1.pdf">NPort5200 User Manual</a> –
+The small Moxa devices supplied by FMBO are in this series.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The 5200 series is a discontinued Moxa product.</p>
+</div>
+</section>
+<section id="camera-configuration">
+<h3><span class="section-number">E.2.3. </span>Camera Configuration<a class="headerlink" href="#camera-configuration" title="Permalink to this heading">#</a></h3>
+<p>On the Windows Laptop, Vimba is the tool for the Allied Vision cameras
+supplied by FMBO (also the Prosilica GC in use at the XRD end station)
+for looking at the fluorescence screens in DM1, DM2, and end station
+FS.</p>
+<p>Vimba can also be installed on a Linux machine. From the Quick Start
+document:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Installing Vimba SDK on Linux Necessary runtime libraries for
+executing Vimba Viewer are available with the Vimba download.
+
++ Vimba ships as a tarball. Uncompress the archive with the command
+  ``tar -xf ./AVTVimba.tgz`` to a directory you have writing
+  privileges for. This creates a directory named ``AVTVimba``.
+
++ Navigate to ``AVTVimba/AVTGigETL`` and execute the shell script
+  Install.sh with root privileges (for example ``dzdo
+  ./Install.sh``).
+
++ Vimba Viewer is now ready to use, and it can be found in
+  ``Vimba/Viewer/Bin``.
+</pre></div>
+</div>
+<p>The second step is essential or the viewer will be unable to find the cameras on the network.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.alliedvision.com/en/products/software.html">Allied Vision homepage</a></p></li>
+<li><p><a class="reference external" href="https://www.alliedvision.com/en/support/technical-documentation/prosilica-gc-documentation.html">Prosilica GC technical documentation</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DSSI should be able to configure Prosilica and Make GigE
+cameras.  The information above is only needed if, for some reason,
+DSSI is not or cannot be involved.</p>
+</div>
+</section>
+</section>
+<section id="bnc-cable-map">
+<h2><span class="section-number">E.3. </span>BNC Cable Map<a class="headerlink" href="#bnc-cable-map" title="Permalink to this heading">#</a></h2>
+<p>Here is an explanation of the BNC and SHV patch panels going between
+rack D at the control station, Rack C on the roof of the hutch, and
+the in-hutch patch panel.</p>
+<figure class="align-center" id="fig-bncpatch">
+<a class="reference external image-reference" href="_images/Bnc_map.png"><img alt="_images/Bnc_map.png" src="_images/Bnc_map.png" style="width: 100%;" /></a>
+</figure>
+</section>
+<section id="controls-chores-unfinished">
+<span id="unfinished-controls"></span><h2><span class="section-number">E.4. </span>Controls chores, unfinished<a class="headerlink" href="#controls-chores-unfinished" title="Permalink to this heading">#</a></h2>
+<p>This is a list of things that never got done back in 2017-2018.  For
+the most part, none of these are a problem in any way.  The beamline
+operates just fine without these.  This section is simply an effort to
+capture these for posterity.</p>
+<ul class="simple">
+<li><p>PI piezo controllers on <code class="docutils literal notranslate"><span class="pre">dcm.pitch</span></code>, <code class="docutils literal notranslate"><span class="pre">m2.pitch</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">m3.pitch</span></code>. Some primitive controls are in place.  There is a box
+on the BMM CSS Main Page for piezo controls.  But active feedback
+was never developed for any of these three items. It is not hard to
+imagine the ways that having active feedback might be helpful, but
+these are not currently available.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Fully fleshed out trigonometry for M2 and M3.  This would include
+careful calibration of distances.</p></li>
+<li><p>Photon delivery system mode B.  This is the low energy, focused
+mode.  The last time I looked at this, it seemed that the hard
+limits on the M3 downstream axes were set just a bit too high.  It
+is also not clear whether the XAS table can go low enough for this
+delivery mode.</p></li>
+<li><p>The VME crate is plugged into an unmaganged switch, which is then
+plugged into the managed switch.  This is silly and unnecessary, but
+has never been enough of a problem to fix.</p></li>
+<li><p>The outlets in the FOE should be moved to the insides of the blue
+stand to avoid having plugs get kicked when people are moving around
+the back alley.  This seems expensive and not completely necessary,
+but sure would be nice.</p></li>
+<li><p>Encoder pizza box in Rack A is unconfingured.  It will likely never
+get used.</p></li>
+</ul>
+<p>See also <a class="reference internal" href="instruments.html#future-instruments"><span class="std std-numref">Section 5.10</span></a> for the related
+topic of planned instrumentation upgrades.</p>
+</section>
+<section id="dcm-1st-xtal-equilibration">
+<h2><span class="section-number">E.5. </span>DCM 1st Xtal Equilibration<a class="headerlink" href="#dcm-1st-xtal-equilibration" title="Permalink to this heading">#</a></h2>
+<p>The temperature of the first crystal is measured by a K type
+thermocouple pressed against the crystal by …. (verify how this is done)</p>
+<p>With the front end slits set to 8 mm x 1.5 mm, the DCM first crystal
+saturates at about 30.5 C from the base cooling water temperature of
+about 28 C.</p>
+<p>This takes about 50 minutes.</p>
+<figure class="align-center" id="fig-dcm1stxtal">
+<a class="reference external image-reference" href="_images/dcm1stxtal.png"><img alt="_images/dcm1stxtal.png" src="_images/dcm1stxtal.png" style="width: 70%;" /></a>
+</figure>
+</section>
+<section id="di-water-flow">
+<h2><span class="section-number">E.6. </span>DI Water Flow<a class="headerlink" href="#di-water-flow" title="Permalink to this heading">#</a></h2>
+<p>The DI water is controled by manual valves, which should only be
+operated by the utilities group, and by solenoid valves in the FOE.
+The solenoid valves are triggered by a water-sensing strip along the
+floor of the FOE. They are also actuated by switches on the CSS
+utilities screen. These toggles are the ones circled in pink inthe
+screenshot on the left.</p>
+<p>The valves themselves are the large yellow and black boxes mounted
+high on the back wall of the FOE.  The valve indicators are the rods
+with orange markings.  When the valves are open, the orange marks are
+facing downstream.  When closed, the orange marks are rotated towards
+the wall.  Opening and closing those valves is managed through CSS.
+They must be open for the utilities group to do their work on the DI
+delivery to the mono and the filter assemblies.</p>
+<figure class="sphinx-subfigure align-default" id="fig-diwater">
+<div class="sphinx-subfigure-grid ss-layout-default-ABC ss-layout-sm-ABC outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/Water_flow_CSS.png" src="_images/Water_flow_CSS.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/Water_flow_valves_1.jpg" src="_images/Water_flow_valves_1.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/Water_flow_valves_2.jpg" src="_images/Water_flow_valves_2.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. E.1 </span><span class="caption-text">(Left) The CSS utilities screen where the water valve controls are
+found.  (Middle) A view into the FOE.  (Right) The inboard wall
+where the physical valve is found.</span><a class="headerlink" href="#fig-diwater" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="disabling-mcs8-axes-after-move">
+<h2><span class="section-number">E.7. </span>Disabling MCS8 axes after move<a class="headerlink" href="#disabling-mcs8-axes-after-move" title="Permalink to this heading">#</a></h2>
+<section id="from-adam-young-at-fmbo">
+<h3><span class="section-number">E.7.1. </span>From Adam Young at FMBO<a class="headerlink" href="#from-adam-young-at-fmbo" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The motors can be disabled after a movement and this can be set at the
+Delta Tau level.
+
+First you will need to connect to each MCS8+ with the beamline laptop
+and start PEWin.
+
+Then please do the following:
+
++ Click on the &#39;View&#39; menu at the top of the window. Then click
+  &#39;Program/PLC Status (and upload)&#39;.
++ Select PLC1 and click &#39;Upload&#39;. An editor showing PLC1 will appear.
++ Scroll down to find the variables P105 to P805. The &#39;1&#39; to &#39;8&#39; part
+  of these variables represent axis 1 to 8 on the MCS8+. The value of
+  these variables determines whether or not the motors will be
+  disabled after a move. They are likely all set to &#39;0&#39; meaning power
+  stays on. The lateral motors are on axis 4 and 5 so P405 and P505
+  should be set to &#39;1&#39;.
++ Click on the yellow downwards pointing arrow on the toolbar in the
+  editor. This downloads the modified PLC1 from the editor to the
+  Delta Tau. Close the editor.
++ In the terminal window issue a &#39;save&#39; to save the modified
+  configuration to the Delta Tau non-volatile memory and issue &#39;$$$&#39;
+  to refresh the controller.
+</pre></div>
+</div>
+</section>
+<section id="a-follow-up-from-graeme-elliner-fmbo">
+<h3><span class="section-number">E.7.2. </span>A follow up from Graeme Elliner, FMBO<a class="headerlink" href="#a-follow-up-from-graeme-elliner-fmbo" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Just done a fast scan of the config file and I think it is probably
+because P302=1.
+
+Px02 and Px05 (where x is the motor number) are special Pvars for
+setting the final state of the motor once it has stopped moving, they
+are used in PLC1x and set as you know in PLC1
+
+If Px02=1 the PLC to check if the motor is in position and its
+desired velocity is zero, if these two conditions are set a Flag is
+set, If the conditions are still met 1second later then the motor
+is put into OPEN LOOP. This means the motor is still enabled but
+will ignore the encoder and the motor will hold its current rotary
+location. This is useful for the motors that have DPTs pushing
+against them in flexures (trapezoidal roll and pitch assy on the
+DCMs), it gives a firm base for the DPT to push against but will
+not try to hold position (as it would in closed loop) when the DPT
+pushes the top part of the stage and moves the encoder.  If Px05=1
+then the PLC checks to see if the motor is in position and has zero
+velocity, then 1second later it will kill that motor
+
+Due to the way the code is ordered (it looks for thePx02 first) it
+will enter Px02 check first, when the conditions are met it will
+set the first Flag After that check it then see the Px05 check and
+kills the motor. However on the next pass through the PLC it will
+again enter the Px02 check, see that the first flag has been set
+then trigger the open loop command, re-enabling the motor.
+
+Hence by setting P302=0 in PLC1, it will not go into the check and
+not accidentally enable the motor.  If this does not fix it then
+the issue is in EPICS
+</pre></div>
+</div>
+</section>
+<section id="conclusion">
+<h3><span class="section-number">E.7.3. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
+<p>The above suggestions were done for <code class="docutils literal notranslate"><span class="pre">dm3_bct</span></code>, a motor that was
+showing the re-enable behavior.  This made that motor tricky to
+operate in bluesky. Setting <code class="docutils literal notranslate"><span class="pre">P302=0</span></code> and <code class="docutils literal notranslate"><span class="pre">P305=1</span></code> did the trick.</p>
+</section>
+</section>
+<section id="dm3-cat6-patch-panel">
+<h2><span class="section-number">E.8. </span>DM3 CAT6 Patch Panel<a class="headerlink" href="#dm3-cat6-patch-panel" title="Permalink to this heading">#</a></h2>
+<p>13 more CAT6 ports for use in the hutch. Note that ports listed as
+SCI/EPICS are tagged ports on both subnets.</p>
+<p>This is needed by workstations (like <code class="docutils literal notranslate"><span class="pre">xf06bm-ws5</span></code>), display machines
+running CSS (like <code class="docutils literal notranslate"><span class="pre">xf06bm-disp1</span></code>), and machines running IOCs (like
+<code class="docutils literal notranslate"><span class="pre">xf06bm-xspress3</span></code>).</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">xf06bm-em1</span></code> needs to be on an INST port while the ion
+chambers are on EPICS ports. The difference is that the ion chambers
+are running their own on-board IOCs, making them more like IOC servers
+than instruments.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Update me!</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Patch</strong></p></td>
+<td><p><strong>Port</strong></p></td>
+<td><p><strong>xf06bm-a port</strong></p></td>
+<td><p><strong>Network</strong></p></td>
+<td><p><strong>Role</strong></p></td>
+<td><p><strong>Cable number</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DM3-A</strong></p></td>
+<td><p>1</p></td>
+<td><p>44</p></td>
+<td><p>EPICS</p></td>
+<td><p>xf06bm-ic1</p></td>
+<td><p>200235</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>2</p></td>
+<td><p>45</p></td>
+<td><p>EPICS</p></td>
+<td><p>xf06bm-ic2</p></td>
+<td><p>200236</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>3</p></td>
+<td><p>46</p></td>
+<td><p>EPICS</p></td>
+<td><p>xf06bm-ic3</p></td>
+<td><p>200237</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>4</p></td>
+<td><p>06bm-agg 36</p></td>
+<td><p>INST</p></td>
+<td><p>xf06bm-em1</p></td>
+<td><p>200238</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DM3-B</strong></p></td>
+<td><p>1</p></td>
+<td><p>unused</p></td>
+<td></td>
+<td></td>
+<td><p>200239</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>2</p></td>
+<td><p>18</p></td>
+<td><p>SCI/EPICS</p></td>
+<td><p>xf06bm-disp1</p></td>
+<td><p>200240</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>3</p></td>
+<td><p>28</p></td>
+<td><p>CAM</p></td>
+<td><p>xf06bm-cam8</p></td>
+<td><p>200241</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>4</p></td>
+<td><p>27</p></td>
+<td><p>CAM</p></td>
+<td><p>xf06bm-cam8</p></td>
+<td><p>200242</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DM3-C</strong></p></td>
+<td><p>1</p></td>
+<td><p>37</p></td>
+<td><p>INST</p></td>
+<td><p>xf06bm-edxd1</p></td>
+<td><p>200243</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>2</p></td>
+<td><p>06bm-agg 29</p></td>
+<td><p>INST</p></td>
+<td><p>xf06bm-hiden1</p></td>
+<td><p>200244</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>3</p></td>
+<td><p>??</p></td>
+<td></td>
+<td></td>
+<td><p>200245</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>4</p></td>
+<td><p>unused</p></td>
+<td></td>
+<td></td>
+<td><p>200246</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DM3-D</strong></p></td>
+<td><p>1</p></td>
+<td><p>24</p></td>
+<td><p>CAM</p></td>
+<td><p>xf06bm-cam7</p></td>
+<td><p>200247</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>2</p></td>
+<td></td>
+<td><p>SCI/EPICS</p></td>
+<td><p>xf06bm-xspress3</p></td>
+<td><p>200248</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>3</p></td>
+<td></td>
+<td></td>
+<td><p>unused</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>4</p></td>
+<td></td>
+<td></td>
+<td><p>unused</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some photos of the patch panel:</p>
+<figure class="sphinx-subfigure align-default" id="fig-dm3cat6">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/DM3_patch_panel.jpg" src="_images/DM3_patch_panel.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/DM3_first_cat6.jpg" src="_images/DM3_first_cat6.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. E.2 </span><span class="caption-text">(Left) CAT6 patch panel at DM3.  (Right) Lowest numbered label on
+the CAT6 cables in the DM3 patch panel</span><a class="headerlink" href="#fig-dm3cat6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dm3-bct">
+<span id="id2"></span><h2><span class="section-number">E.9. </span>DM3_BCT<a class="headerlink" href="#dm3-bct" title="Permalink to this heading">#</a></h2>
+<p>In early May, 2026, after a power failure, the motors on MC06 had to
+be rehomed.  <code class="docutils literal notranslate"><span class="pre">dm3_bct</span></code>, the vertical stage for the slit assembly,
+failed in a very low position, but still some distance from the lower
+limit switch.</p>
+<p>The reason for the failure turned out to be that the encoder read
+strip had delaminated at the end relevant to the lower range of the
+stage (i.e. the top-most part of the read strip).  There is also a
+noticeable kink in the read strip about 2 cm from the end.</p>
+<p>After assisting the homing of the stage by manually pressing the lower
+limit switch to allow the homing sequence to complete, the problem was
+resolved by:</p>
+<ol class="arabic simple">
+<li><p>Resecuring the faulty portion of the read strip to the metal frame
+with some double sided tape.</p></li>
+<li><p>Raising the lower limit switch by about 40 mm.</p></li>
+</ol>
+<p>The lower limit switch was <em>very</em> low, far below the functional range
+of motion of the slit assembly, even in the low energy modes of the
+photon delivery system.  So, raising the limit switch should
+have no impact on operations.  Doing so will avoid having the encoder
+read head pass over the damaged part of the read strip.</p>
+</section>
+<section id="eiger2-si-4m">
+<span id="eiger"></span><h2><span class="section-number">E.10. </span>Eiger2 Si 4M<a class="headerlink" href="#eiger2-si-4m" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the vendor supplied camera server,
+<code class="docutils literal notranslate"><span class="pre">xf06bm-eiger1</span></code>, is found in rack C2</p>
+</div>
+<figure class="align-center" id="id5">
+<span id="fig-eiger"></span><a class="reference external image-reference" href="_images/eiger.jpg"><img alt="_images/eiger.jpg" src="_images/eiger.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.3 </span><span class="caption-text">The Eiger2 Si 4M detector with the front panel off, revealing the
+aluminized myler sheet protecting the detector surface.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<dl class="field-list">
+<dt class="field-odd">Coolling water<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The detector requires that the chiller is running continuously.
+Connect the chiller lines by attaching the quick-connect fixtures.
+Note that the chiller should be filled with 2/3 water and 1/3
+ethylene glycol.  Dectris recommends <a class="reference external" href="https://www.motorexusa.com/products/coolant-m5-0-ready-to-use">MotorX M5.0 coolant</a>
+as it also has corrosion protection chemicals in its formulation.
+That product is a 50/50 mix of water and ethylene glycol, so it
+needs to be diluted with 1 bottle-full of water for every two
+bottles of coolant.</p>
+<p><br></p>
+</dd>
+<dt class="field-even">Dry nitrogen<span class="colon">:</span></dt>
+<dd class="field-even"><p>The detector also requires dry nitrogen flowing into the air fixture
+on the back of the box.  This protects the space around the detector
+from humidity by floding it with dry gas.</p>
+<p><br></p>
+</dd>
+<dt class="field-odd">Lifting<span class="colon">:</span></dt>
+<dd class="field-odd"><p>When lifting the detector into position on the XAS table or
+goniometer, it is a good idea to use the hoist.  The hook can be
+connected directly to the eyebolt on the top of the detector.</p>
+<p><br></p>
+</dd>
+<dt class="field-even">Uncover<span class="colon">:</span></dt>
+<dd class="field-even"><p>To remove the cover from the front of the detector, use a 2.5 mm
+hex driver in the two small holes about 1/3 from the top on each
+side.  These are a bit surprising.  Turn the screws <span class="incremental">inward</span> to
+disengage the cover.  When replacing the cover, turn the screws
+outward.  This seems opposite to my intution, at least!  Take care
+not to apply much force on the screws – simply turn them all the
+way in or out without applying any force at the end of the range of
+travel.</p>
+</dd>
+</dl>
+<p><strong>To start the detector:</strong></p>
+<ol class="arabic">
+<li><p>Turn on the power switch on the power supply for the Eiger.  Once
+the green light on the back of the box begins blinking, press in the
+blue button on the back.</p></li>
+<li><p>At a beamline computer, point a browser at <a class="reference external" href="http://xf06bm-eiger1.nsls2.bnl.local/#/system">http://xf06bm-eiger1.nsls2.bnl.local/#/system</a></p></li>
+<li><p>Click the <span class="key">Reboot</span> button to restart the camera server.</p></li>
+<li><p>Verify connections with the <span class="key">Check connections</span> button.</p></li>
+<li><p>Click the <span class="key">Initialize detector</span> button.</p></li>
+<li><p>Restart the Eiger ioc on <code class="docutils literal notranslate"><span class="pre">xf06bm-det-ioc</span></code>.  This can be done by
+clicking the <span class="key">Reboot</span> button on the Eiger CSS screen.</p></li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">BMM_configuration.ini</span></code> file to enable the Eiger Ophyd
+object.  Restart <span class="bolditalic">bsui</span> by doing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ipython/profile_collection
+pixi<span class="w"> </span>run<span class="w"> </span>start
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="encoder-loss-second-crystal-roll">
+<h2><span class="section-number">E.11. </span>Encoder loss second crystal roll<a class="headerlink" href="#encoder-loss-second-crystal-roll" title="Permalink to this heading">#</a></h2>
+<p>On 9 January, 2018, when attempting to home the mono motors following
+the schduled power outage in December, the 2<sup>nd</sup> crystal roll
+motor moved to its negative limit, then reported an encoder loss.
+With Graeme Elliner’s (an FMB-O controls engineer) help, I came to a
+resolution of the problem.  It has left that axis in an unusual state
+that needs to be documented.</p>
+<p>Executive summary: that axis does not use its encoder.  It homes by
+running to its negative limit, then running back to it’s home
+position.  It does this by counting controller pulses rather than
+encoder counts.</p>
+<p>Here are a couple of useful emails from Graeme to me from January 11
+and 12, 2018.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hi Bruce
+
+We now need to work out where the problem is.
+NOTE you will not be able to drive anything while you&#39;re doing this or you potentially can break more.
+1: Unplug the Disable Plug from the back of the DCM (this will
+   force all motors to be disabled) - it’s the small black connector
+   (bottom right as you look at the back)
+2: Disconnect PL102 &amp; SK102 from IF2
+3: Disconnect PL103 &amp; SK103 from IF3
+4: Connect PL103 &amp; SK103 to IF2
+5: Connect PL102 &amp; SK102 to IF3
+
+IF the Red light on the Interpolator stayed with IF3 then there is
+a problem with Interpolator - Need to put motor into Open Loop
+
+IF the Red light on the Interpolator has moved to IF2 then the
+Interpolator is fine and it is cabling somewhere - GOTO STEP 6
+
+6: SWAP PL102 and PL103
+
+IF the red light has moved back to IF3 then the problem is between
+PL103 to the read head on the Xtal2 Roll stage - GOTO STEP 7
+
+IF the red light has stayed with IF2 then the problem is between SK103 to the MCS8
+
+This cabling is Pin to Pin so a simple continuity test on each pin should identify what has broken
+
+7: SWAP SK102 and SK103. The cabling should now be back to the original layout
+8: SWAP SK203-2 and SK203-3 at the feedthroughs on the DCM (FD3-2 &amp; FD3-3 respectively)
+
+IF the red light has moved to IF2 then the problem is INSIDE the
+DCM vessel - Need to put motor into Open Loop (and ultimately open
+the vessel to find it)
+
+If the red light has stayed on IF3 then there is a problem with the
+cable to the DCM. This cable is should be Pin to Pin so a simple
+continuity test on each pin should identify what has broken
+
+
+To Put the Roll Axis into Open Loop
+Have you got PeWin working now??
+Using Pewin backup the config for the DCM and send it to me please.
+</pre></div>
+</div>
+<p>A lot of the cable swapping Graeme called for was to try to isolate a
+bad connection.  The connection between read-head and motor controller
+is rather lengthy, with a vacuum feedthrough, a feedtrough on the side
+of the service box, and two connections to the interpolators inside
+the service box.</p>
+<p>Following the steps laid out by Graeme, I isolated the problem to
+being inside the vacuum vessel.  Drat! Using the <a class="reference external" href="https://github.com/NSLS-II-BMM/BMM-beamline-configuration/blob/master/MCS8/mc02-11Jan2018.cfg">old MC02
+configuration</a>
+I saved to a file, Graeme made some edits as described below and sent
+me <a class="reference external" href="https://github.com/NSLS-II-BMM/BMM-beamline-configuration/blob/master/MCS8/mc02-12Jan2018.cfg">a new configuration file</a>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hi Bruce
+I have modified the config file to now not use the encoder for
+position feedback. I have tested that it downloads with no errors
+
+Details of the mods are listed at the top of the file and below, I
+have marked all modifications with either GRE+ (for added code) or
+GRE- (for commented code)
+
+In PLC1
+P446=0  this disables encoder loss detection for axis4
+
+
+In the Ivars
+I430=700        changed to default stepper gain for no encoder
+I432=0          changed to default value for no encoder
+I7040=8 this forces the system to use steps for feedback
+
+Use restore config from the backup menu in PEWin to install this
+CHECK that the box at the bottom reports NO ERRORS,
+in the terminal window you will need to &quot;SAVE&quot; and &quot;$$$&quot;.
+
+You will now find that the position scaling will be completely
+different now that you are not using the encoder. This means that
+your jog speeds will also be different
+
+I strongly suggest NOT trying to use EPICS imediately.
+
+Use the PeWin terminal (or the Jog Ribbon) to move axis 4 to the -ve
+limit (&quot;#4j-&quot;) at the -ve limit type &quot;#4HMZ&quot; to zero the postion
+display and then to the +ve limit (&quot;#4j+&quot;).
+
+This will tell you how many steps there are between the limits.
+
+Using this info and the data for the encoded version you should be
+able to move th axis to approximately the correct location.
+
+I have noticed that in PLC14 (the homing PLC for axis 4) that even
+when the axis was using the encoder the home routine was not using
+the encoder home refernce.
+
+It is moving to the -ve limit then moving off 51926 encoder counts,
+then setting this to be HOME  -  search for GRE*** in the file.
+
+This will not be correct now the system is using steps and might
+actually be more than you have measured as the range in steps.
+
+You will need to change this value before you can use EPICS to home the axis.
+
+Once all this is working in PeWin you can test the homing routine
+by entering M1416=1 in the Pewin terminal.
+</pre></div>
+</div>
+<p>Following this set of instructions, I found that there are 1,218,299
+steps between the two limits on the 2<sup>nd</sup> crystal roll motor.
+It would seem that there are about 10 or 12 steps per encoder count.
+The homing procedure works in the sense of finding the negative limit,
+then moving to a home position.  But that home position seems to be
+about 1/10 of the way between the negative limit and the
+home-using-encoder-counts.</p>
+</section>
+<section id="inert-gas-plumbing">
+<h2><span class="section-number">E.12. </span>Inert Gas Plumbing<a class="headerlink" href="#inert-gas-plumbing" title="Permalink to this heading">#</a></h2>
+<p>Needle valves are mounted on the outboard side of DM3. Quick connect
+outlets for the gases are mounted on the upstream/inboard corner of
+the XAFS table.</p>
+<div class="note admonition">
+<p class="admonition-title">Gaseous nitrogen supply</p>
+<p>BMM no longer uses a nitrogen cylinder as the supply of N<sub>2</sub>
+for the ion chambers.  The house GN2 supplies N<sub>2</sub> to the
+needle valves.</p>
+</div>
+<figure class="align-center" id="fig-inertgas">
+<a class="reference external image-reference" href="_images/Gas_handling.png"><img alt="_images/Gas_handling.png" src="_images/Gas_handling.png" style="width: 100%;" /></a>
+</figure>
+<p>Vendor link for quick-disconnect fixture: <a class="reference external" href="https://www.mcmaster.com/5012K122/">https://www.mcmaster.com/5012K122/</a></p>
+<p>In practice, the H<sub>2</sub>/N<sub>2</sub> and N<sub>2</sub>/Ar mixing
+channels are not much used.  Unless measuring with the incident beam
+below 5 keV or above 21 keV, it is a poor use of time to make changes
+to the gas content of the ion chambers.  This is because it takes
+quite some time for the volume of the ion chamber to equillibrate.</p>
+<p>N<sub>2</sub> is adequate for almost all experiments at BMM.  For Tc or
+Ru, it is helpful to use about 20% Ar.  For Sc or lower, 50% He might
+be helpful.  But remember that purging the ion chambers takes
+<strong>hours</strong>.</p>
+</section>
+<section id="logitech-controller">
+<h2><span class="section-number">E.13. </span>Logitech controller<a class="headerlink" href="#logitech-controller" title="Permalink to this heading">#</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The Logitech controllers are handy, but scary.  They are not a toy.
+If you play around with one, you are likely to ruin your experiment.</p>
+</div>
+<p>There are two Logitech controllers configured to move particular
+motors at the beamline.  One controller lives permanently inside the
+hutch, usually located on the white box hanging from the side of
+diagnostic module 3.  The other lives permanently outside the hutch in
+the clear plastic box next to the control station.</p>
+<p>The purpose of the Logitech controllers is to facilitate rough
+alignment of sample in the beam. The assumption is that careful
+alignment will be done with X-rays.</p>
+<figure class="align-center" id="fig-logitech">
+<a class="reference external image-reference" href="_images/Logitech.png"><img alt="_images/Logitech.png" src="_images/Logitech.png" style="width: 100%;" /></a>
+</figure>
+<dl class="simple">
+<dt><span class="green">Green A button</span></dt><dd><p>Open the photon shutter (outside controller only)</p>
+</dd>
+<dt><span class="red">Green B button</span></dt><dd><p>Open the photon shutter (outside controller only)</p>
+</dd>
+<dt><span class="blue">Blue X button</span></dt><dd><p>Fully retract the detector, move <code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code> to 205</p>
+</dd>
+<dt><span class="darkyellow">Yellow Y button</span></dt><dd><p>Disable amplifiers on <code class="docutils literal notranslate"><span class="pre">dcm.pitch</span></code>, <code class="docutils literal notranslate"><span class="pre">dcm.roll</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">m2.bender</span></code>, equivalent to <code class="docutils literal notranslate"><span class="pre">dcm.kill()</span></code> + <code class="docutils literal notranslate"><span class="pre">m2.bender.kill()</span></code>
+at the <span class="bolditalic">bsui</span> command line</p>
+</dd>
+<dt>Right joystick</dt><dd><p>Control the sample XY stage</p>
+</dd>
+<dt>Left joystick</dt><dd><p>Control the detector Z stage (left/right, up/down do nothing,
+inside controller only)</p>
+</dd>
+<dt>Right trigger buttons</dt><dd><p>Rotate the reference wheel</p>
+</dd>
+<dt>Left trigger buttons</dt><dd><p>Rotate the <em>ex situ</em> sample wheel</p>
+</dd>
+<dt>Logitech button</dt><dd><p>Wake up the controller</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Explain how to configure controls in CSS</p>
+</div>
+</section>
+<section id="m2-bender">
+<h2><span class="section-number">E.14. </span>M2 Bender<a class="headerlink" href="#m2-bender" title="Permalink to this heading">#</a></h2>
+<p>The homing sequence on the bender (MC04, channel 6) seems to have the
+wrong parity.  Instead of moving to the negative limit, it moves to
+the positive limit.</p>
+<p>Rather than running the homing procedure, step to the negative limit.
+This can be done via EPICS or by issuing the <code class="docutils literal notranslate"><span class="pre">#6j-</span></code> command in the
+PEWIN terminal.  Adam Young from FMBO indicated that the home marker
+is about +6000 steps from the negative limit, so move there and zero
+out the display – <code class="docutils literal notranslate"><span class="pre">#6HMZ</span></code> in PEWIN.  This will leave the bender
+reporting to EPICS that it is not homed, but it can be moved sensibly
+to a bend value.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>End station</p></th>
+<th class="head"><p>Bender position in steps</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XAS</p></td>
+<td><p>212225</p></td>
+</tr>
+<tr class="row-odd"><td><p>XRD</p></td>
+<td><p>107240</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mc09-patch-panel">
+<h2><span class="section-number">E.15. </span>MC09 patch panel<a class="headerlink" href="#mc09-patch-panel" title="Permalink to this heading">#</a></h2>
+<p>Photo and explain…</p>
+<p>In hutch, patch panel for MC10 is in place but unfinished</p>
+</section>
+<section id="mcs8-network-configuration">
+<h2><span class="section-number">E.16. </span>MCS8 network configuration<a class="headerlink" href="#mcs8-network-configuration" title="Permalink to this heading">#</a></h2>
+<p>Among the curiosities of managing the FMBO MCS8 TurboPMAC motor
+controllers delivered as part of the original construction of the
+beamline, there is the matter of network configuration.  While there
+is a tool on the NIST Windows 8 laptop for configuring the IP address
+of the MCS8 over a USB cable, there is a bit of work that has to be
+done for IP configuration to take effect.</p>
+<p>The MCS8 units have something called EEPROM Write Protection which
+keeps the IP configuration from being changed by accident.  At least,
+I suppose that’s the purpose…</p>
+<p>To bypass write protection, there is a jumper on one of the circuit
+boards that has to be in place.  Here is <a class="reference download internal" download="" href="_downloads/8a7c6563abeea29a59088a573ad204b1/MCS8-E8-jumper.pdf"><code class="xref download docutils literal notranslate"><span class="pre">a</span> <span class="pre">PDF</span> <span class="pre">file</span>
+<span class="pre">explaining</span> <span class="pre">how</span> <span class="pre">to</span> <span class="pre">do</span> <span class="pre">this</span></code></a>.</p>
+<p>MC01 through MC06 are FMBO-supplied controllers.  These cover the
+entire photon delivery system up to diagnostic module 3.  All of the
+XAS or XRD end station motors use NSLS-II standard Geobricks.</p>
+</section>
+<section id="monochromator-notes">
+<h2><span class="section-number">E.17. </span>Monochromator notes<a class="headerlink" href="#monochromator-notes" title="Permalink to this heading">#</a></h2>
+<p>The Bragg axis drive train has been a recurring source of trouble at
+BMM.  In the past, the point of coupling between the drive motor and
+the Bragg goniometer has been the main issue.  This coupling is made
+between the spindle of the drive motor and the goniometer’s work gear
+via a bellows.  Despite assurances from the mono vendor that this
+drive train has been reliable on all other similar goniometers
+(including 3 others here at NSLS-II), BMM has is on its fifth bellows
+as of January 2026.</p>
+<p>The part in question is shown in <a class="reference internal" href="#fig-braggaxis"><span class="std std-numref">Figure E.4</span></a>.
+An example of a sheared bellows is shown in <a class="reference internal" href="#fig-shearedbellows"><span class="std std-numref">Figure E.5</span></a>.</p>
+<figure class="align-center" id="id6">
+<span id="fig-braggaxis"></span><a class="reference external image-reference" href="_images/bragg_axis.jpg"><img alt="_images/bragg_axis.jpg" src="_images/bragg_axis.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.4 </span><span class="caption-text">The Bragg axis drive train. The bellows coupler is inside the part
+indicated with the red arrow and circle.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<span id="fig-shearedbellows"></span><a class="reference external image-reference" href="_images/sheared_bellows.jpg"><img alt="_images/sheared_bellows.jpg" src="_images/sheared_bellows.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.5 </span><span class="caption-text">An example of a sheared bellows</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Replacement bellows purchased from HUCO are in cabinet #4 in a gray
+bin labeled “Photon delivery system spare parts”.</p>
+<p>These bellows can be purchased directly from HUCO:
+<a class="reference external" href="https://www.huco.com/shop/couplings/bellows-couplings/bellows-flex-b/530-41?b1=24&amp;b2=24">HUCO 530-41, 41 mm Diameter Bellows Coupling</a>
+with one bore size of ½ inch and the other ¼ inch.</p>
+<section id="bragg-axis-failure">
+<h3><span class="section-number">E.17.1. </span>Bragg axis failure<a class="headerlink" href="#bragg-axis-failure" title="Permalink to this heading">#</a></h3>
+<p>In the first half of the 2026-1 cycle, we spent some time repairing
+several problems with the monochromator.</p>
+<p>The troubles began with a failure of the Bragg axis to move without
+encoder loss error.  Some preliminary investigation showed that the
+drive shaft was behaving as though the worm gear was losing contact
+on every revolution with the teeth of the goniometer stage.</p>
+<p>After removing the whole crystal cage from the FOE and disassembling
+the mono, we found three problems that together resulted in the loss
+of the Bragg axis:</p>
+<ol class="arabic simple">
+<li><p>The o-rings on the vacuum feed-through were abraded, causing
+additional resistance to rotation.  New o-rings were purchase,
+installed a lubricated.  Additional 0-rings can be found in the
+photon delivery supplies bin in Cabinet 8.</p></li>
+<li><p>The lubricant on the spring inside the pre-load assembly for the
+Bragg drive train was dried up and crusty, causing the spring not
+to retract and release freely.  This spring was cleaned and
+relubricated.</p></li>
+<li><p>The lateral retaining clamps on the work gear – two small steel
+plates bolted to the side of the worm gear assembly – were
+broken.  New plates were procured from the goniometer vendor, <a class="reference external" href="https://www.rpiuk.com/">RPI</a>, and installed.  Two additional plates
+are in the photon delivery supplies bin in Cabinet 8.</p></li>
+</ol>
+<p>The likely result of these three issues was that the enhanced friction
+on the rotary feed-through along with the sticky pre-load was causing
+the gearing to become disengaged on every revolution.</p>
+<p>Once all this was repaired and replaced, the Bragg axis moved well.</p>
+<div class="note admonition">
+<p class="admonition-title">Bragg axis coordinate system</p>
+<p>Note that the coordinate system of the Bragg axis is not consistent
+with the NSLS-II coordinate system.  The rotation sense of the
+Bragg axis is left-handed!  This means the parity of the limit
+switches is opposite of what you might expect.</p>
+</div>
+<figure class="align-center" id="id8">
+<span id="fig-braggcoordinate"></span><a class="reference external image-reference" href="_images/bragg_coordinate_system.png"><img alt="_images/bragg_coordinate_system.png" src="_images/bragg_coordinate_system.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.6 </span><span class="caption-text">The coordinate system used by the monochromator motor controller,
+MC02.  Figure taken from the manual provided by the vendor, XDS
+Oxford.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="note admonition">
+<p class="admonition-title">Encoder setting for the Bragg axis</p>
+<p>The encoder directional sense must be set correctly for the primary
+and secondary Bragg encoders.  The PMAC variables <code class="docutils literal notranslate"><span class="pre">I7010</span></code> and
+<code class="docutils literal notranslate"><span class="pre">I7020</span></code> both must be set to 7.  This detail is recorded here as
+it proved to be a source of confusion as we were troubleshooting.</p>
+</div>
+</section>
+<section id="bragg-encoder">
+<h3><span class="section-number">E.17.2. </span>Bragg encoder<a class="headerlink" href="#bragg-encoder" title="Permalink to this heading">#</a></h3>
+<p>One problem we had during the 2026-1 repair effort involved the
+encoder for the Bragg axis.  <a class="reference internal" href="#fig-axialencoder"><span class="std std-numref">Figure E.7</span></a>
+shows a confusing view of the Bragg axis.  This view is behind the
+mounting plate for the crystal cage, looking down the beam direction
+along the door of the vacuum vessel.</p>
+<figure class="align-center" id="id9">
+<span id="fig-axialencoder"></span><a class="reference external image-reference" href="_images/axial_encoder.jpg"><img alt="_images/axial_encoder.jpg" src="_images/axial_encoder.jpg" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.7 </span><span class="caption-text">The encoder for the Bragg axis.  The encoder read-head is indicated
+by the red arrow.  The magnet for the Hall sensor is circled in
+magenta.</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As we started doing motion testing, the cable leading to the read head
+was not dressed correctly.  As we moved to a high angle (i.e. a low
+energy orientation), the cable caught on a tab holding the magnet for
+the Hall sensor in the encoder read-head.  This stretched and damaged
+the cable, breaking communication with the interpolator.  This was
+fixed by replacing the read-head.</p>
+<p>However, this read-head (model number RGH20F30M03C) is long obsolete.
+Renishaw no longer sells this model and it was (at the time of the
+2026-1 repair effort) unavailable on eBay.  Happily, XDS Oxford had an
+unopened spare in their shop which they kindly gave to us.</p>
+<p>In future interventions – for instance scheduled maintenance of the
+rotary feed through – it is <strong>essential</strong> that great care is taken
+to dress that cable correctly.  Replacing it again with the same model
+will almost certainly be impossible.</p>
+</section>
+<section id="pitch-motor-cable">
+<h3><span class="section-number">E.17.3. </span>Pitch motor cable<a class="headerlink" href="#pitch-motor-cable" title="Permalink to this heading">#</a></h3>
+<p>As part of the 2026-1 repairs, the motor cable to  the pitch axis was
+partly re-wired and is now using a different DB15 vacuum feedthrough
+compared to what is documented in the original vendor supplied
+documentation.</p>
+<p>The DB15 feedthrough is correctly labeled on the exterior of the
+vacuum vessel.</p>
+<p>This is mentioned to document this discrepancy with the vendor
+documentation.</p>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">E.18. </span>Motor controllers<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>This section is a big, long list of all the motor PV names at BMM.</p>
+<p>Some motors have aliases.  The alias is an alternate, easier-to-type
+name for the axis.  These are equivalent:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>caget<span class="w"> </span>XF:06BMA-OP<span class="o">{</span>Mono:DCM1-Ax:Bragg<span class="o">}</span>Mtr
+caget<span class="w"> </span>xafs_bragg
+</pre></div>
+</div>
+<p>Aliases work with motor record fields, as well.  The following are
+also equivalent:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>caget<span class="w"> </span>XF:06BMA-OP<span class="o">{</span>Mono:DCM1-Ax:Bragg<span class="o">}</span>Mtr.VELO
+caget<span class="w"> </span>xafs_bragg.VELO
+</pre></div>
+</div>
+<p>The following tables give PV name and alias, a brief description of
+the purpose of the motor, the controller and location of that
+controller, and the channel number in the controller.  A few
+abbreviations are used:</p>
+<dl class="field-list simple">
+<dt class="field-odd">us<span class="colon">:</span></dt>
+<dd class="field-odd"><p>upstream</p>
+</dd>
+<dt class="field-even">ds<span class="colon">:</span></dt>
+<dd class="field-even"><p>downsteam</p>
+</dd>
+<dt class="field-odd">ib<span class="colon">:</span></dt>
+<dd class="field-odd"><p>inboard</p>
+</dd>
+<dt class="field-even">ob<span class="colon">:</span></dt>
+<dd class="field-even"><p>outboard</p>
+</dd>
+<dt class="field-odd">para<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parallel</p>
+</dd>
+<dt class="field-even">perp<span class="colon">:</span></dt>
+<dd class="field-even"><p>perpendicular</p>
+</dd>
+</dl>
+<section id="collimating-mirror-m1">
+<h3><span class="section-number">E.18.1. </span>Collimating mirror, M1<a class="headerlink" href="#collimating-mirror-m1" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-OP{Mir:M1-Ax:YU}Mtr</p></td>
+<td><p>m1_yu</p></td>
+<td><p>us jack</p></td>
+<td><p>MC01 (mezzanine)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-OP{Mir:M1-Ax:YDO}Mtr</p></td>
+<td><p>m1_ydo</p></td>
+<td><p>ds, outboard jack</p></td>
+<td><p>MC01 (mezzanine)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-OP{Mir:M1-Ax:YDI}Mtr</p></td>
+<td><p>m1_ydi</p></td>
+<td><p>ds, inboard jack</p></td>
+<td><p>MC01 (mezzanine)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-OP{Mir:M1-Ax:XU}Mtr</p></td>
+<td><p>m1_xu</p></td>
+<td><p>us lateral</p></td>
+<td><p>MC01 (mezzanine)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-OP{Mir:M1-Ax:XD}Mtr</p></td>
+<td><p>m1_xd</p></td>
+<td><p>ds lateral</p></td>
+<td><p>MC01 (mezzanine)</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="filters-dm1">
+<h3><span class="section-number">E.18.2. </span>Filters, DM1<a class="headerlink" href="#filters-dm1" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{Fltr:01-Ax:Y1}Mtr</p></td>
+<td><p>dm1_filters1</p></td>
+<td><p>assembly #1</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{Fltr:01-Ax:Y2}Mtr</p></td>
+<td><p>dm1_filters2</p></td>
+<td><p>assembly #2</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dcm">
+<h3><span class="section-number">E.18.3. </span>DCM<a class="headerlink" href="#dcm" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:Bragg}Mtr</p></td>
+<td><p>dcm_bragg</p></td>
+<td><p>DCM Bragg</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:Bragg2}Mtr</p></td>
+<td><p>dcm_bragg2</p></td>
+<td><p>Bragg 2nd encoder</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:P2}Mtr</p></td>
+<td><p>dcm_pitch</p></td>
+<td><p>2nd xtal pitch</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:R2}Mtr</p></td>
+<td><p>dcm_roll</p></td>
+<td><p>2nd xtal roll</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:Per2}Mtr</p></td>
+<td><p>dcm_para</p></td>
+<td><p>2nd xtal perp</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:Par2}Mtr</p></td>
+<td><p>dcm_perp</p></td>
+<td><p>2nd xtal para</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:X}Mtr</p></td>
+<td><p>dcm_x</p></td>
+<td><p>lateral</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mono:DCM1-Ax:Y}Mtr</p></td>
+<td><p>dcm_y</p></td>
+<td><p>vertical</p></td>
+<td><p>MC02 (RGA)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="slits-2-dm2">
+<h3><span class="section-number">E.18.4. </span>Slits 2, DM2<a class="headerlink" href="#slits-2-dm2" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-OP{Slt:01-Ax:O}Mtr</p></td>
+<td><p>dm2_slits_o</p></td>
+<td><p>outboard</p></td>
+<td><p>MC03 (RGA)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Slt:01-Ax:I}Mtr</p></td>
+<td><p>dm2_slits_i</p></td>
+<td><p>inboard</p></td>
+<td><p>MC03 (RGA)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Slt:01-Ax:T}Mtr</p></td>
+<td><p>dm2_slits_t</p></td>
+<td><p>top</p></td>
+<td><p>MC03 (RGA)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Slt:01-Ax:B}Mtr</p></td>
+<td><p>dm2_slits_b</p></td>
+<td><p>bottom</p></td>
+<td><p>MC03 (RGA)</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dm2-fluorescence-screen">
+<h3><span class="section-number">E.18.5. </span>DM2 fluorescence screen<a class="headerlink" href="#dm2-fluorescence-screen" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{Diag:02-Ax:Y}Mtr</p></td>
+<td><p>dm2_fs</p></td>
+<td><p>vertical</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="focusing-mirror-m2">
+<h3><span class="section-number">E.18.6. </span>Focusing mirror, M2<a class="headerlink" href="#focusing-mirror-m2" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M2-Ax:YU}Mtr</p></td>
+<td><p>m2_yu</p></td>
+<td><p>us jack</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mir:M2-Ax:YDO}Mtr</p></td>
+<td><p>m2_ydo</p></td>
+<td><p>ds, outboard jack</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M2-Ax:YDI}Mtr</p></td>
+<td><p>m2_ydi</p></td>
+<td><p>ds, inboard jack</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mir:M2-Ax:XU}Mtr</p></td>
+<td><p>m2_xu</p></td>
+<td><p>us lateral</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M2-Ax:XD}Mtr</p></td>
+<td><p>m2_xd</p></td>
+<td><p>ds lateral</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mir:M2-Ax:Bend}Mtr</p></td>
+<td><p>m2_bender</p></td>
+<td><p>bender</p></td>
+<td><p>MC04 (RGA)</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="harmonic-rejection-mirror-m3">
+<h3><span class="section-number">E.18.7. </span>Harmonic rejection mirror, M3<a class="headerlink" href="#harmonic-rejection-mirror-m3" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M3-Ax:YU}Mtr</p></td>
+<td><p>m3_yu</p></td>
+<td><p>us jack</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mir:M3-Ax:YDO}Mtr</p></td>
+<td><p>m3_ydo</p></td>
+<td><p>ds, outboard jack</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M3-Ax:YDI}Mtr</p></td>
+<td><p>m3_ydi</p></td>
+<td><p>ds, inboard jack</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-OP{Mir:M3-Ax:XU}Mtr</p></td>
+<td><p>m3_xu</p></td>
+<td><p>us lateral</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{Mir:M3-Ax:XD}Mtr</p></td>
+<td><p>m3_xd</p></td>
+<td><p>ds lateral</p></td>
+<td><p>MC05 (RGA)</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="slits-3-dm3">
+<h3><span class="section-number">E.18.8. </span>Slits 3, DM3<a class="headerlink" href="#slits-3-dm3" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-BI{Slt:02-Ax:O}Mtr</p></td>
+<td><p>dm3_slits_o</p></td>
+<td><p>outboard</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-BI{Slt:02-Ax:I}Mtr</p></td>
+<td><p>dm3_slits_i</p></td>
+<td><p>inboard</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-BI{Slt:02-Ax:T}Mtr</p></td>
+<td><p>dm3_slits_t</p></td>
+<td><p>top</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-BI{Slt:02-Ax:B}Mtr</p></td>
+<td><p>dm3_slits_b</p></td>
+<td><p>bottom</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dm3">
+<h3><span class="section-number">E.18.9. </span>DM3<a class="headerlink" href="#dm3" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-BI{FS:03-Ax:Y}Mtr</p></td>
+<td><p>dm3_fs</p></td>
+<td><p>fluorescent screen</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-BI{Fltr:01-Ax:Y}Mtr</p></td>
+<td><p>dm3_foils</p></td>
+<td><p>foils actuator</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-BI{BCT-Ax:Y}Mtr</p></td>
+<td><p>dm3_bct</p></td>
+<td><p>vertical stage</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-BI{BPM:1-Ax:Y}Mtr</p></td>
+<td><p>dm3_bpm</p></td>
+<td><p>NanoBPM</p></td>
+<td><p>MC06 (RGC1)</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="xafs-table">
+<h3><span class="section-number">E.18.10. </span>XAFS Table<a class="headerlink" href="#xafs-table" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_YU}Mtr</p></td>
+<td><p>xafs_yu</p></td>
+<td><p>xafs table y us</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_YDO}Mtr</p></td>
+<td><p>&lt;unused&gt;</p></td>
+<td><p>&lt;available&gt;</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_YDI}Mtr</p></td>
+<td><p>xafs_yd</p></td>
+<td><p>xafs table y ds</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="strike">XF:06BMA-BI{XAFS-Ax:Tbl_XU}Mtr</span></p></td>
+<td><p><span class="strike">xafs_xu</span></p></td>
+<td><p><span class="strike">xafs table x us</span></p></td>
+<td><p><span class="strike">MC07 (RGC1)</span></p></td>
+<td><p><span class="strike">4</span></p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_XD}Mtr</p></td>
+<td><p><span class="red">xafs_detx</span></p></td>
+<td><p>xafs detector stage x</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As part of a problem in 2024 involving a shorted motor coil on the
+<code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code> stage, the table horizontal motors got repurposed.
+Axis 4 suffered a damaged amplifier.  After replacing the motor,
+the <code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code> was placed on axis 5.</p>
+<p>Axis 4 on MC07 is out of service. <code class="docutils literal notranslate"><span class="pre">xafs_xu</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_xd</span></code> are
+not currently connected to a motor controller.</p>
+<p>In Summer 2026, <code class="docutils literal notranslate"><span class="pre">xafs_ydi</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_ydo</span></code> were coupled together
+after leveling the table.  <code class="docutils literal notranslate"><span class="pre">xafs_ydi</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">xafs_yd</span></code>.
+The controls for the <a class="reference internal" href="motors.html#xafs-table"><span class="std std-numref">XAFS table (see Section 6.5)</span></a> were rewritten to use the single motor and to remove
+roll from the list of coordinated motions.  Axis 2 on MC07 is
+currently unused and available.</p>
+</div>
+</section>
+<section id="xafs-stages">
+<h3><span class="section-number">E.18.11. </span>XAFS Stages<a class="headerlink" href="#xafs-stages" title="Permalink to this heading">#</a></h3>
+<p>Note that, over time, some of the consistency between the EPICS
+nomenclature and the ophyd nomenclature has diverged.  For example,
+the EPICS and ophyd names for <code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_roll</span></code> are
+mismatched due to how we chose to mount the <a class="reference internal" href="instruments.html#tilt-stage"><span class="std std-numref">Huber tilt stage
+(see Section 5.9)</span></a>.</p>
+<p>More recently, the sample XY stages were replaced with encoded stages.
+The older sample stages – channels 1 and 2 on MC08 – were
+repurposed for holding the <a class="reference internal" href="#eiger"><span class="std std-numref">Eiger (section E.10)</span></a> or
+<a class="reference internal" href="#pilatus"><span class="std std-numref">Pilatus (section E.20)</span></a> area detectors.  The new,
+encoded stages are on channels 6 and 7 on MC09.  Happily, the EPICS
+names on channel 9 do not try to capture the purpose of the axis.  The
+semantic naming of those axes is better left for the ophyd layer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In cabinet 4, there are some useful stages that are unused.</p>
+<ol class="arabic simple">
+<li><p>a Huber theta/2theta stage</p></li>
+<li><p>a Huber theta stage</p></li>
+<li><p>a set of 4-axis slits.</p></li>
+</ol>
+</div>
+<section id="xafs-stages-on-mc08">
+<h4><span class="section-number">E.18.11.1. </span>XAFS stages on MC08<a class="headerlink" href="#xafs-stages-on-mc08" title="Permalink to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:LinY}Mtr</p></td>
+<td><p>xafs_ady</p></td>
+<td><p>area detector y</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:LinX}Mtr</p></td>
+<td><p>xafs_adx</p></td>
+<td><p>area detector x</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="strike">XF:06BMA-BI{XAFS-Ax:LinS}Mtr</span></p></td>
+<td><p><span class="strike">xafs_det</span></p></td>
+<td><p><span class="strike">xafs reference stage</span></p></td>
+<td><p><span class="strike">MC08 (RGC1)</span></p></td>
+<td><p><span class="strike">3</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:LinXS}Mtr</p></td>
+<td><p>xafs_refy</p></td>
+<td><p>xafs reference y</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Pitch}Mtr</p></td>
+<td><p>xafs_roll</p></td>
+<td><p>xafs roll stage</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:Roll}Mtr</p></td>
+<td><p>xafs_pitch</p></td>
+<td><p>xafs pitch stage</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Ref}Mtr</p></td>
+<td><p>xafs_ref</p></td>
+<td><p>xafs reference wheel</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:Mtr8}Mtr</p></td>
+<td><p>xafs_garot</p></td>
+<td><p>glancing rotation</p></td>
+<td><p>MC08 (RGC1)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="xafs-stages-on-mc07">
+<h4><span class="section-number">E.18.11.2. </span>XAFS stages on MC07<a class="headerlink" href="#xafs-stages-on-mc07" title="Permalink to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_RefX}Mtr</p></td>
+<td><p>xafs_refx</p></td>
+<td><p>xafs reference x</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_RotB}Mtr</p></td>
+<td><p>xafs_wheel</p></td>
+<td><p>xafs wheel stage</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{XAFS-Ax:Tbl_RotS}Mtr</p></td>
+<td><p>xafs_rots</p></td>
+<td><p>xafs small rot stage</p></td>
+<td><p>MC07 (RGC1)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="xafs-stages-on-mc09">
+<h4><span class="section-number">E.18.11.3. </span>XAFS stages on MC09<a class="headerlink" href="#xafs-stages-on-mc09" title="Permalink to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BMA-BI{MC:09-Ax:1}Mtr</p></td>
+<td><p>xafs_dety</p></td>
+<td><p>xafs detector stage y</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{MC:09-Ax:2}Mtr</p></td>
+<td><p>xafs_detz</p></td>
+<td><p>xafs detector stage z</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{MC:09-Ax:3}Mtr</p></td>
+<td><p>xafs_spare</p></td>
+<td><p>spare xafs stage</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{MC:09-Ax:4}Mtr</p></td>
+<td><p>xafs_bsx</p></td>
+<td><p>beam stop stage y</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{MC:09-Ax:5}Mtr</p></td>
+<td><p>xafs_bsy</p></td>
+<td><p>beam stop stage y</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BMA-BI{MC:09-Ax:6}Mtr</p></td>
+<td><p>xafs_x</p></td>
+<td><p>xafs sample stage x</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-BI{MC:09-Ax:7}Mtr</p></td>
+<td><p>xafs_y</p></td>
+<td><p>xafs sample stage y</p></td>
+<td><p>MC09 (RGC1)</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="gonimeter-circles">
+<h3><span class="section-number">E.18.12. </span>Gonimeter circles<a class="headerlink" href="#gonimeter-circles" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:VTTH}Mtr</p></td>
+<td><p>6bm:sixc_vtth</p></td>
+<td><p>Vertical two theta</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:VTH}Mtr</p></td>
+<td><p>6bm:sixc_vth</p></td>
+<td><p>Vertical theta</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:CHI}Mtr</p></td>
+<td><p>6bm:sixc_chi</p></td>
+<td><p>Chi</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:PHI}Mtr</p></td>
+<td><p>6bm:sixc_phi</p></td>
+<td><p>Phi</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:HTH}Mtr</p></td>
+<td><p>6bm:sixc_hth</p></td>
+<td><p>Horizontal theta</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:HTTH}Mtr</p></td>
+<td><p>6bm:sixc_htth</p></td>
+<td><p>Horizontal two theta</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:ANAL}Mtr</p></td>
+<td><p>6bm:sixc_anal</p></td>
+<td><p>Analyzer</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:DET}Mtr</p></td>
+<td><p>6bm:sixc_det</p></td>
+<td><p>Detector</p></td>
+<td><p>MC11 (RGC2)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="goniometer-motors">
+<h3><span class="section-number">E.18.13. </span>Goniometer motors<a class="headerlink" href="#goniometer-motors" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:DETHOR}Mtr</p></td>
+<td><p>6bm:sixc_det_h</p></td>
+<td><p>det horiz</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:WHEEL1}Mtr</p></td>
+<td><p>6bm:sixc_wh1</p></td>
+<td><p>wheel 1</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:WHEEL2}Mtr</p></td>
+<td><p>6bm:sixc_wh2</p></td>
+<td><p>wheel 2</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:SAMX}Mtr</p></td>
+<td><p>6bm:sixc_samx</p></td>
+<td><p>sample X</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:SAMY}Mtr</p></td>
+<td><p>6bm:sixc_samy</p></td>
+<td><p>sample Y</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:SAMZ}Mtr</p></td>
+<td><p>6bm:sixc_samz</p></td>
+<td><p>sample Z</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:Tbl_YD}Mtr</p></td>
+<td><p>6bm:sixc_tyd</p></td>
+<td><p>table Y ds</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:Tbl_YUI}Mtr</p></td>
+<td><p>6bm:sixc_tyui</p></td>
+<td><p>table Y us ib</p></td>
+<td><p>MC12 (RGC2)</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:…}Mtr</p></td>
+<td></td>
+<td><p>detector …</p></td>
+<td><p>MC14 (RGC2)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:…}Mtr</p></td>
+<td></td>
+<td><p>detector …</p></td>
+<td><p>MC14 (RGC2)</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="goniometer-table">
+<h3><span class="section-number">E.18.14. </span>Goniometer table<a class="headerlink" href="#goniometer-table" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:Tbl_YUO}Mtr</p></td>
+<td><p>6bm:sixc_tyuo</p></td>
+<td><p>table Y us ob</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:Tbl_XU}Mtr</p></td>
+<td><p>6bm:sixc_txu</p></td>
+<td><p>table X us</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:Tbl_XD}Mtr</p></td>
+<td><p>6bm:sixc_txd</p></td>
+<td><p>table X ds</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:Tbl_Z}Mtr</p></td>
+<td><p>6bm:sixc_tz</p></td>
+<td><p>table Z</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:Slt1_T}Mtr</p></td>
+<td><p>6bm:sixc_slt1_t</p></td>
+<td><p>top slit</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:Slt1_B}Mtr</p></td>
+<td><p>6bm:sixc_slt1_b</p></td>
+<td><p>bottom slit</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BM-ES{SixC-Ax:Slt1_I}Mtr</p></td>
+<td><p>6bm:sixc_slt1_i</p></td>
+<td><p>inboard slit</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-ES{SixC-Ax:Slt1_O}Mtr</p></td>
+<td><p>6bm:sixc_slt1_o</p></td>
+<td><p>outboard slit</p></td>
+<td><p>MC13 (RGC2)</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="shutters-and-screen">
+<h3><span class="section-number">E.18.15. </span>Shutters and screen<a class="headerlink" href="#shutters-and-screen" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XF:06BM-PPS{Sh:FE}Pos-Sts</p></td>
+<td></td>
+<td><p>front end shutter</p></td>
+<td><p>PPS</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>XF:06BM-PPS{Sh:A}Pos-Sts</p></td>
+<td></td>
+<td><p>A hutch shutter</p></td>
+<td><p>PPS</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>XF:06BMA-OP{FS:1}Pos-Sts</p></td>
+<td></td>
+<td><p>fluorescent screen</p></td>
+<td><p>EPS</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="front-end-slits">
+<h3><span class="section-number">E.18.16. </span>Front-end slits<a class="headerlink" href="#front-end-slits" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PV</p></th>
+<th class="head"><p>alias</p></th>
+<th class="head"><p>Motor Description</p></th>
+<th class="head"><p>controller</p></th>
+<th class="head"><p>motor number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:12-Ax:X}size</p></td>
+<td></td>
+<td><p>horizontal size</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td><p>virtual</p></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:12-Ax:X}center</p></td>
+<td></td>
+<td><p>horizontal center</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td><p>virtual</p></td>
+</tr>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:12-Ax:Y}size</p></td>
+<td></td>
+<td><p>vertical size</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td><p>virtual</p></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:12-Ax:Y}center</p></td>
+<td></td>
+<td><p>vertical center</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td><p>virtual</p></td>
+</tr>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:1-Ax:Hrz}Mtr</p></td>
+<td></td>
+<td><p>Slit 1 horizontal</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:1-Ax:Inc}Mtr</p></td>
+<td></td>
+<td><p>Slit 1 incline</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:1-Ax:O}Mtr</p></td>
+<td></td>
+<td><p>Slit 1 X outboard</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:1-Ax:T}Mtr</p></td>
+<td></td>
+<td><p>Slit 1 Y top</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:2-Ax:Hrz}Mtr</p></td>
+<td></td>
+<td><p>Slit 2 horizontal</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:2-Ax:Inc}Mtr</p></td>
+<td></td>
+<td><p>Slit 2 incline</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FE:C06B-OP{Slt:2-Ax:I}Mtr</p></td>
+<td></td>
+<td><p>Slit 2 X inboard</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FE:C06B-OP{Slt:2-Ax:B}Mtr</p></td>
+<td></td>
+<td><p>Slit 2 Y bottom</p></td>
+<td><p>geobrick (mezzanine)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="network-configuration">
+<h2><span class="section-number">E.19. </span>Network configuration<a class="headerlink" href="#network-configuration" title="Permalink to this heading">#</a></h2>
+<p>When introducing a new device to the beamline network:</p>
+<ul class="simple">
+<li><p>Open a Jira ticket to request a new IP address and device name for
+DNS.  As an example, a new Moxa terminal server was introduced.  In
+the Jira ticket, we requested an IP address of 10.68.42.83 and a DNS
+entry of <code class="docutils literal notranslate"><span class="pre">xf06bm-tsrv13</span></code> (full name:
+<code class="docutils literal notranslate"><span class="pre">xf06bm-tsrv13.nsls2.bnl.local</span></code>).</p></li>
+<li><p>In the case of a device that one in s series of similar devices, be
+sure that the name matches the similar devices and that the number
+is incremented.  In the case of the new Moxa server, there are 12
+others at the beamline.  The numbers were incremented correctly for
+both the name and the IP address</p></li>
+<li><p>Identify a port on one of the servers that is available and
+configured for the correct network.  The networks are:</p>
+<ul>
+<li><p><strong>SCI</strong> (650): 10.68.40.xxx</p></li>
+<li><p><strong>CAM</strong> (651): 10.68.41.xxx</p></li>
+<li><p><strong>INST</strong> (652): 10.68.42.xxx</p></li>
+<li><p><strong>EPICS</strong> (653): 10.68.43.xxx</p></li>
+</ul>
+</li>
+</ul>
+<p>When configuring an individual device, here are the network configurations:</p>
+<ul class="simple">
+<li><p>The gateway address on each network is <code class="docutils literal notranslate"><span class="pre">xz.yy.zz.2</span></code>.  For example,
+the gateway on the SCI network is 10.68.40.2.</p></li>
+</ul>
+<ul class="simple">
+<li><p>The netmask is <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>There are two DNS servers:</p>
+<ul>
+<li><p>DNS1: 10.65.2.25</p></li>
+<li><p>DNS2: 10.65.2.26</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pilatus-100k">
+<span id="pilatus"></span><h2><span class="section-number">E.20. </span>Pilatus 100K<a class="headerlink" href="#pilatus-100k" title="Permalink to this heading">#</a></h2>
+<p>The Pilatus camserver is running on <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>, which
+is in the rack on wheels in the hutch.  <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code> is
+<code class="docutils literal notranslate"><span class="pre">10.68.41.29</span></code> and must be on the CAM network.  The network cable
+should be plugged into the port on the left on the back of the server
+in the rack.</p>
+<p>The IOC for the pilatus is running on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code>.  Note that this
+is the only IOC running on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code>.</p>
+<section id="starting-the-system">
+<h3><span class="section-number">E.20.1. </span>Starting the system<a class="headerlink" href="#starting-the-system" title="Permalink to this heading">#</a></h3>
+<p>After logging in as the <code class="docutils literal notranslate"><span class="pre">det</span></code> user:</p>
+<ul class="simple">
+<li><p>Start the NFS server on <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>.  This can be
+done with the YAST GUI or by <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/etc/init.d/nfsserver</span> <span class="pre">restart</span></code></p></li>
+<li><p>Start the NTP server on <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>.  This can be
+done with the YAST GUI or by <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/etc/init.d/ntp</span> <span class="pre">restart</span></code></p></li>
+<li><p>Make sure that <code class="docutils literal notranslate"><span class="pre">/disk2</span></code> on <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code> is mounted
+by <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code> at <code class="docutils literal notranslate"><span class="pre">/disk2</span></code> on that machine.  That mount should
+happen at boot and be available as long as the Pilatus server is on
+the network.</p></li>
+<li><p>Turn on the detector by clicking the switch on the back.</p></li>
+<li><p>Start the camserver on <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>.  This is done in
+a terminal by <code class="docutils literal notranslate"><span class="pre">start-camserver</span></code> in the <code class="docutils literal notranslate"><span class="pre">det</span></code> home directory.</p></li>
+<li><p>Start (or restart) the IOC on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code> by clicking the
+<span class="key">Reboot</span> button on the Pilatus screen or by doing <code class="docutils literal notranslate"><span class="pre">dzdo</span>
+<span class="pre">manage-iocs</span> <span class="pre">restart</span> <span class="pre">Pilatus100K</span></code> at the command line.</p></li>
+</ul>
+</section>
+<section id="overview-of-file-saving">
+<h3><span class="section-number">E.20.2. </span>Overview of file saving<a class="headerlink" href="#overview-of-file-saving" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The camserver writes tiff files to <code class="docutils literal notranslate"><span class="pre">/disk2</span></code> on
+<code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>.</p></li>
+<li><p>That folder is NFS mounted on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code> as <code class="docutils literal notranslate"><span class="pre">/disk2</span></code>.</p></li>
+<li><p>The tiff and hdf5 AD plugins read individual images from that
+location and write tiff or hdf5 files to proposal directories.</p></li>
+<li><p>In <span class="bolditalic">bsui</span>, there are <code class="docutils literal notranslate"><span class="pre">pilatus</span></code> and <code class="docutils literal notranslate"><span class="pre">pilatus_tiff</span></code> objects.  We
+normally use <code class="docutils literal notranslate"><span class="pre">pilatus</span></code>, which writes images to HDF5 files.  The
+<code class="docutils literal notranslate"><span class="pre">pilatus_tiff</span></code> object is helpful for testing tiff file writing,
+which is used by IBM.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A commonly observed problem with the Pilatus is related
+to the use of NFS to move images between the camserver
+and the IOC server.  The NFS connection requires that the
+time stamp on the image file not be more than 10 seconds
+out of date.  Without a running NTP server on
+<code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>, the clock on that machine
+will eventually fall more than 10 seconds behind the
+clock on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code>.  This will manifest as
+befuddling problems when trying to interact with the
+detector — count times in <span class="bolditalic">bsui</span> will be very long, the
+image will not update on the CSS screen, the PVA and HDF5
+plugins will report 0x0 image sizes, etc.  The solution
+is to ssh to <code class="docutils literal notranslate"><span class="pre">xf06bm-pilatus100k-651</span></code>, restart the NTP
+server using the command above, and verify the clock time
+against another computer.  After that, restart the IOC,
+then restart <span class="bolditalic">bsui</span> by doing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ipython/profile_collection
+pixi<span class="w"> </span>run<span class="w"> </span>start
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a cron job running on <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code> which deletes
+any tiff files in <code class="docutils literal notranslate"><span class="pre">/disk2</span></code> that are over an hour old.
+The benefit is that this keeps <code class="docutils literal notranslate"><span class="pre">/disk2</span></code> from filling up.
+The risk is that the HDF5 plugin for the Pilatus IOC must be
+working correctly for data to be preserved properly.</p>
+</div>
+</section>
+<section id="configuring-the-pilatus-and-tiff-ad-plugins">
+<h3><span class="section-number">E.20.3. </span>Configuring the pilatus and tiff AD plugins<a class="headerlink" href="#configuring-the-pilatus-and-tiff-ad-plugins" title="Permalink to this heading">#</a></h3>
+<p>In CSS, configure the pilatus plugin parameters highlighted in yellow.
+Note that in Bluesky all of this is handled automagically by the ophyd
+object.</p>
+<p>The file path <strong>must</strong> be set to <code class="docutils literal notranslate"><span class="pre">/disk2</span></code>.</p>
+<p>The file name needs to be something, but is unimportant.  TThese
+images will be copied by the IOC to the proposal folder or written by
+the IOC to an HDF5 file in the proposal folder.</p>
+<p>Make sure the auto increment is set to Yes and that the filename
+format is identical to the format used on the tiff plugin screen.
+<code class="docutils literal notranslate"><span class="pre">%s%s_%3.3d.tiff</span></code> is a good choice.</p>
+<figure class="align-center" id="id10">
+<span id="fig-pilatus-plugin"></span><a class="reference external image-reference" href="_images/pilatus_plugin.png"><img alt="_images/pilatus_plugin.png" src="_images/pilatus_plugin.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.8 </span><span class="caption-text">Pilatus plugin configuration screen</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>On the tiff plugin configuration screen – which is needed for the
+<code class="docutils literal notranslate"><span class="pre">pilatus_tiff</span></code> object but not for the <code class="docutils literal notranslate"><span class="pre">pilatus</span></code> object using the
+HDF5 plugin – several of the parameters must be set for any
+measurement.</p>
+<p>The file path must be a location in the user’s proposal folder on
+shared storage.  Thus, the path must be something like</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/nsls2/data/bmm/proposals/2025-1/pass-123456/assets/pilatus100k-1
+</pre></div>
+</div>
+<p>where you would replace the cycle number (<code class="docutils literal notranslate"><span class="pre">2025-1</span></code> in this example)
+with the current cycle number and the proposal number (<code class="docutils literal notranslate"><span class="pre">123456</span></code> in
+this example) with the user’s proposal number.</p>
+<p>The IOC is only capable of writing to a location in the <code class="docutils literal notranslate"><span class="pre">assets</span></code>
+folder.  By good practice, it will write to the folder under
+<code class="docutils literal notranslate"><span class="pre">assets</span></code> created for it.  In the case of our Pilatus 100K, that
+would be <code class="docutils literal notranslate"><span class="pre">pilatus100k-1</span></code>.</p>
+<p>The filename format <strong>must</strong> be the same as on the pilatus plugin
+screen.  <code class="docutils literal notranslate"><span class="pre">%s%s_%3.3d.tiff</span></code> is a good choice.</p>
+<p>The write mode <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">stream</span></code> and auto save <strong>must</strong> be
+<code class="docutils literal notranslate"><span class="pre">yes</span></code>.</p>
+<p>Much of this is handled in Bluesky by the ophyd object.</p>
+<figure class="align-center" id="id11">
+<span id="fig-tiff-plugin"></span><a class="reference external image-reference" href="_images/tiff_plugin.png"><img alt="_images/tiff_plugin.png" src="_images/tiff_plugin.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.9 </span><span class="caption-text">Tiff plugin configuration screen</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setting-rois">
+<h3><span class="section-number">E.20.4. </span>Setting ROIs<a class="headerlink" href="#setting-rois" title="Permalink to this heading">#</a></h3>
+<p>To set and use ROIs, the ROI and Stats plugins must be enabled in the
+IOC.  This can be done on the appropriate CSS screen, but all
+necessary plugins should become enabled when <span class="bolditalic">bsui</span> starts and the
+pilatus object is instantiated.</p>
+<figure class="align-center" id="id12">
+<span id="fig-roi1"></span><a class="reference external image-reference" href="_images/pilatus_rois_1.png"><img alt="_images/pilatus_rois_1.png" src="_images/pilatus_rois_1.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.10 </span><span class="caption-text">Initial configuration of the ROIs.  In this example, ROIs 1 and 2
+are being set to a subsection of the full image.</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To interact with the ROIs, their visualization must be enabled by
+clicking the corresponding buttons near the bottom of the CSS screen,
+as shown in the figure below.  With those buttons clicked, the ROIs
+will be outlined on the image.</p>
+<figure class="align-center" id="id13">
+<span id="fig-roi2"></span><a class="reference external image-reference" href="_images/pilatus_rois_2.png"><img alt="_images/pilatus_rois_2.png" src="_images/pilatus_rois_2.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.11 </span><span class="caption-text">ROIs are displayed on top of the Pilatus image on the CSS screen.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can then click on the outline in the image to move or resize the ROI.</p>
+</section>
+<section id="measurements-with-the-pilatus-in-bluesky">
+<h3><span class="section-number">E.20.5. </span>Measurements with the Pilatus in bluesky<a class="headerlink" href="#measurements-with-the-pilatus-in-bluesky" title="Permalink to this heading">#</a></h3>
+<p>In <span class="bolditalic">bsui</span>, the total-counts statistic (from the STATS plugin) for ROI2
+is called <code class="docutils literal notranslate"><span class="pre">diffuse</span></code> and is hinted.  This means that the total count
+rate in the ROI will be recorded as a scalar in Tiled and that the
+count rate will be reported in the best effort callback table printed
+to the screen during the scan.</p>
+<p>Similarly, the total count rate in ROI3 is called <code class="docutils literal notranslate"><span class="pre">specular</span></code> and is
+hinted.</p>
+<p>Those names are chosen as mnemonics for obvious parts of the
+scattering signal.</p>
+<p>The header of the output XAFS scan file contains a metadata line
+identifying the location of the HDF5 file containing the Pilatus image
+stack for the scan.</p>
+</section>
+<section id="moving-the-detector-between-end-stations">
+<h3><span class="section-number">E.20.6. </span>Moving the detector between end stations<a class="headerlink" href="#moving-the-detector-between-end-stations" title="Permalink to this heading">#</a></h3>
+<p>The Pilatus and its rack typically live in the downstream, outboard
+corner of the hutch, near the XRD end station.  For use on the XAS
+table, it is convenient to move the entire rack closer to the XAS table.</p>
+<p>You will need to power down the server, the rack-mount computer in the
+rack.  Then:</p>
+<ol class="arabic simple">
+<li><p>Unplug the power cables to the power strip</p></li>
+<li><p>Disconnect the network cable from the back of the server</p></li>
+<li><p>Valve off the GN2 supply at the wall, then disconnect the purple
+polyflow tube</p></li>
+<li><p>Remove the green grounding line from the back wall.</p></li>
+</ol>
+<p>Now the rack can be moved.</p>
+<p>There is a power outlet and an GN2 supply fixture on the back wall,
+near the end of the XAS table.  There is also a copper grounding strip
+near the floor that the green grounding cable can be clipped to.  Also
+in that area is a blue network cable with a label that says “Pilatus &#64;
+XAS”.  Plug that into the back of the server.</p>
+<p>At the downstream network patch panel, unplug the network cable used
+when the rack is in its m=normal location.  Search around for the
+other end of the “Pilatus &#64; XAS” cable and plu it into the patch
+panel.</p>
+<p>Open flow of GN2 to the detector.  Power up the server.  Make sure the
+power switch for the detector is on.</p>
+<p>Once you have logged into the server as the <code class="docutils literal notranslate"><span class="pre">det</span></code> user, open a
+terminal window and do <code class="docutils literal notranslate"><span class="pre">../start_camserver</span></code> to power up the
+detector.</p>
+<p>Make sure the time is correct on the Pilatus server</p>
+<p>On <code class="docutils literal notranslate"><span class="pre">xf06bm-ioc1</span></code>, restart the <code class="docutils literal notranslate"><span class="pre">Pilatus100K</span></code> IOC with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dzdo<span class="w"> </span>manage-iocs<span class="w"> </span>restart<span class="w"> </span>Pilatus100K
+</pre></div>
+</div>
+<p>You should be good to go.</p>
+</section>
+</section>
+<section id="provision-a-new-beamline-computer">
+<span id="provision"></span><h2><span class="section-number">E.21. </span>Provision a new beamline computer<a class="headerlink" href="#provision-a-new-beamline-computer" title="Permalink to this heading">#</a></h2>
+<p>This is a list of notes on how to finish the provisioning of a new
+beamline computer.</p>
+<p>Firstly, make sure that <code class="docutils literal notranslate"><span class="pre">/nsls2/data</span></code> is a symlink to
+<code class="docutils literal notranslate"><span class="pre">/nsls2/data3</span></code>.  If it is not, ask for help from DSSI.</p>
+<section id="install-additional-packages">
+<h3><span class="section-number">E.21.1. </span>install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>plasma-desktop (just … better)</p></li>
+<li><p>redis (essential for operation of <span class="bolditalic">bsui</span>)</p></li>
+<li><p>most (used as the pager in BMM’s <span class="bolditalic">bsui</span> profile)</p></li>
+<li><p>ag (powerful ack-like grep alternative)</p></li>
+<li><p>fswebcam (used to capture analog pinhole camera)</p></li>
+<li><p>demeter and perl-Graphics-GnuplotIF (something silly, no doubt)</p></li>
+<li><p>slack (communications)</p></li>
+<li><p>ark (compression, useful in file manager)</p></li>
+</ul>
+<p>To install these, do:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dzdo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>redis<span class="w"> </span>most<span class="w"> </span>ag<span class="w"> </span>fswebcam<span class="w"> </span>demeter<span class="w"> </span>perl-Graphics-GnuplotIF<span class="w"> </span>slack<span class="w"> </span>ark
+dzdo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>--skip-broken<span class="w"> </span>--nobest<span class="w"> </span>@kde-desktop
+</pre></div>
+</div>
+<p>The second command installs the KDE metapackage, skipping missing
+packages.</p>
+<p>To finish installing <code class="docutils literal notranslate"><span class="pre">sddm</span></code>, do</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dzdo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>gdm
+dzdo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>sddm
+</pre></div>
+</div>
+</section>
+<section id="desktop-wallpaper">
+<h3><span class="section-number">E.21.2. </span>Desktop wallpaper<a class="headerlink" href="#desktop-wallpaper" title="Permalink to this heading">#</a></h3>
+<p>This may not be provisioned correctly out of the box.  Find the
+beamline wallpapers in <code class="docutils literal notranslate"><span class="pre">/usr/share/nsls2/wallpapers/beamlines</span></code>.</p>
+<p>Right click on the desktop and select “Configure Desktop and
+Wallpaper”.  Click on “Add Image” and navigate to the folder above.</p>
+</section>
+<section id="things-to-install-from-git">
+<h3><span class="section-number">E.21.3. </span>Things to install from git<a class="headerlink" href="#things-to-install-from-git" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>BMM stuff: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:NSLS-II-BMM/BMM-beamline-configuration.git</span></code>
++ then, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bin</span></code> and <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">~/git/BMM-beamline-configuration/tools/run-cadashboard</span></code></p></li>
+<li><p>BMM user manual: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:NSLS2/bmm-beamline-manual.git</span></code></p></li>
+<li><p>BMM standards: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:NSLS2/bmm-standards.git</span></code></p></li>
+<li><p>Switch visualization: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:NSLS-II-BMM/switch-pretty-printer.git</span></code></p></li>
+</ul>
+<p>Also do <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/bin</span></code> and <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">~/.ipython/profile_collection/startup/consumer/run-consumer</span></code></p>
+</section>
+<section id="workspace-folders">
+<h3><span class="section-number">E.21.4. </span>Workspace folders<a class="headerlink" href="#workspace-folders" title="Permalink to this heading">#</a></h3>
+<p>Make the local data collection folders.  The
+<a class="reference internal" href="manage.html#start-end"><span class="std std-numref">BMMuser.begin_experiment() command (Section 13.1)</span></a>
+will make symlinks under those folders to the correct place on central
+storage.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir ~/Workspace
+mkdir ~/Workspace/Visitors
+mkdir ~/Workspace/Staff
+</pre></div>
+</div>
+</section>
+</section>
+<section id="shelving-units-and-cabinets">
+<span id="rack-cabinets"></span><h2><span class="section-number">E.22. </span>Shelving Units and Cabinets<a class="headerlink" href="#shelving-units-and-cabinets" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage unit</p></th>
+<th class="head"><p>Short</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shelf 1</p></td>
+<td><p>S-1</p></td>
+<td><p>Outside hutch – this n that</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shelf 2</p></td>
+<td><p>S-2</p></td>
+<td><p>Outside hutch – BioLogic, Linkam, cat6 cables</p></td>
+</tr>
+<tr class="row-even"><td><p>Shelf 3</p></td>
+<td><p>S-3</p></td>
+<td><p>Inside hutch – experiment supplies</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabinet 1</p></td>
+<td><p>C-1</p></td>
+<td><p>IBM storage</p></td>
+</tr>
+<tr class="row-even"><td><p>Cabinet 2</p></td>
+<td><p>C-2</p></td>
+<td><p>IBM storage</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabinet 3</p></td>
+<td><p>C-3</p></td>
+<td><p>IBM storage</p></td>
+</tr>
+<tr class="row-even"><td><p>Cabinet 4</p></td>
+<td><p>C-4</p></td>
+<td><p>Cryostat parts, mono &amp; mirror parts, yield detector</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabinet 5</p></td>
+<td><p>C-5</p></td>
+<td><p>Samples, old stuff</p></td>
+</tr>
+<tr class="row-even"><td><p>Cabinet 6</p></td>
+<td><p>C-6</p></td>
+<td><p>Old instruments, Poly-Flo tubing, misc. cables</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cabinet 7</p></td>
+<td><p>C-7</p></td>
+<td><p>IBM storage</p></td>
+</tr>
+<tr class="row-even"><td><p>Cabinet 8</p></td>
+<td><p>C-8</p></td>
+<td><p>Books, games, office supplies, USB &amp; video cables</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-center" id="id14">
+<span id="fig-racks-and-cabinets"></span><a class="reference external image-reference" href="_images/racks_cabinets.png"><img alt="_images/racks_cabinets.png" src="_images/racks_cabinets.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.12 </span><span class="caption-text">Shelf and cabinet locations</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setting-the-table-height">
+<span id="table-height"></span><h2><span class="section-number">E.23. </span>Setting the table height<a class="headerlink" href="#setting-the-table-height" title="Permalink to this heading">#</a></h2>
+<p>This section outlines how the table height settings in the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/lookup_table/Modes.xlsx">Modes
+lookup table</a>
+were found.</p>
+<p>For starters, the positions of <code class="docutils literal notranslate"><span class="pre">dm3_bct</span></code> in each of the modes were
+established.  This was done at 300 eV above the Pt L3 edge for modes
+A, D, and E; the Fe K edge for mode C, and the Cr K edge for mode F.</p>
+<p>Armed with set <code class="docutils literal notranslate"><span class="pre">dm3_bct</span></code> positions, the setup shown in
+<a class="reference internal" href="#fig-tableheightmeasurement"><span class="std std-numref">Figure E.13</span></a> was used to find the
+positions of the XAFS table jacks.</p>
+<figure class="align-center" id="id15">
+<span id="fig-tableheightmeasurement"></span><a class="reference external image-reference" href="_images/slits_table_height.jpg"><img alt="_images/slits_table_height.jpg" src="_images/slits_table_height.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. E.13 </span><span class="caption-text">Table height measurement.</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The I<sub>r</sub> detector is moved downstream of the two downstream
+jacks on the XAFS table.  The I<sub>t</sub> detector is moved downstream
+slightly to the other side of the upstream jack.</p>
+<p>The manual slit assembly is mounted such that the opening is about 1/4
+mm tall and centered in its housing.  The height of the slit opening
+is carefully set to be at the same height as the centers of all the
+ion chambers.</p>
+<p>With the slits in front of I<sub>t</sub>, do a scan of the <code class="docutils literal notranslate"><span class="pre">xafs_yu</span></code>
+motor looking at the signal on I<sub>t</sub>.  Move to the peak of this
+scan.</p>
+<p>With the slits in front of the I<sub>r</sub> detector, adjust
+<code class="docutils literal notranslate"><span class="pre">xafs_ydo</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_ydi</span></code> in unison to optimize the signal on I<sub>r</sub>.</p>
+<p>Move the slits back to the first position and verify that the
+<code class="docutils literal notranslate"><span class="pre">xafs_yu</span></code> position still maximized the signal.</p>
+<p>Record these positions in the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/lookup_table/Modes.xlsx">Modes lookup table</a>.</p>
+<p>For the lower energy edges, insert the flight path borrowed from the
+XRD end station in between I<sub>t</sub>  and I<sub>r</sub>.  Run He
+through to reduce the attenuation of the beam at lower energies.</p>
+</section>
+<section id="xafs-table-holding-current">
+<span id="holding-current"></span><h2><span class="section-number">E.24. </span>XAFS table holding current<a class="headerlink" href="#xafs-table-holding-current" title="Permalink to this heading">#</a></h2>
+<p>The controller axes for the vertical motion of the XAFS table were
+originally configured  without a holding current.  Over time, we
+noticed that the XAFS table would lose its position by a couple
+millimeters over the course of months.  In an effort to combat this
+drift, a holding current was applied to those three axes in
+January 2025.</p>
+<p>The three vertical table axes are channels 1, 2, and 3 on MC07, which
+is a Geobrick Power PMAC.</p>
+<p>This turned out to be a little complicated.  It turns out that the
+holding current is controlled by PLC7 in the Geobrick Power PMAC
+controllers.  That PLC uses several P-variables on the controller, as
+explained in <a class="reference external" href="https://code.nsls2.bnl.gov/xf/06bm/iocs/xf06bm-ioc/mc07/-/blob/master/tpmacApp/pmc/xf06bma-mc07-plc07-power-down.pmc">the comment block at the top of the PLC code</a>.
+(Note: that link requires logging onto the BNL VPN.)</p>
+<p>Here is the text of that comment:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>; Note1: Geobrick controllers when killed effectively short the motor cables together providing an
+; brake due to back EMF when the motor is rotated. Most axis can be safely killed without losing
+; position, this is certainly the case for most lead screw drives (ball screws may require a
+; holding current).
+;
+; Note2: When using this PLC make sure the standard kill PLC (usually PLC7, sometimes PLC3) is removed from the geobrick.
+;
+; Settings:
+; P701-P708
+;   Define timeout period in milliseconds after which the axis will be powered
+;   down provided it has been idle for the whole period (note clock resolution below).
+;   Set to zero to leave the amp powered continously.
+;   Set to one for (almost) immediate power down on motor stop.
+;   Set to number of milliseconds for delayed power down after motor stops.
+;   Typically this should be set to a few seconds.
+; P733-740
+;   Drive current &amp; percentage for each axis.
+;   Set to zero for axis that are to be killed or if controller is not a geobrick (i.e. does not support Ixx77 amp current).
+;   For axis requiring a reduced holding current this contains &#39; normal_drive_current * 100 + power_down_percentage &#39;
+;   Note the drive current is defined in milliamps.
+;   e.g. For motor axis 1 with 2000 milliamp drive current and 33% holding
+;   current define P733 as 200033
+</pre></div>
+</div>
+<p>OK!  So how do we make all that happen?  Firing up PEWIN on the
+Windows laptop connected to MC07, open the windows for viewing the
+I-variables and the P-variables.</p>
+<p>All the relevant parameters were set in PEWIN as shown in the figures
+below.  MC07 was then power cycled.  After power cycling, those three
+axes have a good strong holding current in place.</p>
+<p>A holding current of 30% of drive current was selected because the
+table is rather heavy.  Jakub Wlodek’s suggestion was “I usually go
+with 10% unless it is lifting something heavy”.</p>
+<figure class="sphinx-subfigure align-default" id="fig-holding-current">
+<div class="sphinx-subfigure-grid ss-layout-default-ABC ss-layout-sm-ABC outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/timeout.png" src="_images/timeout.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/holding_current.png" src="_images/holding_current.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/drive_current.png" src="_images/drive_current.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. E.14 </span><span class="caption-text">(Left) The P-variables window showing parameters P701-708.  The
+values P701, P702, and P703 are for axes 1, 2, and 3.  The value of
+5000 – disable amplifier 5000 ms after a move – are changed
+to the value of 0, thus leaving the amplifiers enabled.  (Middle)
+The P-variables window showing parameters P733-740.  The values
+P733, P734, and P735 are for axes 1, 2, and 3.  These are set to
+supply a holding current of 30% of the drive current using the
+specified formula.  (Right) The I-variables window showing the
+relevant parameter for axis 1.  The I177 parameters is set to 1800
+mA, as are I277 and I377.  This value was used to compute the value
+of the P733 - 735 parameters.</span><a class="headerlink" href="#fig-holding-current" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To effect this change in the holding current, it seems you have to
+press the “Upload To Editor” button at the top of the P-variables
+window.  In truth, I am not 100% sure about that step, but it seems
+as though the changes to the P-variables and the subsequent changes
+to the PLC do not take effect without that step.</p>
+<p>Maybe this could be revisited by someone with more knowledge of how
+PEWIN and the Power PMAC actually work…</p>
+</div>
+</section>
+<section id="vortex-pressure">
+<h2><span class="section-number">E.25. </span>Vortex pressure<a class="headerlink" href="#vortex-pressure" title="Permalink to this heading">#</a></h2>
+<p>Using a probe to measure the voltage on the IP port of the Vortex ME4.
+This reading will tell you the internal pressure according to the
+table in the snapshot below.</p>
+<figure class="align-center" id="fig-votexpressure">
+<a class="reference external image-reference" href="_images/Vortex_pressure.jpeg"><img alt="_images/Vortex_pressure.jpeg" src="_images/Vortex_pressure.jpeg" style="width: 40%;" /></a>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>IP reading (Voltage)</p></th>
+<th class="head"><p>Pressure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-0.01</p></td>
+<td><p>5E-9</p></td>
+</tr>
+<tr class="row-odd"><td><p>-0.1</p></td>
+<td><p>5E-8</p></td>
+</tr>
+<tr class="row-even"><td><p>-1</p></td>
+<td><p>5E-7</p></td>
+</tr>
+<tr class="row-odd"><td><p>-10</p></td>
+<td><p>5E-6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that the voltages are positive on the 7-element and negative on
+the 4-element.</p>
+<p>Temperature reading on the 4-element should be 1.5 V when the TEC is
+at proper temperature.  Temperature should be 0.6 V on the 7-element
+detector.</p>
+<p><a class="reference external" href="https://www.aps.anl.gov/files/download/DET/Detector-Pool/Spectroscopic-Detectors/Vortex_SDD/Vortex_ME4/Vtx-ME4%20Multi-El%20User%20Manual%20Rev.4.pdf">Vortex SDD manual</a>
+(link to copy at APS detector pool).</p>
+<p>There is a copy of the Vortex manual at BMM.  Look in
+<code class="docutils literal notranslate"><span class="pre">/nsls2/data3/bmm/legacy/products/ME7/</span></code>, the file is called
+<code class="docutils literal notranslate"><span class="pre">Vtx-Multi-El</span> <span class="pre">User</span> <span class="pre">Manual</span> <span class="pre">Rev</span> <span class="pre">15.0_Oct</span> <span class="pre">16,</span> <span class="pre">2023.pdf</span></code>.</p>
+</section>
+<section id="zoom-calls-in-the-hutch">
+<h2><span class="section-number">E.26. </span>Zoom calls in the hutch<a class="headerlink" href="#zoom-calls-in-the-hutch" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">xf06bm-ws5</span></code> (<code class="docutils literal notranslate"><span class="pre">10.68.40.225</span></code>) is the System 76 Meerkat mounted on
+the inboard wall of the end station behind the XAS table and just
+below the lower, right corner of the screen.  This machine is intended
+to allow the users in the hutch to join a Zoom chat from within the
+hutch.  This allows staff to provide user support from home.</p>
+<figure class="align-center" id="fig-ws5">
+<a class="reference external image-reference" href="_images/xf06bm-ws5.jpg"><img alt="_images/xf06bm-ws5.jpg" src="_images/xf06bm-ws5.jpg" style="width: 70%;" /></a>
+</figure>
+<p>There are a number of peripherals attached to <code class="docutils literal notranslate"><span class="pre">xf06bm-ws5</span></code>:</p>
+<ul class="simple">
+<li><p>A wireless mouse and keyboard clearly labeled as being for this
+computer. These are normally sitting near the end of the XAS table.</p></li>
+<li><p>A screen. This is the screen mounted in the back wall of
+the hutch using an articulated arm.</p></li>
+<li><p>A reasonably loud speaker.  This is the black ball-shaped item which
+usually sits underneath the I<sub>r</sub> chamber.  Could be louder…</p></li>
+<li><p>A good microphone. This is the Blue Yeti on a boom above the I<sub>r</sub> chamber.  It has good noise cancellation so the din from the
+XSpress3 should not effect voice quality.  It is, however, important
+that the speaker face the microphone when speaking.</p></li>
+<li><p>A decent camera. This is the Nexigo mounted on the inboard wall to
+the right of the screen.</p></li>
+</ul>
+<p>While these devices are all connected to <code class="docutils literal notranslate"><span class="pre">xf06bm-ws5</span></code> and powered
+on, there are no long running processes that connect to the camera or
+microphone. You are not being spied upon while in the hutch – unless
+you are on a Zoom call, in which case the Zoom session will be on
+screen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xf06bm-ws5</span></code> is available via Guacamole.  When needed for remote
+support, Bruce will initiate the Zoom call and have the hutch computer
+join in.</p>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ionchambers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Ion chamber signal chains</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reflectivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Reflectivity Set-Up</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-video-capture">E.1. Analog Video Capture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beamline-maintenance-tools">E.2. Beamline maintenance tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-controllers">E.2.1. Motor Controllers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moxa-configuration">E.2.2. MOXA Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#camera-configuration">E.2.3. Camera Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bnc-cable-map">E.3. BNC Cable Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controls-chores-unfinished">E.4. Controls chores, unfinished</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcm-1st-xtal-equilibration">E.5. DCM 1st Xtal Equilibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#di-water-flow">E.6. DI Water Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disabling-mcs8-axes-after-move">E.7. Disabling MCS8 axes after move</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-adam-young-at-fmbo">E.7.1. From Adam Young at FMBO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-follow-up-from-graeme-elliner-fmbo">E.7.2. A follow up from Graeme Elliner, FMBO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">E.7.3. Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3-cat6-patch-panel">E.8. DM3 CAT6 Patch Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3-bct">E.9. DM3_BCT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eiger2-si-4m">E.10. Eiger2 Si 4M</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder-loss-second-crystal-roll">E.11. Encoder loss second crystal roll</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inert-gas-plumbing">E.12. Inert Gas Plumbing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logitech-controller">E.13. Logitech controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m2-bender">E.14. M2 Bender</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc09-patch-panel">E.15. MC09 patch panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcs8-network-configuration">E.16. MCS8 network configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monochromator-notes">E.17. Monochromator notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bragg-axis-failure">E.17.1. Bragg axis failure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bragg-encoder">E.17.2. Bragg encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch-motor-cable">E.17.3. Pitch motor cable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">E.18. Motor controllers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collimating-mirror-m1">E.18.1. Collimating mirror, M1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-dm1">E.18.2. Filters, DM1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dcm">E.18.3. DCM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slits-2-dm2">E.18.4. Slits 2, DM2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dm2-fluorescence-screen">E.18.5. DM2 fluorescence screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focusing-mirror-m2">E.18.6. Focusing mirror, M2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-rejection-mirror-m3">E.18.7. Harmonic rejection mirror, M3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slits-3-dm3">E.18.8. Slits 3, DM3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dm3">E.18.9. DM3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-table">E.18.10. XAFS Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages">E.18.11. XAFS Stages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc08">E.18.11.1. XAFS stages on MC08</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc07">E.18.11.2. XAFS stages on MC07</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-stages-on-mc09">E.18.11.3. XAFS stages on MC09</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gonimeter-circles">E.18.12. Gonimeter circles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goniometer-motors">E.18.13. Goniometer motors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goniometer-table">E.18.14. Goniometer table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutters-and-screen">E.18.15. Shutters and screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#front-end-slits">E.18.16. Front-end slits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-configuration">E.19. Network configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pilatus-100k">E.20. Pilatus 100K</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-the-system">E.20.1. Starting the system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-file-saving">E.20.2. Overview of file saving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-pilatus-and-tiff-ad-plugins">E.20.3. Configuring the pilatus and tiff AD plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-rois">E.20.4. Setting ROIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-with-the-pilatus-in-bluesky">E.20.5. Measurements with the Pilatus in bluesky</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-the-detector-between-end-stations">E.20.6. Moving the detector between end stations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#provision-a-new-beamline-computer">E.21. Provision a new beamline computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-additional-packages">E.21.1. install additional packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desktop-wallpaper">E.21.2. Desktop wallpaper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-install-from-git">E.21.3. Things to install from git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace-folders">E.21.4. Workspace folders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shelving-units-and-cabinets">E.22. Shelving Units and Cabinets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-table-height">E.23. Setting the table height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xafs-table-holding-current">E.24. XAFS table holding current</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-pressure">E.25. Vortex pressure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zoom-calls-in-the-hutch">E.26. Zoom calls in the hutch</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,916 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>15. Command cheatsheet &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cheatsheet';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Troubleshooting" href="trouble.html" />
+    <link rel="prev" title="14. Common chores" href="commonchores.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fcheatsheet.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cheatsheet.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Command cheatsheet</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-essential-information">15.1. The most essential information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-common-commands">15.1.1. Most common commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-common-motors">15.1.2. Most common motors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-list-of-commands">15.2. Larger list of commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photon-delivery-system-modes">15.3. Photon delivery system modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slits3-coordinated-motions">15.4. Slits3 coordinated motions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-positions-and-limits">15.5. Motor positions and limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-scans">15.6. Line scans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-scans">15.7. Energy scans</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="command-cheatsheet">
+<span id="cheatsheet"></span><h1><span class="section-number">15. </span>Command cheatsheet<a class="headerlink" href="#command-cheatsheet" title="Permalink to this heading">#</a></h1>
+<p>This section provides a quick summary of the data acquisition commands
+discussed in the previous sections.</p>
+<div class="admonition-stopping-a-measurement admonition">
+<p class="admonition-title">Stopping a measurement</p>
+<p>To stop any command do <span class="key">Ctrl</span>-<span class="key">C</span> <span class="key">Ctrl</span>-<span class="key">C</span></p>
+<p>That is, hit <span class="key">Ctrl</span>-<span class="key">C</span> twice!</p>
+<p>This will <strong>pause</strong> the running command and return you to the command line.</p>
+<p>Do <code class="docutils literal notranslate"><span class="pre">RE.resume()</span></code> to continue the command from where it stopped.</p>
+<p>Do <code class="docutils literal notranslate"><span class="pre">RE.stop()</span></code> to fully stop the command.</p>
+</div>
+<section id="the-most-essential-information">
+<h2><span class="section-number">15.1. </span>The most essential information<a class="headerlink" href="#the-most-essential-information" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Parentheses – <code class="docutils literal notranslate"><span class="pre">()</span></code> – are an essential part of the
+syntax.  Same for <code class="docutils literal notranslate"><span class="pre">RE()</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code> when specified.</p>
+</div>
+<section id="most-common-commands">
+<h3><span class="section-number">15.1.1. </span>Most common commands<a class="headerlink" href="#most-common-commands" title="Permalink to this heading">#</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">shb.open()</span></code> / <code class="docutils literal notranslate"><span class="pre">shb.close()</span></code></dt><dd><p>Open / close the photon shutter ➡ <a class="reference internal" href="pds.html#shutters"><span class="std std-numref">Section 7.3</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(mv(dcm.energy,</span> <span class="pre">&lt;value&gt;))</span></code></dt><dd><p>Move TO an energy value ➡ <a class="reference internal" href="pds.html#dcm"><span class="std std-numref">Section 7.4</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(mv(xafs_y,</span> <span class="pre">&lt;value&gt;))</span></code></dt><dd><p>Move any named motor TO a position (<code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> is an example) ➡ <a class="reference internal" href="motors.html#sample-stages"><span class="std std-numref">Section 6.1</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(mvr(xafs_y,</span> <span class="pre">&lt;value&gt;))</span></code></dt><dd><p>Move any named motor BY an amount (<code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> is an example) ➡ <a class="reference internal" href="motors.html#sample-stages"><span class="std std-numref">Section 6.1</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(change_edge('Xx'))</span></code> / <code class="docutils literal notranslate"><span class="pre">RE(change_edge('Xx',</span> <span class="pre">focus=True))</span></code></dt><dd><p>setup beamline for an absorption edge, <code class="docutils literal notranslate"><span class="pre">Xx</span></code> = 1- or 2-letter symbol,
+e.g. <code class="docutils literal notranslate"><span class="pre">Cu</span></code> or <code class="docutils literal notranslate"><span class="pre">Y</span></code>.  ➡ <a class="reference internal" href="pds.html#change-edge"><span class="std std-numref">Section 7.2</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(slot(&lt;N&gt;))</span></code></dt><dd><p>Move sample wheel to slot #N (1 ≤ N ≤ 24) ➡ <a class="reference internal" href="motors.html#wheel"><span class="std std-numref">Section 6.3</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(xafs_wheel.outer())</span></code> / <code class="docutils literal notranslate"><span class="pre">RE(xafs_wheel.inner())</span></code></dt><dd><p>move the <em>ex situ</em> wheel sample holder to the outer/inner ring <a class="reference internal" href="motors.html#wheel"><span class="std std-numref">Section 6.3</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">%xrf</span></code></dt><dd><p>measure and display an XRF spectrum ➡ <a class="reference internal" href="other.html#xrf"><span class="std std-numref">Section 10.3</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(linescan(&lt;motor&gt;,</span> <span class="pre">&lt;detector&gt;,</span> <span class="pre">&lt;start&gt;,</span> <span class="pre">&lt;stop&gt;,</span> <span class="pre">&lt;N&gt;))</span></code></dt><dd><p>move a motor, plot a signal ➡ <a class="reference internal" href="linescans.html#linescan"><span class="std std-numref">Section 8</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(pluck())</span></code></dt><dd><p>Select a point from a plot on screen and move that motor to that position ➡ <a class="reference internal" href="linescans.html#pluck"><span class="std std-numref">Section 8.1.1</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">xlsx()</span></code></dt><dd><p>import a spreadsheet ➡ <a class="reference internal" href="automation.html#xlsx"><span class="std std-numref">Section 11.2</span></a></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">RE(xanes())</span></code></dt><dd><p>quick-n-dirty XANES scan at the current element and edge</p>
+</dd>
+</dl>
+</section>
+<section id="most-common-motors">
+<h3><span class="section-number">15.1.2. </span>Most common motors<a class="headerlink" href="#most-common-motors" title="Permalink to this heading">#</a></h3>
+<p>See <a class="reference internal" href="motors.html#sample-stages"><span class="std std-numref">Section 6.1</span></a> for the full list of
+<code class="docutils literal notranslate"><span class="pre">xafs_</span></code> motors.</p>
+<blockquote>
+<div><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>motor</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>units</p></th>
+<th class="head"><p>notes</p></th>
+<th class="head"><p>directions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_x</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>main sample stage</p></td>
+<td><p>+ outboard, - inboard</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_y</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>main sample stage</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>deg</p></td>
+<td><p>sample tilt stage</p></td>
+<td><p>+ face towards beam</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ away from sample, - closer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detz</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ upstream, - downstream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="larger-list-of-commands">
+<h2><span class="section-number">15.2. </span>Larger list of commands<a class="headerlink" href="#larger-list-of-commands" title="Permalink to this heading">#</a></h2>
+<p>Note that some command must be run through the run engine, other do
+not.  The use of <code class="docutils literal notranslate"><span class="pre">RE()</span></code> is called explicitly in <a class="reference internal" href="#command-list"><span class="std std-numref">Table 15.1</span></a>.  Any command that should be run through the run
+engine will complain with this hint:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BMM D.111 [48] &gt; mvr(xafs_x, 2)
+Out[48] &lt;generator object mvr 0x7fefafd1df50&gt;   Hint: enclose bsui commands in RE()
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="command-list">
+<caption><span class="caption-number">Table 15.1 </span><span class="caption-text">Main BlueSky commands used at BMM (don’t type the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> or
+        <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, those symbols indicate that the argument is numeric.)</span><a class="headerlink" href="#command-list" title="Permalink to this table">#</a></caption>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Shutter commands</strong> ➡ <a class="reference internal" href="pds.html#shutters"><span class="std std-numref">Section 7.3</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shb.open()</span></code> / <code class="docutils literal notranslate"><span class="pre">shb.close()</span></code></p></td>
+<td><p>Open / close the photon shutter</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Mono tuning commands</strong> ➡ <a class="reference internal" href="pds.html#dcm"><span class="std std-numref">Section 7.4</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(rocking_curve())</span></code></p></td>
+<td><p>Measure the 2nd crystal rocking curve</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tu()</span></code> / <code class="docutils literal notranslate"><span class="pre">td()</span></code></p></td>
+<td><p>Tune the mono 2nd crystal by hand</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TUNE_STEP=0.004</span></code></p></td>
+<td><p>Tuning step size – 0.004 is good for Si(111), 0.002 for Si(311)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Import an automation spreadsheet</strong> ➡ <a class="reference internal" href="automation.html#xlsx"><span class="std std-numref">Section 11.2</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xlsx()</span></code></p></td>
+<td><p>Select an existing spreadsheet from a list</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Mono movement commands</strong> ➡ <a class="reference internal" href="pds.html#dcm"><span class="std std-numref">Section 7.4</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(dcm.energy,</span> <span class="pre">&lt;value&gt;))</span></code></p></td>
+<td><p>Move TO an energy value</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(dcm.energy,</span> <span class="pre">&lt;e0value&gt;</span> <span class="pre">+</span> <span class="pre">50))</span></code></p></td>
+<td><p>Move 50 eV <strong>above</strong> the edge</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(dcm.energy,</span> <span class="pre">&lt;e0value&gt;</span> <span class="pre">-</span> <span class="pre">50))</span></code></p></td>
+<td><p>Move 50 eV <strong>below</strong> the edge</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mvr(dcm.energy,</span> <span class="pre">&lt;value&gt;))</span></code></p></td>
+<td><p>Move BY an energy step</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>Motor movement commands</strong> ➡ <a class="reference internal" href="motors.html#sample-stages"><span class="std std-numref">Section 6.1</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(xafs_y,</span> <span class="pre">&lt;value&gt;))</span></code></p></td>
+<td><p>Move any named motor TO a position (<code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> is an example)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mvr(xafs_y,</span> <span class="pre">&lt;value&gt;))</span></code></p></td>
+<td><p>Move any named motor BY an amount (<code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> is an example)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Where are things?</strong> ➡ <a class="reference internal" href="motors.html#sample-stages"><span class="std std-numref">Section 6.1</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">dcm</span></code></p></td>
+<td><p>where’s the mono?</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">slits3</span></code></p></td>
+<td><p>where are the slits?</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">m2</span></code></p></td>
+<td><p>where’s mirror 2?  (toroidal focusing mirror)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">m3</span></code></p></td>
+<td><p>where’s mirror 3?  (flat, harmonic rejection mirror)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">xafs_table</span></code></p></td>
+<td><p>where’s the XAFS table?</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Change edge and mono crystal</strong> ➡ <a class="reference internal" href="manage.html#manage"><span class="std std-numref">Section 13</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(change_edge('Xx'))</span></code></p></td>
+<td><p>setup beamline for an absorption edge, 1- or 2-letter symbol</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(change_xtals('h11'))</span></code></p></td>
+<td><p>set monochromator, Si(111) or Si(311), h=1 or h=3</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>Experiment setup</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(slit_height())</span></code></p></td>
+<td><p>explore position of slits3 (then pluck to move dm3_bct)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(dark_current())</span></code></p></td>
+<td><p>measure electrometer dark currents</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>ex situ sample stage</strong> ➡ <a class="reference internal" href="motors.html#wheel"><span class="std std-numref">Section 6.3</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(slot(&lt;N&gt;))</span></code></p></td>
+<td><p>Move sample wheel to slot #N (1 ≤ N ≤ 24)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(find_slot())</span></code></p></td>
+<td><p>align the <em>ex situ</em> wheel sample holder</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(xafs_wheel.outer())</span></code></p></td>
+<td><p>move the <em>ex situ</em> wheel sample holder to the outer ring</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(xafs_wheel.inner())</span></code></p></td>
+<td><p>move the <em>ex situ</em> wheel sample holder to the inner ring</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>Glancing angle stage</strong> ➡ <a class="reference internal" href="other.html#ga-stage"><span class="std std-numref">Section 10.4</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(ga.to(N))</span></code></p></td>
+<td><p>move stage to sample N (1 ≤ N ≤ 8) + start spinner</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(ga.auto_align(pitch))</span></code></p></td>
+<td><p>automatically align glancing angle stage and move to pitch</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(ga.flatten())</span></code></p></td>
+<td><p>return to the flat position found during <code class="docutils literal notranslate"><span class="pre">auto_align()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ga.alloff())</span></code></p></td>
+<td><p>turn off all the spinners</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>          <strong>Linkam stage</strong> ➡ <a class="reference internal" href="other.html#linkam"><span class="std std-numref">Section 10.5</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(linkam,</span> <span class="pre">T))</span></code></p></td>
+<td><p>move Linkam stage to temperature T</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">linkam.settle_time</span> <span class="pre">=</span> <span class="pre">120</span></code></p></td>
+<td><p>set Linkam settling time (in seconds)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">linkam.status()</span></code></p></td>
+<td><p>display Linkam status</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">linkam.on()</span></code> / <code class="docutils literal notranslate"><span class="pre">linkam.off()</span></code></p></td>
+<td><p>turn Linkam on or off</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>LakeShore temperature controller</strong> ➡ <a class="reference internal" href="other.html#lakeshore"><span class="std std-numref">Section 10.6</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(lakeshore.to(T,</span> <span class="pre">power))</span></code></p></td>
+<td><p>move cryostat to temperature T with heater at <code class="docutils literal notranslate"><span class="pre">power</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lakeshore.settle_time</span> <span class="pre">=</span> <span class="pre">120</span></code></p></td>
+<td><p>set Linkam settling time (in seconds)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lakeshore.status()</span></code></p></td>
+<td><p>display Linkam status</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(lakeshore.power,3))</span></code></p></td>
+<td><p>turn heater to full power</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(mv(lakeshore.power,0))</span></code></p></td>
+<td><p>turn heater off</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>Reference wheel</strong>  ➡ <a class="reference internal" href="xafs.html#reference-wheel"><span class="std std-numref">Section 9.11</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RE(reference('Xx'))</span></code></p></td>
+<td><p>Move to reference element ‘Xx’</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>          <strong>Get help</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%m</span></code></p></td>
+<td><p>Show motors</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%h</span></code></p></td>
+<td><p>Show help</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%k</span></code></p></td>
+<td><p>Show keyboard shortcuts</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%se</span></code></p></td>
+<td><p>Show reference foil and ROI configurations</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="photon-delivery-system-modes">
+<h2><span class="section-number">15.3. </span>Photon delivery system modes<a class="headerlink" href="#photon-delivery-system-modes" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="pds.html#id2"><span class="std std-numref">Section 7.3</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="pds-mode-table">
+<caption><span class="caption-number">Table 15.2 </span><span class="caption-text">Photon delivery system modes</span><a class="headerlink" href="#pds-mode-table" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>focused</p></th>
+<th class="head"><p>energy range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>✓</p></td>
+<td><p>8 keV and up</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>✓</p></td>
+<td><p>below 6 keV</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>✓</p></td>
+<td><p>6 keV to 8 keV</p></td>
+</tr>
+<tr class="row-odd"><td><p>D</p></td>
+<td><p>✗</p></td>
+<td><p>8 keV and up</p></td>
+</tr>
+<tr class="row-even"><td><p>E</p></td>
+<td><p>✗</p></td>
+<td><p>6 keV to 8 keV</p></td>
+</tr>
+<tr class="row-odd"><td><p>F</p></td>
+<td><p>✗</p></td>
+<td><p>below 6 keV</p></td>
+</tr>
+<tr class="row-even"><td><p>XRD</p></td>
+<td><p>✓</p></td>
+<td><p>8 keV and up</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="slits3-coordinated-motions">
+<h2><span class="section-number">15.4. </span>Slits3 coordinated motions<a class="headerlink" href="#slits3-coordinated-motions" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="pds.html#slits"><span class="std std-numref">Section 7.5</span></a>.</p>
+<p>These coordinated motions behave just like single motors and can be
+used with the motor movement commands in <a class="reference internal" href="#command-list"><span class="std std-numref">Table 15.1</span></a>.</p>
+<dl>
+<dt>Horizontal size</dt><dd><p><code class="docutils literal notranslate"><span class="pre">slits3.hsize</span></code> (nominally 8 mm)</p>
+</dd>
+<dt>Horizontal center</dt><dd><p><code class="docutils literal notranslate"><span class="pre">slits3.hcenter</span></code> (nominally 0 mm)</p>
+</dd>
+<dt>Vertical size</dt><dd><p><code class="docutils literal notranslate"><span class="pre">slits3.vsize</span></code> (nominally 1 mm)</p>
+</dd>
+<dt>Vertical center</dt><dd><p><code class="docutils literal notranslate"><span class="pre">slits3.vcenter</span></code> (nominally 0 mm)</p>
+<p>The vertical center should never be changed.  Instead, align the
+slits by moving <code class="docutils literal notranslate"><span class="pre">dm3_bct</span></code> or running the <code class="docutils literal notranslate"><span class="pre">slit_height()</span></code> plan
+(<a class="reference internal" href="linescans.html#special-linescans"><span class="std std-numref">Section 8.2</span></a>)</p>
+</dd>
+</dl>
+<p>Example movement: <code class="docutils literal notranslate"><span class="pre">RE(mv(slits3.vsize,</span> <span class="pre">0.5))</span></code></p>
+<p>Individual slits are named <code class="docutils literal notranslate"><span class="pre">slits3.top</span></code>, <code class="docutils literal notranslate"><span class="pre">slits3.bottom</span></code>,
+<code class="docutils literal notranslate"><span class="pre">slits3.inboard</span></code>, <code class="docutils literal notranslate"><span class="pre">slits3.outboard</span></code>.</p>
+</section>
+<section id="motor-positions-and-limits">
+<h2><span class="section-number">15.5. </span>Motor positions and limits<a class="headerlink" href="#motor-positions-and-limits" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="motors.html#motors"><span class="std std-numref">Section 6</span></a>.</p>
+<p>These commands work on any named motor (<a class="reference internal" href="motors.html#xafs-stages"><span class="std std-numref">Table 6.1</span></a>).</p>
+<dl class="simple">
+<dt>Where is a sample motor?</dt><dd><p><code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">xafs_x</span></code></p>
+</dd>
+<dt>What are the soft limits?</dt><dd><p><code class="docutils literal notranslate"><span class="pre">xafs_x.hlm.value</span></code> / <code class="docutils literal notranslate"><span class="pre">xafs_x.llm.value</span></code></p>
+</dd>
+<dt>Set a soft limit:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">xafs_x.hlm.put(-95)</span></code> / <code class="docutils literal notranslate"><span class="pre">xafs_x.llm.put(-157)</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="line-scans">
+<h2><span class="section-number">15.6. </span>Line scans<a class="headerlink" href="#line-scans" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="linescans.html#linescan"><span class="std std-numref">Section 8</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="o">&lt;</span><span class="n">motor</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">detector</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">stop</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;motor&gt;</span></code> is a named motor, see <a class="reference internal" href="motors.html#xafs-stages"><span class="std std-numref">Table 6.1</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;detector&gt;</span></code> is one of: <code class="docutils literal notranslate"><span class="pre">'it'</span></code>, <code class="docutils literal notranslate"><span class="pre">'if'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ir'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'i0'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;start&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;stop&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> are the boundaries relative to the
+current position and the number of steps.</p></li>
+</ul>
+<p>The plot will be determined from the values of <code class="docutils literal notranslate"><span class="pre">&lt;motor&gt;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&lt;detector&gt;</span></code></p>
+<p>This is a relative scan.</p>
+<p>After the scan, you will prompted to select a position to move to.
+Single click the left button after a linescan to move to a position.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">pluck</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>to repeat that on the current plot.</p>
+</section>
+<section id="energy-scans">
+<h2><span class="section-number">15.7. </span>Energy scans<a class="headerlink" href="#energy-scans" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="xafs.html#xafs"><span class="std std-numref">Section 9</span></a>.</p>
+<p>Start an XAFS scan, prompting for an <a class="reference internal" href="xafs.html#ini"><span class="std std-numref">INI file (section 9.1)</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">xafs</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Start an XAFS scan using a specified <a class="reference internal" href="xafs.html#ini"><span class="std std-numref">INI file (section 9.1)</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">xafs</span><span class="p">(</span><span class="s1">&#39;myscan.ini&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In the INI file, set <code class="docutils literal notranslate"><span class="pre">mode</span></code> to transmission, fluorescence,
+reference, or both to control the in-scan plotting display (both =
+show transmission and fluorescence)</p>
+<p>Import a spreadsheet to perform automated XAFS measurements:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xlsx</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You will be prompted first for the name of a spreadsheet file, then
+for the tab to be read.</p>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="commonchores.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Common chores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="trouble.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Troubleshooting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-most-essential-information">15.1. The most essential information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-common-commands">15.1.1. Most common commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#most-common-motors">15.1.2. Most common motors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-list-of-commands">15.2. Larger list of commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photon-delivery-system-modes">15.3. Photon delivery system modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slits3-coordinated-motions">15.4. Slits3 coordinated motions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-positions-and-limits">15.5. Motor positions and limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-scans">15.6. Line scans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-scans">15.7. Energy scans</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

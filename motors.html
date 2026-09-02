@@ -1,0 +1,1083 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>6. Moving and querying motors &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'motors';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Photon Delivery System" href="pds.html" />
+    <link rel="prev" title="5. Beamline instrumentation" href="instruments.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fmotors.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/motors.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Moving and querying motors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-stages">6.1. Sample stages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-motor-commands">6.2. Basic motor commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel">6.3. Sample wheel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-stage">6.4. Glancing angle stage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-alignment">6.4.1. Sample alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-alignment">6.4.2. Automated alignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-motors">6.5. Table motors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-motor-axes">6.6. Examine Motor Axes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-AB { grid-template-areas: 'A B'; }
+}
+</style>
+<section id="moving-and-querying-motors">
+<span id="motors"></span><h1><span class="section-number">6. </span>Moving and querying motors<a class="headerlink" href="#moving-and-querying-motors" title="Permalink to this heading">#</a></h1>
+<p>To get an overview of the state of the beamline motors, do <code class="docutils literal notranslate"><span class="pre">%m</span></code> at
+the <span class="bolditalic">bsui</span> command line.  Here is an example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>In [1897]: %m
+==============================================================================
+Energy = 19300.1   reflection = Si(111)   mode = fixed
+     Bragg =  5.87946   2nd Xtal Perp = 15.0792   2nd Xtal Para = 146.4328
+
+M2
+     vertical =   6.000 mm           YU  =   6.000
+     lateral  =   0.000 mm           YDO =   6.000
+     pitch    =   0.000 mrad         YDI =   6.000
+     roll     =  -0.001 mrad         XU  =  -0.129
+     yaw      =   0.200 mrad         XD  =   0.129
+
+M3
+     vertical =   0.000 mm           YU  =  -1.167
+     lateral  =  15.001 mm           YDO =   1.167
+     pitch    =   3.500 mrad         YDI =   1.167
+     roll     =   0.000 mrad         XU  =  15.001
+     yaw      =   0.001 mrad         XD  =  15.001
+
+Slits3:   vsize  vcenter  hsize   hcenter     top    bottom    outboard  inboard
+          1.350   0.000   8.000  -0.000      0.675   -0.675    4.000   -4.000
+
+DM3_BCT:  45.004 mm
+
+XAFS table:
+     vertical  pitch    roll   YU     YDO     YDI
+     132.000   0.000   0.000 132.000 132.000 132.000
+
+XAFS stages:
+          x        y     roll    pitch    linxs    roth    wheel     rots
+        9.224  115.000   0.840   0.000  -45.000    0.000  -59.000    0.000
+==============================================================================
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="restore.html#iocs"><span class="std std-numref">Section G.5</span></a> for details about the IOCs running the
+beamline instrumentation.</p>
+<section id="sample-stages">
+<span id="id1"></span><h2><span class="section-number">6.1. </span>Sample stages<a class="headerlink" href="#sample-stages" title="Permalink to this heading">#</a></h2>
+<p>These stages sit on top of the XAFS optical table.</p>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="xafs-stages">
+<caption><span class="caption-number">Table 6.1 </span><span class="caption-text">XAFS experimental stages</span><a class="headerlink" href="#xafs-stages" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>motor</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>units</p></th>
+<th class="head"><p>notes</p></th>
+<th class="head"><p>directions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_x</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>main sample stage</p></td>
+<td><p>+ outboard, - inboard</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_y</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>main sample stage</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_wheel</span></code></p></td>
+<td><p>rotary</p></td>
+<td><p>degrees</p></td>
+<td><p><em>ex situ</em> sample wheel</p></td>
+<td><p>+ clockwise, - <a class="reference external" href="https://en.wiktionary.org/wiki/widdershins">widdershins</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ away from sample, - closer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detz</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>detector mount</p></td>
+<td><p>+ downstream, - upstream</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code></p></td>
+<td><p>rotary</p></td>
+<td><p>degrees</p></td>
+<td><p>reference stage</p></td>
+<td><p>+ clockwise, - <a class="reference external" href="https://en.wiktionary.org/wiki/widdershins">widdershins</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_refx</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>reference X stage</p></td>
+<td><p>+ outboard, - inboard</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_refy</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>reference Y stage</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code></p></td>
+<td><p>tilt</p></td>
+<td><p>degrees</p></td>
+<td><p>Huber tilt stage</p></td>
+<td><p>+ more positive</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_roll</span></code></p></td>
+<td><p>tilt</p></td>
+<td><p>degrees</p></td>
+<td><p>Huber tilt stage</p></td>
+<td><p>+ more positive</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_rots</span></code></p></td>
+<td><p>rotary</p></td>
+<td><p>degrees</p></td>
+<td><p>small rotary stage</p></td>
+<td><p>+ clockwise, - <a class="reference external" href="https://en.wiktionary.org/wiki/widdershins">widdershins</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_garot</span></code></p></td>
+<td><p>rotary</p></td>
+<td><p>degrees</p></td>
+<td><p>g.a. rotary stage</p></td>
+<td><p>+ clockwise, - <a class="reference external" href="https://en.wiktionary.org/wiki/widdershins">widdershins</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_spare</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>spare linear stage</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_bsx</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>beam stop stage</p></td>
+<td><p>+ outboard, - inboard</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_bsy</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>beam stop stage</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_adx</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>area detector stage</p></td>
+<td><p>+ outboard, - inboard</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_ady</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>area detector stage</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_yu</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>u.s. table jack</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_yd</span></code></p></td>
+<td><p>linear</p></td>
+<td><p>mm</p></td>
+<td><p>d.s. table jack</p></td>
+<td><p>+ up, - down</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>g.a. = glancing angle ●
+o.b. = outboard  ●
+i.b. = inboard  ●
+u.s. = upstream  ●
+d.s. = downstream</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code> stage is not right handed in the beamline
+coordinate system.  This is the more intuitive setting for how that
+stage is typically used.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xafs_yd</span></code> is the motor driving the coupled downstream jacks.</p>
+<hr class="docutils" />
+<p>Here are some photos identifying these axes:</p>
+<figure class="align-center" id="id3">
+<span id="fig-xy"></span><a class="reference external image-reference" href="_images/samplexy_stages.jpg"><img alt="_images/samplexy_stages.jpg" src="_images/samplexy_stages.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The two-axis main sample stage: <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code>.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<span id="fig-det-xyz"></span><a class="reference external image-reference" href="_images/det_xyz.jpg"><img alt="_images/det_xyz.jpg" src="_images/det_xyz.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">The three-axis stage holding the fluorescence detector:
+<code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code>, <code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code>, and <code class="docutils literal notranslate"><span class="pre">xafs_detz</span></code>.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<span id="fig-detref"></span><a class="reference external image-reference" href="_images/reference_stages.jpg"><img alt="_images/reference_stages.jpg" src="_images/reference_stages.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">The three-axis stage holding the reference wheel: <code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xafs_refx</span></code>, and <code class="docutils literal notranslate"><span class="pre">xafs_refy</span></code>.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="sphinx-subfigure align-default" id="fig-pr-rots">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/tilt_stage.jpg" src="_images/tilt_stage.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/small_rotation_stage.jpg" src="_images/small_rotation_stage.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">(Left) The pitch and roll stage: <code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_roll</span></code>.
+(Right) The small rotation stage: <code class="docutils literal notranslate"><span class="pre">xafs_rots</span></code></span><a class="headerlink" href="#fig-pr-rots" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<span id="fig-garot"></span><a class="reference external image-reference" href="_images/xafs_garot.jpg"><img alt="_images/xafs_garot.jpg" src="_images/xafs_garot.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">The glancing angle rotary stage, here sitting on top of the pitch
+and roll stage: <code class="docutils literal notranslate"><span class="pre">xafs_garot</span></code>.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<span id="fig-spare"></span><a class="reference external image-reference" href="_images/xafs_spare.jpg"><img alt="_images/xafs_spare.jpg" src="_images/xafs_spare.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The spare linear stage: <code class="docutils literal notranslate"><span class="pre">xafs_spare</span></code>.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<span id="fig-beamstop"></span><a class="reference external image-reference" href="_images/beamstopxy_stages.jpg"><img alt="_images/beamstopxy_stages.jpg" src="_images/beamstopxy_stages.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">The beam stop stages: <code class="docutils literal notranslate"><span class="pre">xafs_bsx</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_bsy</span></code>.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="sphinx-subfigure align-default" id="fig-areadetector">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/areadetectorxy_stages.jpg" src="_images/areadetectorxy_stages.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/detector_mounts.jpg" src="_images/detector_mounts.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">(Left) The area detector stages: <code class="docutils literal notranslate"><span class="pre">xafs_adx</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_ady</span></code>.
+(Right) Mounting rigs for the Eiger and Pilatus detectors.</span><a class="headerlink" href="#fig-areadetector" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id9">
+<span id="fig-coupled-xafs-yd"></span><a class="reference external image-reference" href="_images/coupled_xafs_yd.gif"><img alt="_images/coupled_xafs_yd.gif" src="_images/coupled_xafs_yd.gif" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">The inboard and outboard jacks on the downstream end of the
+XAFS table, coupled together to be run by a single motor.</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="basic-motor-commands">
+<h2><span class="section-number">6.2. </span>Basic motor commands<a class="headerlink" href="#basic-motor-commands" title="Permalink to this heading">#</a></h2>
+<p>Configuration and position of the motors can be queried easily.  In
+the following examples, the <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> motor is used.  The commands
+are the same for all sample stage motors.</p>
+<dl>
+<dt><strong>Querying position</strong></dt><dd><p>The position of a motor can be queried with a command line like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">w</span> <span class="n">xafs_y</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xafs_y</span><span class="o">.</span><span class="n">position</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Moving to a new position</strong></dt><dd><p>Always move motors through the run engine, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mvr</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mvr</span></code> is the relative move command – the numerical argument is
+the amount by which the motor will move from the current position.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code>, as in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="mf">37.63</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>is the absolute move command.  The numerical argument is the
+position to which the motor will move.</p>
+</dd>
+</dl>
+<dl>
+<dt><strong>Moving to a new position in a plan</strong></dt><dd><p>To move a sample stage as part of a <a class="reference internal" href="xafs.html#macro"><span class="std std-numref">macro (Section 9.6)</span></a> , do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="mf">37.36</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can combine motions of two or more motors in a single
+synchronous movement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="mf">37.36</span><span class="p">,</span> <span class="n">xafs_x</span><span class="p">,</span> <span class="mf">15.79</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">mvr</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Querying soft limits</strong></dt><dd><p>To know the soft limits on a sample stage, do <code class="docutils literal notranslate"><span class="pre">xafs_y.limits</span></code> or
+<code class="docutils literal notranslate"><span class="pre">xafs_y.llm.get()</span></code> or <code class="docutils literal notranslate"><span class="pre">xafs_y.hlm.get()</span></code> to query the low or
+high limits individually.</p>
+</dd>
+<dt><strong>Setting soft limits</strong></dt><dd><p>To set the soft limits on a sample stage, do something like
+<code class="docutils literal notranslate"><span class="pre">xafs_y.llm.put(5)</span></code> or <code class="docutils literal notranslate"><span class="pre">xafs_y.hlm.put(85)</span></code></p>
+</dd>
+<dt><strong>Reference wheel</strong></dt><dd><p><a class="reference internal" href="pds.html#foilholder"><span class="std std-numref">The reference stage (Section 7.2.1)</span></a> is a
+rotation stage with a sample wheel holding up to 48 reference foils
+or stable oxides.  It is calibrated such that the beam passes
+through the center of a slot every 15 degrees.  The slots are
+indexed such that they can be accessed by the symbol of the element
+being measured.  To move to a new reference foil:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">reference</span><span class="p">(</span><span class="s1">&#39;Fe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To see the available foils, do <code class="docutils literal notranslate"><span class="pre">%se</span></code> or look at the value of
+<code class="docutils literal notranslate"><span class="pre">xafs_ref.mapping</span></code>.</p>
+<p><a class="reference internal" href="xafs.html#reference-wheel"><span class="std std-numref">See Section 9.11 for a full explanation of the the reference wheel contents.</span></a></p>
+<p><a class="reference external" href="https://nsls2.github.io/bmm-standards/BMM-standards.html">Here is a complete list of standards</a>
+in BMM’s collection.  These standards are mounted on sample wheels
+and stored in the hutch for ready access by users.</p>
+</dd>
+</dl>
+</section>
+<section id="sample-wheel">
+<span id="wheel"></span><h2><span class="section-number">6.3. </span>Sample wheel<a class="headerlink" href="#sample-wheel" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">xafs_wheel</span></code> motor is a rotary stage that is typically mounted
+on the XY stage.  It can be mounted face-on to the beam or at 45
+degrees for use with the fluorescence detector.</p>
+<p>Sample plates laser cut from plastic sheet (initially we used <a class="reference external" href="https://en.wikipedia.org/wiki/Polyoxymethylene">Delrin</a>, since COVID made
+supply difficult, we use whatever we can get) are attached to the
+rotation stage.  The single-ring version of these plates have 24 slots
+arranged around the periphery, evenly spaced 15 degree apart.  The
+double-ring version has concentric rings of 24 slots each.  These are
+still 15 degrees apart.  The radius of the outer ring is 26 mm larger
+than the radius of the inner ring.</p>
+<p>While you can move from slot to slot in increments of 15 degrees, i.e.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mvr</span><span class="p">(</span><span class="n">xafs_wheel</span><span class="p">,</span> <span class="mi">15</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>it is somewhat easier to move by slot number.  The sample plates are
+cut with sample numbers for slots 1, 7, 13, and 19, making it clear
+which slot is which.  The wheel is mounted such that the numbers can
+be read normally on the side facing the beam.</p>
+<p>To move, for instance, to slot 5, do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">slot</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In a macro, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">slot</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To move to the inner or outer ring, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">xafs_wheel</span><span class="o">.</span><span class="n">inner</span><span class="p">())</span>
+<span class="n">RE</span><span class="p">(</span><span class="n">xafs_wheel</span><span class="o">.</span><span class="n">outer</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This translates <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> by ±26 mm.</p>
+<p>In a macro, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">xafs_wheel</span><span class="o">.</span><span class="n">inner</span><span class="p">()</span>
+<span class="k">yield from</span> <span class="n">xafs_wheel</span><span class="o">.</span><span class="n">outer</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="glancing-angle-stage">
+<h2><span class="section-number">6.4. </span>Glancing angle stage<a class="headerlink" href="#glancing-angle-stage" title="Permalink to this heading">#</a></h2>
+<p>The glancing angle stage, shown in <a class="reference internal" href="#fig-gastage"><span class="std std-numref">Figure 6.10</span></a>,
+can hold up to eight samples and allows each sample to spin
+independently.  The spinning allows spurious diffraction from a
+crystalline substrate into the fluorescence detector to be suppressed.</p>
+<figure class="align-center" id="id10">
+<span id="fig-gastage"></span><a class="reference external image-reference" href="_images/glancing_angle_stage.jpg"><img alt="_images/glancing_angle_stage.jpg" src="_images/glancing_angle_stage.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">The glancing angle stage with 8 sample positions.</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To move to a sample position:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where the argument is a number from 1 to 8, as shown by the labels in
+<a class="reference internal" href="#fig-gastage"><span class="std std-numref">Figure 6.10</span></a>.  This command will turn off all
+other spinners, rotate that sample into the beam path, and start the
+sample spinning.</p>
+<p>To turn a spinner on or off, where the argument is a number from 1 to 8:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">RE</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">off</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To turn off all spinners:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">alloff</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>In a plan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">ga</span><span class="o">.</span><span class="n">on_plan</span><span class="p">()</span>
+<span class="k">yield from</span> <span class="n">ga</span><span class="o">.</span><span class="n">off_plan</span><span class="p">()</span>
+<span class="k">yield from</span> <span class="n">ga</span><span class="o">.</span><span class="n">alloff_plan</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="sample-alignment">
+<h3><span class="section-number">6.4.1. </span>Sample alignment<a class="headerlink" href="#sample-alignment" title="Permalink to this heading">#</a></h3>
+<p>A sample is aligned into the beam by moving the tilt stage to an
+approximately flat position:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_pitch</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Then performing the following sequence:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="s1">&#39;It&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">))</span>
+<span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="n">xafs_pitch</span><span class="p">,</span> <span class="s1">&#39;It&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">41</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>At the and of the <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> scan, pick the position halfway down the
+edge in the It signal.  At the end of the <code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code> scan, select
+the peak position.  This will place the sample such that it is flat
+relative to the incident beam direction and halfway blocking the beam.</p>
+<p>You may choose to iterate those two scans.</p>
+<p>Next move the sample to the measurement angle.  Suppose the
+measurement angle is 2.5 degrees:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_pitch</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Finally, position the sample so that the beam is hitting the center of
+the sample:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="n">xafs_y</span><span class="p">,</span> <span class="s1">&#39;If&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Since the sample is not at the eucentric of the tilt stage, this final
+vertical scan is always necessary.  When first aligning the sample,
+you may need to center the sample in <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="n">xafs_x</span><span class="p">,</span> <span class="s1">&#39;If&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">41</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You will almost certainly need to scan over a longer range.  Make sure
+the detector is retracted far enough to allow for this motion.</p>
+</section>
+<section id="automated-alignment">
+<h3><span class="section-number">6.4.2. </span>Automated alignment<a class="headerlink" href="#automated-alignment" title="Permalink to this heading">#</a></h3>
+<p>The sequence described above can be automated in many cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">auto_align</span><span class="p">(</span><span class="mf">2.5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This will run the sequence of alignment scans described above,
+pitching the sample to the user-specified angle before the vertical
+scan measuring the fluorescence signal.  This works by fitting an
+error function to the <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> scan versus It, selecting the peak of
+the pitch scan, then selecting the peak of the <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> scan versus
+fluorescence.</p>
+<figure class="align-center" id="id11">
+<span id="fig-ga-alignment-plot"></span><a class="reference external image-reference" href="_images/spinner-alignment.png"><img alt="_images/spinner-alignment.png" src="_images/spinner-alignment.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">If all goes well, the result of the sample alignment looks like
+this.  A picture like this is posted to <a class="reference internal" href="intro.html#slack"><span class="std std-numref">Slack (Section 1.3.2)</span></a>.</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For very flat samples which are square or circular and about 5mm
+across or larger, this alignment algorithm is very robust.  For oddly
+shaped samples, verify that the automation works before relying upon
+it.  Otherwise, you will need to do the alignment by hand.</p>
+</section>
+</section>
+<section id="table-motors">
+<span id="xafs-table"></span><h2><span class="section-number">6.5. </span>Table motors<a class="headerlink" href="#table-motors" title="Permalink to this heading">#</a></h2>
+<p>Typically, table motors are not moved individually.  When changing
+<a class="reference internal" href="pds.html#change-mode"><span class="std std-numref">photon delivery system modes (Section 7.8.1)</span></a>, the
+table should be put into the correct orientation such that the beam
+passes through the center of the ion chambers.  It is very easy to put
+the beamline in a confusing state by changing the table motors outside
+of the <code class="docutils literal notranslate"><span class="pre">change_mode()</span></code> command.</p>
+<p>The lateral table motors – and its yaw – are normally disabled.
+The downstream jacks are coupled and driven by a single motor.  Roll
+is no longer available (as of Summer 2026).</p>
+<div class="pst-scrollable-table-container"><table class="table table-left" id="id2">
+<caption><span class="caption-number">Table 6.2 </span><span class="caption-text">XAFS table motors</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>motor</p></th>
+<th class="head"><p>units</p></th>
+<th class="head"><p>notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>xafs_yu</p></td>
+<td><p>mm</p></td>
+<td><p>upstream table jack</p></td>
+</tr>
+<tr class="row-odd"><td><p>xafs_yd</p></td>
+<td><p>mm</p></td>
+<td><p>downstream</p></td>
+</tr>
+<tr class="row-even"><td><p>xafs_table.vertical</p></td>
+<td><p>mm</p></td>
+<td><p>coordinated linear motion</p></td>
+</tr>
+<tr class="row-odd"><td><p>xafs_table.pitch</p></td>
+<td><p>degrees</p></td>
+<td><p>coordinated table pitch</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl>
+<dt><strong>Querying table position</strong></dt><dd><p>The position of any motor can be queried with a command line like
+<code class="docutils literal notranslate"><span class="pre">%w</span> <span class="pre">xafs_table</span></code>.</p>
+</dd>
+<dt><strong>Coordinated table movement</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RE(table_height(mode='A'))</span></code>: Move the table to its position
+for a specified mode, the modes <a class="reference internal" href="pds.html#change-mode"><span class="std std-numref">(see Section 7.8.1)</span></a> are <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>, <code class="docutils literal notranslate"><span class="pre">'C'</span></code>, <code class="docutils literal notranslate"><span class="pre">'D'</span></code>, <code class="docutils literal notranslate"><span class="pre">'E'</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">'F'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RE(table_height(by=amount))</span></code>: Move the table vertically by an
+amount. This moves the three vertical motors the same amount.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RE(table_height(pitch=adjustment))</span></code>: Move the front by the
+specified amount, move the back the same in the opposite
+direction.  I.e. adjust the pitch of the table, except that the
+adjustment is in mm units, not degrees.</p></li>
+</ul>
+</dd>
+<dt><strong>Moving table motors</strong></dt><dd><p>The normal movement commands work on the real and virtual motors,
+e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mvr</span><span class="p">(</span><span class="n">xafs_yd</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_table</span><span class="o">.</span><span class="n">vertical</span><span class="p">,</span> <span class="mi">107</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Again, this is rarely necessary.  The mode changing plan should
+leave the table in the correct location for your experiment.</p>
+<p>All table movements are recorded in the <a class="reference internal" href="log.html#log"><span class="std std-numref">experimental log
+(Section 12)</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="examine-motor-axes">
+<h2><span class="section-number">6.6. </span>Examine Motor Axes<a class="headerlink" href="#examine-motor-axes" title="Permalink to this heading">#</a></h2>
+<p>Some BlueSky functionality related to the axes controlled by the FMBO
+MCS8 motor controllers.  These include:</p>
+<ul class="simple">
+<li><p>Collimating mirror (<code class="docutils literal notranslate"><span class="pre">m1_*</span></code>)</p></li>
+<li><p>Filter assemblies (<code class="docutils literal notranslate"><span class="pre">dm1_*</span></code>)</p></li>
+<li><p>Monochromator (<code class="docutils literal notranslate"><span class="pre">dcm_*</span></code>)</p></li>
+<li><p>Second diagnostic module (<code class="docutils literal notranslate"><span class="pre">dm2_*</span></code>)</p></li>
+<li><p>Focusing mirror (<code class="docutils literal notranslate"><span class="pre">m2_*</span></code>)</p></li>
+<li><p>Harmonic rejection mirror (<code class="docutils literal notranslate"><span class="pre">m3_*</span></code>)</p></li>
+<li><p>Third diagnostic module (<code class="docutils literal notranslate"><span class="pre">dm3_*</span></code>)</p></li>
+</ul>
+<p>(38 axes motors in total) but not any of the end station motors
+(<code class="docutils literal notranslate"><span class="pre">xafs_*</span></code>), which are run using NSLS-II standard GeoBricks.</p>
+<dl class="simple">
+<dt><strong>Homing</strong></dt><dd><p>Any of these axes can be homed with, for example, <code class="docutils literal notranslate"><span class="pre">dm3_bct.home()</span></code></p>
+</dd>
+<dt><strong>Summarize the status of a motor</strong></dt><dd><p>To show the values of all the status flags, for example, <code class="docutils literal notranslate"><span class="pre">dm3_bct.status()</span></code></p>
+</dd>
+<dt><strong>Which motors have been homed?</strong></dt><dd><p>Do this command: <code class="docutils literal notranslate"><span class="pre">homed()</span></code></p>
+</dd>
+<dt><strong>Which motors have their amplifiers enabled?</strong></dt><dd><p>Do this command: <code class="docutils literal notranslate"><span class="pre">ampen()</span></code></p>
+</dd>
+</dl>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="instruments.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Beamline instrumentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pds.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Photon Delivery System</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-stages">6.1. Sample stages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-motor-commands">6.2. Basic motor commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel">6.3. Sample wheel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-stage">6.4. Glancing angle stage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-alignment">6.4.1. Sample alignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-alignment">6.4.2. Automated alignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-motors">6.5. Table motors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examine-motor-axes">6.6. Examine Motor Axes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
