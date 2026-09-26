@@ -426,7 +426,7 @@ In a python program, jupyter notebook, or ipython session, do this:
 .. code-block:: python
 
    from tiled.client import from_uri
-   client = from_uri('https://tiled.nsls2.bnl.gov/api/v1/metadata/bmm/raw')
+   client = from_uri('https://tiled.nsls2.bnl.gov/api/v1/metadata/bmm/migration')
 
 You will be prompted for your BNL username and password.  A DUO push
 will be sent to your phone (the DUO push may happen silently ... if
