@@ -1,0 +1,1161 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>11. Beamline automation &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'automation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Experimental Log" href="log.html" />
+    <link rel="prev" title="10. Other measurement needs" href="other.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fautomation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/automation.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Beamline automation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-features">11.1. Common features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-information">11.1.1. Default information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimenters">11.1.2. Experimenters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-options">11.1.3. Measurement options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detector-position">11.1.4. Detector position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-sample-position-and-slits">11.1.5. Fine tuning sample position and slits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-spreadsheet">11.2. Selecting a spreadsheet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-spreadsheet">11.2.1. Import a spreadsheet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-bluesky-instructions">11.2.2. Generating Bluesky instructions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel-automation">11.3. Sample wheel automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mounting-samples-on-the-sample-wheel">11.3.1. Mounting samples on the sample wheel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linkam-stage-automation">11.4. Linkam stage automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakeshore-displex-automation">11.5. LakeShore/Displex automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-stage-automation">11.6. Glancing angle stage automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-grid-automation">11.7. Motor grid automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonant-refectivity-automation">11.8. Resonant refectivity automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-developments">11.9. Future developments</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-AB { grid-template-areas: 'A B'; }
+}
+</style>
+<section id="beamline-automation">
+<span id="automation"></span><h1><span class="section-number">11. </span>Beamline automation<a class="headerlink" href="#beamline-automation" title="Permalink to this heading">#</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Spreadsheets with version number earlier than 13 <strong>will not
+work</strong> as of 1 March, 2024.  Grid spreadsheets changed
+significantly between 16 and 17.</p>
+</div>
+<p>BMM currently supports six categories of spreadsheet-based automation:</p>
+<ol class="arabic simple">
+<li><p>Sample wheels (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/wheel.xlsx">spreadsheet</a>)</p></li>
+<li><p>Linkam stage temperature control (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/linkam.xlsx">spreadsheet</a>)</p></li>
+<li><p>LakeShore 331 controller for Displex cryostat (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/lakeshore.xlsx">spreadsheet</a>)</p></li>
+<li><p>Glancing angle stage (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/glancing_angle.xlsx">spreadsheet</a>)</p></li>
+<li><p>Generic motor grids (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/grid.xlsx">spreadsheet</a>)</p></li>
+<li><p>Resonant relfectivity (⎘ <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/reflectivity.xlsx">spreadsheet</a>)
+(This is a work in progress.)</p></li>
+</ol>
+<p>The latest spreadsheets for each of these can always be found at
+<a class="github reference external" href="https://github.com/NSLS2/bmm-profile-collection/tree/main/startup/xlsx">NSLS2/bmm-profile-collection</a></p>
+<p>Each of the spreadsheets looks much like this, although there are some
+differences in the columns corresponding to the different instruments.</p>
+<figure class="align-center" id="id4">
+<span id="fig-wheel-spreadsheet"></span><a class="reference external image-reference" href="_images/wheel_spreadsheet.png"><img alt="_images/wheel_spreadsheet.png" src="_images/wheel_spreadsheet.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Example spreadsheet for running an experiment on an <em>ex situ</em>
+sample wheel.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Always use the most up-to-date version of the spreadsheet from one of
+the links above.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current spreadsheet version is <strong>17</strong>, as of 7
+July, 2025.  You should <em>always</em> use a current
+spreadsheet.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Spreadsheets with version number earlier 13 <strong>will not
+work</strong> as of 1 March, 2024.  Grid spreadsheets changed
+significantly between 16 and 17.</p>
+</div>
+<section id="common-features">
+<h2><span class="section-number">11.1. </span>Common features<a class="headerlink" href="#common-features" title="Permalink to this heading">#</a></h2>
+<section id="default-information">
+<h3><span class="section-number">11.1.1. </span>Default information<a class="headerlink" href="#default-information" title="Permalink to this heading">#</a></h3>
+<p>All the spreadsheets use the concept of “default” scan information,
+that is, information that is expected to be used for most or all of the
+indicated measurements.  In <a class="reference internal" href="#fig-wheel-spreadsheet"><span class="std std-numref">Figure 11.1</span></a>, the defults are entered into the row with the
+green background.  All rows underneath the green line are used to
+describe individual measurements.</p>
+<p>For each individual measurement:</p>
+<ul class="simple">
+<li><p>If a white cell is left blank, the default value from the
+corresponding green cell will be used.</p></li>
+<li><p>If a white cell is filled in, that value will be used for that
+measurement.</p></li>
+</ul>
+<p>Some columns do not use the green default line:</p>
+<ul class="simple">
+<li><p>The filename must be explicitly specified.  A blank filename cell is
+interpreted as a row to be skipped.</p></li>
+<li><p>Motor columns, if used, must be filled in.  A blank cell means not
+to move that motor.  Motor columns indicate that the green cell is
+ignored by displaying a bold X through the green cell, as shown in
+<a class="reference internal" href="#fig-motor-columns"><span class="std std-numref">Figure 11.2</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<span id="fig-motor-columns"></span><a class="reference external image-reference" href="_images/motor_columns.png"><img alt="_images/motor_columns.png" src="_images/motor_columns.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Motor columns in spreadsheets show that the green cell is not used
+by displaying a bold X through the green cells in those
+columns. This example is from the grid spreadsheet.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="experimenters">
+<h3><span class="section-number">11.1.2. </span>Experimenters<a class="headerlink" href="#experimenters" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of summer 2024, with the implementation of data security, the
+beamline now has access to information from the proposal and SAF.
+It is no longer necessary to specify the names of the
+experimenters.  All names on the proposal will be put in the
+metadata of every scan.</p>
+</div>
+</section>
+<section id="measurement-options">
+<span id="spreadsheet-options"></span><h3><span class="section-number">11.1.3. </span>Measurement options<a class="headerlink" href="#measurement-options" title="Permalink to this heading">#</a></h3>
+<p>Beneath the experimenter cell, there are three drop-down menus for
+setting aspects of the sequence of measurements described in the
+spreadsheet.  These are shown in <a class="reference internal" href="#fig-measurement-options"><span class="std std-numref">Figure 11.3</span></a>.</p>
+<ol class="arabic simple">
+<li><p>A yes/no menu for telling Bluesky to close the shutter at the end
+of the measurement sequence.</p></li>
+<li><p>A menu of options for modifying filenames to contain information
+about things like absorber element, edge symbol, Linkam stage
+temperature, and so on.  This simplifies data entry into the
+<code class="docutils literal notranslate"><span class="pre">filename</span></code> column of the spreadsheet.</p></li>
+<li><p>A place for specifying the number of repetitions of the entire
+spreadsheet. This is different from the column labeled
+“repetitions”, which specifies the number of repeated XAS scans of
+the sample in that row of the spreadsheet.</p></li>
+</ol>
+<figure class="align-center" id="id6">
+<span id="fig-measurement-options"></span><a class="reference external image-reference" href="_images/measurement_options.png"><img alt="_images/measurement_options.png" src="_images/measurement_options.png" style="width: 85%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.3 </span><span class="caption-text">Measurement options at the top of the spreadsheet.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="detector-position">
+<h3><span class="section-number">11.1.4. </span>Detector position<a class="headerlink" href="#detector-position" title="Permalink to this heading">#</a></h3>
+<p>On the right hand side of each spreadsheet, there is a column for
+specifying the position of the fluorescence detector.  See
+<a class="reference internal" href="#fig-motor-columns"><span class="std std-numref">Figure 11.2</span></a> for an example from the grid
+spreadsheet.</p>
+<p>A smaller value is closer to the sample.</p>
+<p>The fully retracted position is 205.</p>
+<p>The detector position is set on a sample-by-sample basis, allowing the
+best possible measurement – not saturating the detector while
+maximizing the signal for samples of different absorber concentrations
+– for each sample.  For many experiments, most of the set up work
+involves moving from sample to sample and setting the values of this
+column.</p>
+</section>
+<section id="fine-tuning-sample-position-and-slits">
+<h3><span class="section-number">11.1.5. </span>Fine tuning sample position and slits<a class="headerlink" href="#fine-tuning-sample-position-and-slits" title="Permalink to this heading">#</a></h3>
+<p>On the right hand side of each spreadsheet, there are columns for
+specifying specific positions for sample X and Y and for slit width
+and height.  This allows you to fine tune the sample position and beam
+size on a per-sample basis.</p>
+<p>Some notes about how motors are interpreted for specific spreadsheet
+types.</p>
+<dl class="field-list">
+<dt class="field-odd">motor grid<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The motor grid spreadsheet offers five columns for
+specifying motor positions.  Two of them are mandatory,
+three are optional and may be specified as “none”.</p>
+<p>The motors associated with those columns are specified by
+the user.  The column headings – row 5 – are drop
+down menus. The two mandatory columns – R and S –
+can be any xafs stage except for the rotation stages for
+the <em>ex situ</em> sample wheel, the glancing angle rotation
+stage, or the reference wheel.</p>
+<p>Those three rotary stages can be selected as optional
+motors.  For <code class="docutils literal notranslate"><span class="pre">xafs_wheel</span></code> or <code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code>, the value
+should be an integer between 1 and 24.  For
+<code class="docutils literal notranslate"><span class="pre">xafs_garot</span></code>, the value should be an integer betwene 1
+and 8.  Any other value for these motors will fail with
+an error message.</p>
+<p>In this way, a grid of 2 to 5 motors can programmed.</p>
+</dd>
+<dt class="field-even">glancing angle<span class="colon">:</span></dt>
+<dd class="field-even"><p>The glancing angle spreadsheet has the columns for
+specifying slit width and height.  It also has
+columns for specifying sample Y and pitch (X and
+pitch when in perpendicular mode) when manual
+alignment rather than automated alignment is
+selected.  There is no column for specifying the X
+position (or Y when in perpendicular mode) as use of
+the glancing angle stage presumes that all the
+samples are mounted at the centers of the spinners.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="selecting-a-spreadsheet">
+<span id="xlsx"></span><h2><span class="section-number">11.2. </span>Selecting a spreadsheet<a class="headerlink" href="#selecting-a-spreadsheet" title="Permalink to this heading">#</a></h2>
+<p>All spreadsheets are imported using the <code class="file docutils literal notranslate"><span class="pre">xlsx()</span></code> command.  The
+spreadsheets are self-identifying.  Every spreadsheet has an
+identifying string spanning cells B1:C1.  This is the cell with the
+pink background.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>Never</strong> change the text in the pink cell or your
+spreadsheet will likely be interpreted incorrectly.</p>
+</div>
+<section id="import-a-spreadsheet">
+<h3><span class="section-number">11.2.1. </span>Import a spreadsheet<a class="headerlink" href="#import-a-spreadsheet" title="Permalink to this heading">#</a></h3>
+<p>To convert a spreadsheet into a macro then run the macro, do the
+following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xlsx</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will show a numbered list of all <code class="file docutils literal notranslate"><span class="pre">.xlsx</span></code> files in your data
+folder, something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Select your xlsx file:
+
+  1: 20210127-KB1.xlsx
+  2: 20210127-KB3.xlsx
+  3: 20210128-KB2.xlsx
+  4: 20210128-KB4.xlsx
+  5: 20210128-KB5.xlsx
+  6: wheel_template.xlsx
+
+  r: return
+
+Select a file &gt;
+</pre></div>
+</div>
+<p>Select the <code class="file docutils literal notranslate"><span class="pre">.xlsx</span></code> file you want to import.  Based on the
+content of the pink identifying cell, your spreadsheet will be
+interpreted appropriately.</p>
+<p>You may have multiple tabs in the spreadsheet file.  If the file you
+selected from the menu shown above has multiple tabs, you will be
+presented with a menu of tabs, something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Select a sheet from yourfile.xlsx:
+
+  1: tab1
+  2: tab2
+  3: tab3
+
+  r: return
+
+Select a file &gt;
+</pre></div>
+</div>
+<p>Enter the number corresponding to the tab to be measured.</p>
+<p>The menu of tab selections will only be presented if there is more
+than one tab in the spreadsheet file.</p>
+<p>You may organize your experiment in a single file with multiple tabs
+or in multiple files (each with one or more tabs).  That is enturely
+up to you.</p>
+</section>
+<section id="generating-bluesky-instructions">
+<h3><span class="section-number">11.2.2. </span>Generating Bluesky instructions<a class="headerlink" href="#generating-bluesky-instructions" title="Permalink to this heading">#</a></h3>
+<p>The tab on the selected spreadsheet file will be parsed, then a macro
+file generated called <code class="file docutils literal notranslate"><span class="pre">&lt;tab&gt;_macro.py</span></code> and an INI file called
+<code class="file docutils literal notranslate"><span class="pre">&lt;tab&gt;.ini</span></code>, where <code class="file docutils literal notranslate"><span class="pre">&lt;tab&gt;</span></code> is the name of the tab from
+which the instructions were read.</p>
+<p>It is, therefore, a good idea to give your tabs names that
+indicate something about the experiment being described on that tab.</p>
+<p>The INI file (<a class="reference internal" href="xafs.html#ini"><span class="std std-numref">Section 9.1</span></a>) contains the default values
+from the green line (see <a class="reference internal" href="#fig-wheel-spreadsheet"><span class="std std-numref">Figure 11.1</span></a>).
+The macro file is imported into the BlueSky session, providing a new
+with the name of the spreadsheet file.  If the tab in the spreadsheet
+was called <code class="file docutils literal notranslate"><span class="pre">mysamples</span></code>, the new BlueSky command is called
+<code class="docutils literal notranslate"><span class="pre">mysamples_macro()</span></code>.</p>
+<div class="admonition-future-tech admonition">
+<p class="admonition-title">Future Tech!</p>
+<p>Convert spreadsheets to Bluesky <span class="bolditalic">queueserver</span> input.</p>
+</div>
+</section>
+</section>
+<section id="sample-wheel-automation">
+<span id="id1"></span><h2><span class="section-number">11.3. </span>Sample wheel automation<a class="headerlink" href="#sample-wheel-automation" title="Permalink to this heading">#</a></h2>
+<p>The standard <em>ex situ</em> sample holder at BMM is a plastic wheel mounted
+on a rotation stage.  Examples are shown in figures
+<a class="reference internal" href="#fig-doublewheel"><span class="std std-numref">Fig. 11.4</span></a>.  The rotation stage is mounted on an XY
+stage, so when one slot on the sample wheel is aligned, all the slots
+are aligned.  Alignment details ➡ <a class="reference internal" href="linescans.html#special-linescans"><span class="std std-numref">Section 8.2</span></a></p>
+<figure class="align-center" id="id7">
+<span id="fig-doublewheel"></span><a class="reference external image-reference" href="_images/double_wheel_sm.jpg"><img alt="_images/double_wheel_sm.jpg" src="_images/double_wheel_sm.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.4 </span><span class="caption-text">Double-ring sample wheels with 48 sample positions.  There
+are options for both wheel styles with 13mm x 3 mm slots or 13mm
+diameter holes.  The rings on the double wheel are 26 mm apart
+(center to center of slots/holes).</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The automation concept is that a measurement at an edge on a slot on
+the sample wheel is described by a row in the spreadsheet.  Each
+column of the spreadsheet carries one parameter of the XAFS scan.</p>
+<figure class="align-center" id="id8">
+<span id="fig-doublewheel-spreadsheet"></span><a class="reference external image-reference" href="_images/doublewheel_spreadsheet.png"><img alt="_images/doublewheel_spreadsheet.png" src="_images/doublewheel_spreadsheet.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.5 </span><span class="caption-text">Example spreadsheet for running an experiment from a wheel with a
+two sample rings.  Link: <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/wheel.xlsx">wheel spreadsheet</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you have read <a class="reference internal" href="xafs.html#ini"><span class="std std-numref">Section 9.1</span></a> about the INI file, then
+most of the columns in this spreadsheet will be quite familiar.  Most
+of the columns are used to specify the same set of parameters as in
+the INI file – file name, element, edge, and so on.</p>
+<p>The green cell in the first row is used to input the names of all the
+people involved in the experiment, as explained above.</p>
+<p>As explained above, row 6, the row with the lime-green background,
+is used to specify the default values for all the parameters.  The
+concept here is to try to avoid having to input repetitive
+information.  For instance, in this case, all measurements will be
+made at the Fe K edge.  The element and edge are all specified in the
+green row.  Those cells are left blank for all subsequent rows, so the
+default values will be used.</p>
+<p>In short, any cell that is left blank will use the value from the
+green, default row.  Any cell for which a value is specified will be
+used in the macro that gets generated.</p>
+<p>The first column is used to specify the slot number for each sample on
+the sample wheel.</p>
+<p>The second column is a simple way of excluding the slot from
+measurement simply by specifying <em>No</em>.</p>
+<p>The next several columns correspond to lines in the INI file as
+explained in <a class="reference internal" href="xafs.html#ini"><span class="std std-numref">Section 9.1</span></a>.</p>
+<p>Energy changes can be included in the macro by specifying different
+values for element and/or edge in a row.  When specified
+and different from the previous row, a call to the <code class="docutils literal notranslate"><span class="pre">change_edge()</span></code>
+command (<a class="reference internal" href="pds.html#pds"><span class="std std-numref">Section 7</span></a>) is inserted into the macro.</p>
+<p>Not shown in <a class="reference internal" href="#fig-wheel-spreadsheet"><span class="std std-numref">Figure 11.1</span></a> are columns
+for tweaking the <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> positions, adjusting the
+horizontal and vertical size of <a class="reference internal" href="pds.html#slits3"><span class="std std-numref">slits3 (see Section 7.7)</span></a>, and adjusting the fluorescence detector position.</p>
+<p>Again, assuming the tab in the spreadsheet was called <code class="docutils literal notranslate"><span class="pre">mysamples</span></code>,
+you can then run the macro generated from the spreadsheet by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mysamples_macro</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Here are the first few lines of the macro generated from this
+spreadsheet. Note that for each sample, the macro first moves using
+the <code class="docutils literal notranslate"><span class="pre">slot()</span></code> command, then measures XAS using the <code class="docutils literal notranslate"><span class="pre">xafs()</span></code>
+command.  The <code class="docutils literal notranslate"><span class="pre">xafs()</span></code> command uses the INI file (<a class="reference internal" href="xafs.html#ini"><span class="std std-numref">Section
+9.1</span></a>) generated from the green default line and has
+explicit arguments for the filled-in spreadsheet cells.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">yield from</span> <span class="n">slot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="k">yield from</span> <span class="n">xafs</span><span class="p">(</span><span class="s1">&#39;MnFewheel.ini&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Fe-Rhodonite&#39;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="s1">&#39;MnSiO3&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;ID:93 Russia&#39;</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="n">close_last_plot</span><span class="p">()</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">yield from</span> <span class="n">slot</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="k">yield from</span> <span class="n">xafs</span><span class="p">(</span><span class="s1">&#39;MnFewheel.ini&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Fe-Johannsonite&#39;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="s1">&#39;CaMnSi2O6 - LT&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;B –Iron Cap Mine; Graham Country, Arizona&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">close_last_plot</span><span class="p">()</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">yield from</span> <span class="n">slot</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">10</span><span class="k">yield from</span> <span class="n">xafs</span><span class="p">(</span><span class="s1">&#39;MnFewheel.ini&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Fe-Spessartine&#39;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="s1">&#39;Mn3Al2(SiO4)3&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Grants Mining District; New Mexico&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">close_last_plot</span><span class="p">()</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1">## and so on....</span>
+</pre></div>
+</div>
+<section id="mounting-samples-on-the-sample-wheel">
+<h3><span class="section-number">11.3.1. </span>Mounting samples on the sample wheel<a class="headerlink" href="#mounting-samples-on-the-sample-wheel" title="Permalink to this heading">#</a></h3>
+<p>The sample wheels are intended to be an easy way of mounting and
+automating <em>ex situ</em> measurements.  There are, however, some rules to
+their use.</p>
+<ol class="arabic simple">
+<li><p>Note that the slots are numbered from 1 to 24.  This indexing is
+indicated by the numbers 1, 7, 13, and 19 cut into the plastic.</p></li>
+<li><p>As shown in <a class="reference internal" href="#fig-doublewheel-spreadsheet"><span class="std std-numref">Figure 11.5</span></a>, the
+inner and outer slots are labeled as such.  Thus there is an inner
+slot #1 and an outer slot #1.  The slots are <strong>not</strong> numbered from
+1 to 48.  The numbering is inner 1 to inner 24 and outer 1 to
+outer 24.</p></li>
+<li><p>The side the wheel on which the numbers are read normally is the
+side that faces the beam.  The side facing the beam is refered to
+as the “front” of the wheel.</p></li>
+<li><p>Samples, when mounted on the wheel using tape as in the left side
+of <a class="reference internal" href="#fig-mountsamplewheel"><span class="std std-numref">Figure 11.6</span></a>, should be taped to
+the front of the wheel.</p></li>
+<li><p>As shown in <a class="reference internal" href="#fig-mountsamplewheel"><span class="std std-numref">Figure 11.6</span></a>, samples can
+fill the slots or they can be affixed to the front of the wheel
+over the slots.  The choice is yours.  Do which ever seems more
+convenient for your samples.</p></li>
+<li><p>Note that there are lines scored into the plastic going through the
+centers of the slots.  Take care to mount your samples such that
+they are well-centered in each slot.  The better a job you do
+aligning the mounted samples, the easier it will be to correctly
+align each sample in the beam.</p></li>
+<li><p>While completely filling or covering each slot makes the wheel very
+easy to use, that is not always possible.  Slit size and sample
+stage positions can be adjusted in the spreadsheet, as needed for
+each sample individually.  That said, centering your samples
+carefully in each slot is especially helpful when the sample is
+smaller than the slot.</p></li>
+<li><p>Feel free to write directly on the wheel with a Sharpie.  The
+sample holder will be in view of multiple cameras.  Clearly
+readable labels seen in the cameras are helpful when setting up the
+experiment and provide a <a class="reference internal" href="log.html#snap"><span class="std std-numref">useful visual record of the
+experiment (Section 12.2)</span></a>.</p></li>
+</ol>
+<figure class="sphinx-subfigure align-default" id="fig-mountsamplewheel">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/ontop.jpg" src="_images/ontop.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/filled.jpg" src="_images/filled.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 11.6 </span><span class="caption-text">(Left) An example of samples taped to the front of the sample wheel
+(Right) An example of samples filling the slots in the sample wheel.</span><a class="headerlink" href="#fig-mountsamplewheel" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="caution admonition">
+<p class="admonition-title">Do not make up your own numbering scheme!</p>
+<p>The spreadsheet automation system expects the indexing as described
+above.  If you make up your own indexing scheme, you <strong>will</strong> get
+confused at the beamline and you run the risk of mislabeling your
+data.</p>
+</div>
+</section>
+</section>
+<section id="linkam-stage-automation">
+<span id="auto-linkam"></span><h2><span class="section-number">11.4. </span>Linkam stage automation<a class="headerlink" href="#linkam-stage-automation" title="Permalink to this heading">#</a></h2>
+<p>One of the temperature control options at BMM is a <a class="reference external" href="https://www.linkam.co.uk/thms600">Linkam stage</a>.  Ours is the kind that can cool
+using liquid nitrogen flow or heat up to 600 C using a resistive
+heater.  The linkam stage is typically mounted upright on top fo the
+XY stage.</p>
+<figure class="sphinx-subfigure align-default" id="fig-linkamstage">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/linkam.jpg" src="_images/linkam.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/dewar.jpg" src="_images/dewar.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 11.7 </span><span class="caption-text">(Left) The Linkham stage mounted for transmission on the sample
+stage.  (Right) The 25 L dewar used for cooling the Linkam stage.</span><a class="headerlink" href="#fig-linkamstage" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The automation concept for the Linkam stage is quite similar to the
+<em>ex situ</em> sample holder.  Instead of specifying the slot position of the
+sample, you will specify the target temperature for the measurement.
+There is also a column for specifying the holding time after arriving
+at temperature before beginning the XAFS measurement.</p>
+<p>The feature described in <a class="reference internal" href="#spreadsheet-options"><span class="std std-numref">Section 11.1.3</span></a>
+for modifying filenames is particularly useful in this context.  It
+can be used to put the measurement temperature in the filename,
+allowing you to simply specify a default filename, leaving that cell
+in each row blank.  The generated data files will then have sensible
+names.</p>
+<figure class="align-center" id="id9">
+<span id="fig-linkam-spreadsheet"></span><a class="reference external image-reference" href="_images/linkam_spreadsheet.png"><img alt="_images/linkam_spreadsheet.png" src="_images/linkam_spreadsheet.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.8 </span><span class="caption-text">Example spreadsheet for running a temperature-dependent experiment
+using the Linkam stage.  Link to the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/linkam.xlsx">Linkam spreadsheet</a></span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lakeshore-displex-automation">
+<span id="auto-lakeshore"></span><h2><span class="section-number">11.5. </span>LakeShore/Displex automation<a class="headerlink" href="#lakeshore-displex-automation" title="Permalink to this heading">#</a></h2>
+<p>For extremely low temperature experiments, BMM has a Displex crystat
+which uses a two-stage helium compressor to cool the cold head down as
+low as 10K with temperature control between 10K and 500K using a
+resistive heater and a <a class="reference external" href="https://www.lakeshore.com/products/categories/overview/discontinued-products/discontinued-products/model-331-cryogenic-temperature-controller">LakeShore temperature controller</a>.</p>
+<p>This is a somewhat unusual version of the Displex system in that it is
+suitable for low-vibration applications.  The compressor is
+mechanically decoupled from the cold head, reducing the motion of the
+sample. As a result of this cooling system, it is somewhat
+time-consuming to temperature cycle and replace samples.  Expect that
+cooling from room temperature to 10K will take about 2 hours and
+budget up to an an hour for returning to room temperature and changing
+samples.</p>
+<figure class="sphinx-subfigure align-default" id="fig-displex">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/cryostat.jpg" src="_images/cryostat.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/lakeshore331.png" src="_images/lakeshore331.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 11.9 </span><span class="caption-text">(Left) The Displex cryostat and it’s compressor.  (Right) The
+LakeShore 331 controller, used to control temperature for the
+cryostat shown to the left.</span><a class="headerlink" href="#fig-displex" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The automation for the LakeShore 331 works much the same as for the
+Linkam stage.  Again, you will specify the target temperature for the
+measurement.  And there is a column for specifying the holding time
+after arriving at temperature before beginning the XAFS measurement.</p>
+<p>There is a column for specifying the power level of the heater in the
+cryostat.  There are three power settings.  You probably want to use
+the high power setting.  The controller is pretty well tuned for the
+cryostat.  It is unlikely to overshoot the when raising temperature.</p>
+<figure class="align-center" id="id10">
+<span id="fig-lakeshore-spreadsheet"></span><a class="reference external image-reference" href="_images/lakeshore_spreadsheet.png"><img alt="_images/lakeshore_spreadsheet.png" src="_images/lakeshore_spreadsheet.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.10 </span><span class="caption-text">Example spreadsheet for running a temperature-dependent experiment
+using the Displex cryostat and the LakeShore 331. Link to the
+<a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/lakeshore.xlsx">LakeShore spreadsheet</a>.</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="glancing-angle-stage-automation">
+<span id="auto-ga"></span><h2><span class="section-number">11.6. </span>Glancing angle stage automation<a class="headerlink" href="#glancing-angle-stage-automation" title="Permalink to this heading">#</a></h2>
+<p>This stage is used to automate measurement at glancing angle, usually
+on thin film samples.  The stage can be mounted horizontally or
+vertically, allowing measurement of in- or out-of-plane strain in thin
+films.</p>
+<figure class="align-center" id="id11">
+<span id="fig-glancinganglestage"></span><a class="reference external image-reference" href="_images/glancing_angle_stage.jpg"><img alt="_images/glancing_angle_stage.jpg" src="_images/glancing_angle_stage.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.11 </span><span class="caption-text">The glancing angle stage with 8 sample positions.</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This stage is mounted on a rotation stage to move between samples.
+The rotation stage is mounted on a tilt stage to set the incident
+angle of the beam relative to the sample surface.  This entire set up
+is mounted on the XY stage for alignment on the beam.</p>
+<p>Each sample is affixed to a sample spinner (which is simply a cheap, 24 VDC
+CPU fan).  The 8 spinners are independently controlled via slip ring
+electrical connection that runs through the axis of the rotation
+stage.  In practice, only the sample that is being measured is spinning.</p>
+<p>Again, the automation concept is very similar to the <em>ex situ</em> sample
+wheel.  Instead of specifying slot number, the spinner number is
+specified on each row.  There is also a yes/no menu for specifying
+whether the sample spins during measurement.</p>
+<figure class="align-center" id="id12">
+<span id="fig-glancingangle-spreadsheet"></span><a class="reference external image-reference" href="_images/glancingangle_spreadsheet.png"><img alt="_images/glancingangle_spreadsheet.png" src="_images/glancingangle_spreadsheet.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.12 </span><span class="caption-text">Example spreadsheet for running an experiment using the glancing
+angle stage.  Link to the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/glancing_angle.xlsx">glancing angle spreadsheet</a>.</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Not shown in <a class="reference internal" href="#fig-glancingangle-spreadsheet"><span class="std std-numref">Figure 11.12</span></a> are
+columns for specifying how sample alignment is handled.  The default
+is to do automated alignment.  This works by following this script:</p>
+<ol class="arabic simple">
+<li><p>Move the stage to an incident angle that is close to flat for the
+sample and start the sample spinning.</p></li>
+<li><p>Do a scan in the vertical direction, measuring the signal in the
+transmission chamber. Fit an error function to the transmission
+signal.  The centroid of that function is the position with the
+sample half-way in the beam.</p></li>
+<li><p>Do a scan in pitch, measuring the signal in the transmission
+chamber.  The peak of that measurement is the position where the
+sample is flat relative to the beam direction.</p></li>
+<li><p>Repeat steps 2 and 3.</p></li>
+<li><p>Move the sample tilt to the angle specified by the user in the
+spreadsheet.</p></li>
+<li><p>Do a scan in the vertical direction, measuring the signal in the
+fluorescence detector.  The center of mass of that measurement is
+the position where the beam is well-centered on the sample.</p></li>
+</ol>
+<p>The result of this fully automated sequence is shown in
+<a class="reference internal" href="#fig-spinner-alignment"><span class="std std-numref">Figure 11.13</span></a>.</p>
+<figure class="align-center" id="id13">
+<span id="fig-spinner-alignment"></span><a class="reference external image-reference" href="_images/spinner-alignment.png"><img alt="_images/spinner-alignment.png" src="_images/spinner-alignment.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.13 </span><span class="caption-text">This visual representation of the automated glancing angle
+alignment is posted to Slack and presented in the measurement
+<a class="reference internal" href="log.html#dossier"><span class="std std-numref">dossier (Section 12.4)</span></a>.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For some samples, the automated alignment is unreliable, so there is
+an option in the spreadsheet for manual alignment.  In that case, find
+the <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_pitch</span></code> positions for the sample at its
+measurement angle and well-aligned in the beam.  Enter those numbers
+and they will be used by the macro rather than performing the
+automated alignment.</p>
+</section>
+<section id="motor-grid-automation">
+<h2><span class="section-number">11.7. </span>Motor grid automation<a class="headerlink" href="#motor-grid-automation" title="Permalink to this heading">#</a></h2>
+<p>The final kind of automation-via-spreadsheet available is BMM is for a
+generic motor grid.  The most common motor grid used for measurement
+is the sample XY stage, <code class="docutils literal notranslate"><span class="pre">xafs_x</span></code> and <code class="docutils literal notranslate"><span class="pre">xafs_y</span></code>.  However, most any
+xafs stage can be used for the grid.</p>
+<figure class="align-center" id="id14">
+<span id="fig-grid-spreadsheet"></span><a class="reference external image-reference" href="_images/grid_spreadsheet.png"><img alt="_images/grid_spreadsheet.png" src="_images/grid_spreadsheet.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11.14 </span><span class="caption-text">Example spreadsheet for running an experiment on an XY grid.  Link
+to the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/startup/xlsx/grid.xlsx">motor grid spreadsheet</a>.</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The columns in <a class="reference internal" href="#fig-motor-columns"><span class="std std-numref">Figure 11.2</span></a> – to the
+left of the view shown in <a class="reference internal" href="#fig-grid-spreadsheet"><span class="std std-numref">Figure 11.14</span></a>
+– are used to specify the axes in the grid.</p>
+<p>The motors are identified by a drop down selection in the header cells
+in row 5.</p>
+<p>The first two motor columns are mandatory and must be selected.  These
+can be any motors <em>except for</em> the <em>ex situ</em> sample wheel
+(<code class="docutils literal notranslate"><span class="pre">xafs_wheel</span></code>), the glancing angle rotary stage (<code class="docutils literal notranslate"><span class="pre">xafs_garot</span></code>), or
+the reference wheel (<code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code>).</p>
+<p>The three optional motors can be any stage, including the three rotary
+stages.  Some details about the optional motors:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">none</span></code> is selected from those drop-down menus, then that
+motor is not included in the automation.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">xafs_wheel</span></code> or <code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code> is selected, the value should be
+an integer between 1 and 24.  Any other value will trigger an error.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">xafs_garot</span></code> is selected, the value should be an integer
+between 1 and 8.  Any other value will trigger an error.</p></li>
+</ul>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>What about <code class="docutils literal notranslate"><span class="pre">xafs_refx</span></code> when using <code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code>?  Maybe
+<code class="docutils literal notranslate"><span class="pre">xafs_ref</span></code> could take values like “4i” and “12o”?  Maybe
+exclude the <code class="docutils literal notranslate"><span class="pre">xafs_refN</span></code> stages entirely from the
+automation?</p>
+</div>
+<p>In most ways – the <code class="docutils literal notranslate"><span class="pre">slot</span></code> column being the notable exception –
+this spreadsheet is identical to the <em>ex situ</em> sample wheel
+spreadsheet.</p>
+</section>
+<section id="resonant-refectivity-automation">
+<h2><span class="section-number">11.8. </span>Resonant refectivity automation<a class="headerlink" href="#resonant-refectivity-automation" title="Permalink to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>This is a work in progress</p>
+</div>
+</section>
+<section id="future-developments">
+<h2><span class="section-number">11.9. </span>Future developments<a class="headerlink" href="#future-developments" title="Permalink to this heading">#</a></h2>
+<div class="admonition-future-tech admonition">
+<p class="admonition-title">Future Tech!</p>
+<p>Spreadsheets for:</p>
+<ul class="simple">
+<li><p>Electrochemistry experiments using the BioLogic potentiostat</p></li>
+<li><p>Chemistry experiments using the gas cart, including its mass flow
+controllers, valves, temperature controller, and mass spectrometer.</p></li>
+<li><p>Anton-Parr</p></li>
+<li><p>Automation of linear/pitch alignment for any pair of motors used
+for a glancing angle experiment</p></li>
+</ul>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Spreadsheets with version number earlier than 13 <strong>will
+not work</strong> as of 1 March, 2024.  Grid spreadsheets changed
+significantly between 16 and 17.</p>
+</div>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="other.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Other measurement needs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="log.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Experimental Log</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-features">11.1. Common features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-information">11.1.1. Default information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimenters">11.1.2. Experimenters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-options">11.1.3. Measurement options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detector-position">11.1.4. Detector position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-sample-position-and-slits">11.1.5. Fine tuning sample position and slits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-spreadsheet">11.2. Selecting a spreadsheet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-spreadsheet">11.2.1. Import a spreadsheet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-bluesky-instructions">11.2.2. Generating Bluesky instructions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel-automation">11.3. Sample wheel automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mounting-samples-on-the-sample-wheel">11.3.1. Mounting samples on the sample wheel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linkam-stage-automation">11.4. Linkam stage automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakeshore-displex-automation">11.5. LakeShore/Displex automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-stage-automation">11.6. Glancing angle stage automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motor-grid-automation">11.7. Motor grid automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonant-refectivity-automation">11.8. Resonant refectivity automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-developments">11.9. Future developments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>12. Experimental Log &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'log';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Managing the beamline" href="manage.html" />
+    <link rel="prev" title="11. Beamline automation" href="automation.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Flog.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/log.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Experimental Log</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-file">12.1. Log file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshots">12.2. Snapshots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-videos">12.3. Recording videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-dossier">12.4. Scan dossier</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-AB_CD { grid-template-areas: 'A B' 'C D'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-AB_CD { grid-template-areas: 'A B' 'C D'; }
+}
+</style>
+<section id="experimental-log">
+<span id="log"></span><h1><span class="section-number">12. </span>Experimental Log<a class="headerlink" href="#experimental-log" title="Permalink to this heading">#</a></h1>
+<p>At BMM, we are trying to run the system in a way that automatically
+generates a useful electronic log book.  This is meant to complement
+– not replace – a paper log book or an online system like <a class="reference external" href="http://olog.github.io/2.2.7-SNAPSHOT/">Olog</a>.</p>
+<p>The point of the BMM experimental log is to capture with time stamps
+all the significant actions at the beamline.  In part, this provides a
+record of the actions in an experimental campaign.  It also is an
+attempt to provide enough information to recover from mistakes and
+confusions about sample positions and other experimental issues.</p>
+<section id="log-file">
+<span id="logfile"></span><h2><span class="section-number">12.1. </span>Log file<a class="headerlink" href="#log-file" title="Permalink to this heading">#</a></h2>
+<p>At the beginning of a user experiment, run something like this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BMMuser</span><span class="o">.</span><span class="n">begin_experiment</span><span class="p">(</span><span class="s1">&#39;Betty Cooper&#39;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s1">&#39;2019-02-28&#39;</span><span class="p">,</span> <span class="n">gup</span><span class="o">=</span><span class="mi">123456</span><span class="p">,</span> <span class="n">saf</span><span class="o">=</span><span class="mi">654321</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Among other things, this instruments the logger to maintain a log file
+specifically for the current experiment.  The logger also maintains a
+master log file which is, effectively, a concatenation of all the
+individual experimental logs.</p>
+<p>The log is an attempt to capture a record of all significant actions
+taken during an experimental campaign.  It errs of the conservative
+side in that it likely captures way too much information.</p>
+<p>Experimental events are captures with a time stamp and a brief
+explanation of what happened.  For example, when a motor is moved, the
+motor name and target position are written to the log with a time
+stamp.</p>
+<p>Similarly, a line scan or an XAFS scan is captured with enough
+information to understand what the scan accomplished.  For a line
+scan, the motor name, scan range, and starting position are captured.
+For an XAFS scan, the contents of the <a class="reference internal" href="xafs.html#xafs"><span class="std std-numref">INI file (See Section
+9)</span></a> are written to the log along with the motor positions as
+reported by the <code class="docutils literal notranslate"><span class="pre">ms()</span></code> command <a class="reference internal" href="motors.html#motors"><span class="std std-numref">(see Section 6)</span></a>.
+The names of the output data files are recorded with timestamps
+indicating when they were written.</p>
+<p>Several other activities specific to BMM also recorded to the log file.
+The snapshot tool described above is an example.</p>
+<p>Writing to the log file is accomplished in two ways.  This function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BMM_log_info</span><span class="p">(</span><span class="s1">&#39;text of message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is used to insert most messages into the log.  <code class="docutils literal notranslate"><span class="pre">BMM_log_info()</span></code> can
+be called at any time from the command line to insert any message into
+the log.</p>
+<p>BMM also uses <a class="reference external" href="https://nsls-ii.github.io/bluesky/debugging.html#message-hook">Bluesky’s msg_hook</a>.
+This is how <code class="docutils literal notranslate"><span class="pre">mv()</span></code> and <code class="docutils literal notranslate"><span class="pre">mvr()</span></code> commands are captured in the log.
+This bespoke message hook parses the document returned by BlueSky for
+specific kinds of events and captures a log message when appropriate.</p>
+</section>
+<section id="snapshots">
+<span id="snap"></span><h2><span class="section-number">12.2. </span>Snapshots<a class="headerlink" href="#snapshots" title="Permalink to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Document the USB cameras</p>
+</div>
+<p>The XAFS scan plan described in <a class="reference internal" href="xafs.html#xafs"><span class="std std-numref">Section 9</span></a> includes a
+step where snapshots are taken from the XAS webcam and the small
+analog camera.  These photos are written to JPG files with names
+related to the XAS data file written as part of the call to the
+<code class="docutils literal notranslate"><span class="pre">xafs()</span></code> plan.  This provides automated photographic documentation
+of the state of the measurement as it is being made.</p>
+<p>Snapshots can be taken at any time using this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snap</span><span class="p">(</span><span class="s1">&#39;&lt;camera&gt;&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/path/to/image.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The choices for <code class="docutils literal notranslate"><span class="pre">&lt;camera&gt;</span></code> are</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">XAS</span></code></dt><dd><p>Take a snapshot from the XAS webcam</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">XRD</span></code></dt><dd><p>Take a snapshot from the XRD webcam</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">analog</span></code></dt><dd><p>Take a snapshot of the image currently displayed on the monitor to
+the left of the control station.</p>
+</dd>
+</dl>
+<p>The image will then be written to the file specified by the
+<code class="docutils literal notranslate"><span class="pre">filename=</span></code> argument.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">xafs()</span></code> plan does something equivalent to the <code class="docutils literal notranslate"><span class="pre">snap()</span></code>
+function for each available camera.  These are recorded to the scan’s
+<a class="reference internal" href="#dossier"><span class="std std-numref">dossier (Section 12.4)</span></a>.</p>
+<figure class="sphinx-subfigure align-default" id="fig-snapshots">
+<div class="sphinx-subfigure-grid ss-layout-default-AB_CD ss-layout-sm-AB_CD outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/analog.jpg" src="_images/analog.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/XASwebcam.jpg" src="_images/XASwebcam.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/usbcam1.jpg" src="_images/usbcam1.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: D;">
+<img alt="_images/usbcam2.jpg" src="_images/usbcam2.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">Snapshots from an experiment using the Linkam stage.  Note that
+each snapshot is annotated along the bottom, visually displaying
+the time and identifying the sample being measured.
+(Top left) Snapshot taken with the analog camera.  (Top right)
+Snapshot taken with the XAS web camera. (Bottom left) Snapshot
+taken with USB camera #1. (Bottom left) Snapshot taken with USB
+camera #2.</span><a class="headerlink" href="#fig-snapshots" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="recording-videos">
+<span id="video"></span><h2><span class="section-number">12.3. </span>Recording videos<a class="headerlink" href="#recording-videos" title="Permalink to this heading">#</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Does this actually work?</p>
+</div>
+<p>The USB cameras can be used to record short videos of whatever they
+are pointing at.  The resulting video will be saved to a <a class="reference external" href="https://en.wikipedia.org/wiki/Audio_Video_Interleave">.avi</a> file in
+the <code class="docutils literal notranslate"><span class="pre">video</span></code> folder under the experiment folder.</p>
+<p>The simplest way to record a video is by this command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">usbvideo1</span><span class="o">.</span><span class="n">record_video</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here the arguments are:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>The stub of the file to be written to disk.  The <code class="docutils literal notranslate"><span class="pre">.avi</span></code> extension
+will be added</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">time</span></code></dt><dd><p>The length in seconds of the recording</p>
+</dd>
+</dl>
+<p>This is, perhaps, a bit clunky since you have to specify the time of
+the recording.  You can do the recording in a more hands on manner by
+explicitly starting the recording.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">usbvideo1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Do whatever you want to capture, then explicitly stop the recording.
+Finally, you save the video to a name which means the same thing as is
+explained above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">usbvideo1</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="n">usbvideo1</span><span class="o">.</span><span class="n">save_video</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="scan-dossier">
+<span id="dossier"></span><h2><span class="section-number">12.4. </span>Scan dossier<a class="headerlink" href="#scan-dossier" title="Permalink to this heading">#</a></h2>
+<p>The BMM data collection system now captures a dossier for each scan
+sequence that is run.  The definition of a scan sequence is a call to
+<a class="reference internal" href="xafs.html#xafsscan"><span class="std std-numref">the xafs plan (Section 9.4)</span></a>, which may
+involve multiple repetitions of the scan.</p>
+<p>The dossier is a static html file which captures most of the
+information discussed on this page.  It includes, links to each
+individual data file, the transient ID and UID for each scan, links to
+the snapshots, tables of information from <a class="reference internal" href="xafs.html#ini"><span class="std std-numref">the INI file
+(Section 9.1)</span></a>, a verbatim copy of the INI file, and a table of
+motor positions at the time of the beginning of the scan sequence.</p>
+<p>These dossiers aggregate other assets described on this page and
+complement the user’s paper logbook by providing comprehensive
+summaries of all the information relevant to the scan sequence
+provided by the user and gleaned from beamline instrumentation.</p>
+<figure class="align-center" id="id2">
+<span id="fig-dossier"></span><a class="reference external image-reference" href="_images/dossier.png"><img alt="_images/dossier.png" src="_images/dossier.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">An example of the scan sequence dossier, displayed in a web browser.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-new-in-april-2023 admonition">
+<p class="admonition-title">New in April 2023</p>
+<p>Along with the dossier, the beamline now records a flat HTML file
+which records all the messages sent to <a class="reference internal" href="intro.html#slack"><span class="std std-numref">Slack (Section 1.3.2)</span></a>.  This can be accessed by the “Timeline” link at the top
+of every dossier page.</p>
+</div>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="automation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Beamline automation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="manage.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Managing the beamline</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-file">12.1. Log file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshots">12.2. Snapshots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-videos">12.3. Recording videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-dossier">12.4. Scan dossier</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

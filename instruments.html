@@ -1,0 +1,950 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>5. Beamline instrumentation &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'instruments';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Moving and querying motors" href="motors.html" />
+    <link rel="prev" title="4. Data access" href="data.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Finstruments.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/instruments.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Beamline instrumentation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ionization-chambers">5.1. Ionization chambers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluorescence-detectors">5.2. Fluorescence detectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electron-yield-detector">5.3. Electron yield detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-detector">5.4. Area detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel">5.5. Sample wheel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrochemistry">5.6. Electrochemistry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-control">5.7. Temperature control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linkam-stage">5.7.1. Linkam stage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displex-cryostat">5.7.2. Displex Cryostat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-and-thin-film-stage">5.8. Glancing angle and thin film stage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilt-and-rotation-stages">5.9. Tilt and rotation stages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-instrumentation">5.10. Future Instrumentation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+  .ss-layout-default-ABC { grid-template-areas: 'A B C'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-AB { grid-template-areas: 'A B'; }
+  .ss-layout-sm-ABC { grid-template-areas: 'A B C'; }
+}
+</style>
+<section id="beamline-instrumentation">
+<span id="instruments"></span><h1><span class="section-number">5. </span>Beamline instrumentation<a class="headerlink" href="#beamline-instrumentation" title="Permalink to this heading">#</a></h1>
+<p>This section provides a brief overview of the instrumentation
+available for various kinds of routine and <em>in situ</em> experiments.</p>
+<p>If you have questions about any of these tools or wish to pursue other
+experimental options, contact the beamline staff.</p>
+<p>See <a class="reference internal" href="restore.html#iocs"><span class="std std-numref">Section G.5</span></a> for details about the IOCs running the
+beamline instrumentation.</p>
+<section id="ionization-chambers">
+<h2><span class="section-number">5.1. </span>Ionization chambers<a class="headerlink" href="#ionization-chambers" title="Permalink to this heading">#</a></h2>
+<p>At BMM, we use <a class="reference external" href="https://doi.org/10.1109/NSSMICRTSD49126.2023.10338518">ion chambers designed</a> by Pete
+Siddons and built in the BNL Instrumentation Division.  One of these
+is shown in <a class="reference internal" href="#fig-ionchamber"><span class="std std-numref">Figure 5.1</span></a>.</p>
+<p>These are compact, all-in-one solutions containing a gas-filled volume
+for capacitor plates constructed from integrated circuit board.  The
+circuit boards are patterned to provide guard plates at the entrance
+and exit from the ion chamber.  The patterning also provides a zig-zag
+separation between two plates.  In normal operation, the beam passes
+over the outboard plate, leaving the inboard plate unused.  However,
+the ion chamber can be used as a beam positioning device in one
+dimension by passing the beam over the zig-zag pattern and using the
+difference signal as a feedback signal.</p>
+<figure class="align-center" id="id5">
+<span id="fig-ionchamber"></span><a class="reference external image-reference" href="_images/new_IC.jpg"><img alt="_images/new_IC.jpg" src="_images/new_IC.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Home build ion chamber.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The top part of the box shown in <a class="reference internal" href="#fig-ionchamber"><span class="std std-numref">Figure 5.1</span></a>
+contains all of the electronics.  There are two circuit boards
+containing an electrometer for measuring current, an adjustable
+voltage supply for charging the bottom plate of the capacitor, and a
+microcomputer for running an EPICS IOC, a slightly modified version of
+the standard <a class="reference external" href="https://epics-modules.github.io/quadEM/">quadEM module</a>.  This has been modified
+to use only two of the normal four channels, with all PVs associated
+with unused channels forced to be zero-valued.</p>
+<p>The voltage supply is software adjustable from 0 V to 500 V.  At BMM,
+we run at 200 V, which was determined by the plateau of the IV curve
+and selecting a point well within the plateau, but towards the
+low-voltage end.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ion chambers are on the EPICS subnet.  This is different
+from the black-box electrometer, which sit on the INST subnet.  The
+reason for this is because the ion chambers run their own IOCs,
+thus need to be on the a subnet with no routing to the outside
+world.  The black box electrometers use IOCs running on
+<code class="docutils literal notranslate"><span class="pre">xf06bm-inst-ioc1</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>chamber</p></th>
+<th class="head"><p>DNS entry</p></th>
+<th class="head"><p>IP address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>I<sub>0</sub></p></td>
+<td><p>xf06bm-ic1</p></td>
+<td><p>10.68.43.196</p></td>
+</tr>
+<tr class="row-odd"><td><p>I<sub>t</sub></p></td>
+<td><p>xf06bm-ic2</p></td>
+<td><p>10.68.43.197</p></td>
+</tr>
+<tr class="row-even"><td><p>I<sub>r</sub></p></td>
+<td><p>xf06bm-ic3</p></td>
+<td><p>10.68.43.198</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In normal operations, the ion chambers are always filled with nitrogen
+taken from the house boil-off supply.  100% nitrogen is, of course,
+rather too thick for the Ti K edge and rather too thin for the Mo K
+edge.  However, a benefit of being at a bright, 3<sup>rd</sup>
+generation source is that the flux is so high that running the ion
+chambers in with non-optimal gas filling has scant impact on data
+quality.  The shot noise in the ion chamber signals is simply not a
+large part of the noise budget of most experiments.</p>
+<p>The advantage of running the ion chambers in this way is ease of use.
+Not changing the gas mixture when <a class="reference internal" href="pds.html#change-edge"><span class="std std-numref">changing edge (see Section
+7.2)</span></a>, simplifies the procedure and eliminates the time
+required to let the gas mixture equilibrate in the ion chamber.</p>
+<p>For experiments outside the range of 5 keV to 20 keV – i.e. Ti K edge
+to Mo K edge – we might change the gas mixture.  When measuring Tc or
+Ru K edge, argon is usually added to the ion chambers.  When measuring
+below Ti – for example, Sc K edge or Te L3 edge – helium is
+added to the ion chambers.</p>
+</section>
+<section id="fluorescence-detectors">
+<h2><span class="section-number">5.2. </span>Fluorescence detectors<a class="headerlink" href="#fluorescence-detectors" title="Permalink to this heading">#</a></h2>
+<p>The standard fluorescence detector at BMM is a <a class="reference external" href="https://www.hitachi-hightech.com/us/en/products/analytical-systems/sdd/vortex-me7.html">seven element silicon
+drift detector</a>
+with an <a class="reference external" href="https://quantumdetectors.com/products/xspress3/">Xspress3</a>
+readout.  This normally sits on a linear stage so that distance to the
+sample can be user-controlled and incorporated into <a class="reference internal" href="automation.html#automation"><span class="std std-numref">beamline
+automation (Section 11)</span></a>.</p>
+<p>We also have a <a class="reference external" href="https://www.hitachi-hightech.com/us/en/products/analytical-systems/sdd/vortex-90ex.html">single element silicon drift detector</a>
+which is useful in certain situations.  If your experimental setup
+requires placing the detector in an unusual orientation, the single
+element detector can be used.  Unlike the 7-element detector, the
+single element is not required to remain in an upright orientation
+during operation.  While the single element detector sees fewer
+photons, this versatility of setup is occasionally very helpful.</p>
+<figure class="sphinx-subfigure align-default" id="fig-xrfinst">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/7element.jpg" src="_images/7element.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/1element.jpg" src="_images/1element.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">(Left) Seven element silicon drift detector.  (Right) One element
+silicon drift detector.</span><a class="headerlink" href="#fig-xrfinst" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BMM has an elderly 4-element SDD as a back-up detector.</p>
+<p>The 7-element detector sits on an XYZ stage for alignment with the beam.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>axis</p></th>
+<th class="head"><p>purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code></p></td>
+<td><p>proximity to sample</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code></p></td>
+<td><p>vertical position</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xafs_detz</span></code></p></td>
+<td><p>uypstream/downstream position</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xafs_detx</span></code> stage is fully retracted at a position of 205.  The
+closest position is often something close to 0, but that depends on
+the details of the sample stage and will be set as a soft limit at the
+beginning of an experiment. To
+fully retract the stage, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_detx</span><span class="p">,</span> <span class="mi">205</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code> stage is normally at position 5.  Position 5 is
+chosen to have the beam at the height of the center element of the
+detector.  When using the <a class="reference internal" href="#glancing-angle-stage"><span class="std std-numref">glancing angle stage (Section 5.8)</span></a> in the parallel orientation, move <code class="docutils literal notranslate"><span class="pre">xafs_dety</span></code>
+to position 23.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">mv</span><span class="p">(</span><span class="n">xafs_dety</span><span class="p">,</span> <span class="mi">23</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xafs_detz</span></code> stage moves the detector upstream or downstream
+according to the details of the sample mount.  It is usually good
+enough to align this by eye, which can be done using the left joystick
+on the game controller in the hutch.  A more careful alignment can be
+made with a <a class="reference internal" href="linescans.html#linescan"><span class="std std-numref">linescan (Section 8)</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">linescan</span><span class="p">(</span><span class="n">xafs_detz</span><span class="p">,</span> <span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">51</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note that this scan will optimize the signal in the ROI, but may not
+serve to minimize elastic scattering or to balance signal between the
+sides of the detector.</p>
+</section>
+<section id="electron-yield-detector">
+<h2><span class="section-number">5.3. </span>Electron yield detector<a class="headerlink" href="#electron-yield-detector" title="Permalink to this heading">#</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Document this!</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Better scheme in Bluesky for specifying that the yield detector is
+in use and that its signal should be plotted in real time.</p>
+</div>
+</section>
+<section id="area-detector">
+<h2><span class="section-number">5.4. </span>Area detector<a class="headerlink" href="#area-detector" title="Permalink to this heading">#</a></h2>
+<p>An older model of the <a class="reference external" href="https://www.dectris.com/detectors/x-ray-detectors/pilatus3/pilatus3-for-synchrotrons/pilatus3-x/">Pilatus 100K</a>
+is available.</p>
+<figure class="align-center" id="id6">
+<span id="fig-pilatusinst"></span><a class="reference external image-reference" href="_images/pilatus.jpg"><img alt="_images/pilatus.jpg" src="_images/pilatus.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Dectris Pilatus 100K</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Please note:</p>
+<ul class="simple">
+<li><p>BMM offers only limited integration of data output into the XAS end
+station workflow.</p></li>
+<li><p>BMM has limited options for mounting and integrating the Pilatus
+into your experiments.</p></li>
+<li><p>This Pilatus has a rather small detection area and a rather large
+pixel size (about 170 microns).</p></li>
+</ul>
+<p>BMM does not currently have access to a larger/better/faster detector.</p>
+<p>Using CHIPS Act funding, we are in the process of procuring a new
+large area detector for use with the XRD end station.  This detector
+will eventually become available for experiments at the XAS end
+station, perhaps by 2026.</p>
+</section>
+<section id="sample-wheel">
+<span id="id3"></span><h2><span class="section-number">5.5. </span>Sample wheel<a class="headerlink" href="#sample-wheel" title="Permalink to this heading">#</a></h2>
+<p>At BMM, the standard <em>ex situ</em> sample stage is a laser-cut plastic
+disk. The disk has 24 or 48 slots cut from the disk.  These are the
+sample positions.</p>
+<p>This disk is mounted on a rotation stage.  The slots are 15 degrees
+apart, so moving from sample to sample only involves moving through a
+known rotation angle.</p>
+<p>The rotation stage is mounted on the XY stage, allowing alignment of
+the sample holder to the incident beam.</p>
+<figure class="align-center" id="id7">
+<span id="fig-wheel-stageinst"></span><a class="reference external image-reference" href="_images/wheel_stage.jpg"><img alt="_images/wheel_stage.jpg" src="_images/wheel_stage.jpg" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">The standard <em>ex situ</em> sample holder is a plastic disk with slots
+for the sample positions.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here are photos of some of the sample holder options.  There are
+designs which use slots or circles for the sample position.  The
+circular holes are 13 mm, which is a common size for a pellet press.
+13 mm pellets can usually slip snugly into those holes.</p>
+<p>Samples can be packed into the slots or holes.  More commonly, samples
+are prepared in some manner and affixed to the front of the sample
+holder with tape.</p>
+<p>There is also a design which is, essentially, a normal disk cut in
+half.  That one holds fewer samples, but is easier to load and unload
+from a glove box during sample preparation.</p>
+<figure class="sphinx-subfigure align-default" id="fig-wheelinst">
+<div class="sphinx-subfigure-grid ss-layout-default-ABC ss-layout-sm-ABC outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/Samplewheel.jpg" src="_images/Samplewheel.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/double_wheel_sm.jpg" src="_images/double_wheel_sm.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/halfwheel.jpg" src="_images/halfwheel.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">(Left) A single-ring sample wheel with 24 sample positions.
+(Center) Double-ring sample wheels with 48 sample positions.  For
+both styles, there are options with 13mm x 3 mm slots or 13mm
+diameter holes. (Right) A half wheel suitable for loading in a
+glove box.</span><a class="headerlink" href="#fig-wheelinst" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We consider these <em>ex situ</em> holders to be consumable items.  We will
+happily mail several of them to you prior to your experiment so that
+you can arrive with samples pre-mounted and ready to be measured.  You
+may keep the sample holders to use again the next time you visit BMM.</p>
+</section>
+<section id="electrochemistry">
+<span id="electrochemisty"></span><h2><span class="section-number">5.6. </span>Electrochemistry<a class="headerlink" href="#electrochemistry" title="Permalink to this heading">#</a></h2>
+<p>At BMM, we have a <a class="reference external" href="https://www.biologic.net/products/vsp-300/">BioLogic VSP-300 Potentiostat</a> which is available for
+all manner of electrochemistry experimentation. This is a 6 channel
+model, allowing you to prep samples during measurements or to run
+multiple electrochemistry experiments in parallel, moving those cells
+into and out of the beam.</p>
+<figure class="align-center" id="id8">
+<span id="fig-biologiclinst"></span><a class="reference external image-reference" href="_images/biologic.png"><img alt="_images/biologic.png" src="_images/biologic.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">The BioLogic VSP-300 Potentiostat</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We run the vendor-supplied control software on a Windows 10 instance
+running in a virtual container.  Your electrochemical data will be
+saved to the <code class="docutils literal notranslate"><span class="pre">assets/vsp300-1/</span></code> folder in your <a class="reference internal" href="data.html#data"><span class="std std-numref">proposal
+folder (Section 4)</span></a>.</p>
+<p>See <a class="reference internal" href="manage.html#windows-vm"><span class="std std-numref">Section 13.7</span></a> for details about starting the
+Windows VM, and using the BioLogic control software.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We do not, at this time, have EPICS-level control of the
+potentiostat.  This limits the level of automation and integration
+with the rest of the beamline.</p>
+<p>DSSI has implemented external triggering and collection of current
+and voltage using the <a class="reference external" href="https://quantumdetectors.com/products/pandabox/">Quantum Detectors PandABox</a>.  This may
+become available to BMM users sometime in <span class="strike">2025</span> 2026.</p>
+</div>
+<p>BMM does not provide electrochemical cells.  The user is expected to
+bring their own cells.  Ideally, the electrochemistry has been tested
+in the cells intended for use at the beamline and are known to produce
+reliable electrochemical results.</p>
+</section>
+<section id="temperature-control">
+<h2><span class="section-number">5.7. </span>Temperature control<a class="headerlink" href="#temperature-control" title="Permalink to this heading">#</a></h2>
+<p>BMM has two options for experiments at elevated or reduced temperature.</p>
+<section id="linkam-stage">
+<h3><span class="section-number">5.7.1. </span>Linkam stage<a class="headerlink" href="#linkam-stage" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://www.linkam.co.uk/thms600">Linkam stage</a> has LN2 flow
+for cooling a sample down to 77K and a resistive heater to go up to
+600C. The volume inside can be pumped or exposed to flowing gas.  The
+sample stage at the center is modified to have a 3mm diameter hole for
+transmission XAFS.</p>
+<figure class="sphinx-subfigure align-default" id="fig-linkamstageinst">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/linkam.jpg" src="_images/linkam.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/dewar.jpg" src="_images/dewar.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">(Left) The Linkham stage mounted for transmission on the sample
+stage.  (Right) The 25 L dewar used for cooling the Linkam stage.</span><a class="headerlink" href="#fig-linkamstageinst" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BMM has two dewars for use with the Linkam.  The 2 L dewar has enough
+capacity for about 2 hours of measurement.  The 25 L dewar runs for
+about 14 hours and is the standard choice.  The advantage of the
+smaller dewar is that it is smaller and might be needed for
+complicated setups were space is at a premium.</p>
+<p>Extensive <a class="reference internal" href="automation.html#auto-linkam"><span class="std std-numref">automation (Section 11.4)</span></a> is available
+for the Linkam stage.</p>
+</section>
+<section id="displex-cryostat">
+<h3><span class="section-number">5.7.2. </span>Displex Cryostat<a class="headerlink" href="#displex-cryostat" title="Permalink to this heading">#</a></h3>
+<p>BMM also has a helium compression cryostat capable of reducing
+temperature at the sample to around 10K and with a resistive heater
+allowing a sample temperature range of 10K to about 400K.</p>
+<p>This Displex model is designed for low-vibration applications.  as a
+result, it is a bit slow to cool down, requiring about 2 hours to get
+to 10K from room temperature. Sample changes are a bit laborious
+due to the construction of the vacuum shroud.</p>
+<figure class="sphinx-subfigure align-default" id="fig-displexinst">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/cryostat.jpg" src="_images/cryostat.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/lakeshore331.png" src="_images/lakeshore331.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">(Left) The Displex cryostat and it’s compressor.  (Right) The
+<a class="reference external" href="https://www.lakeshore.com/products/categories/overview/discontinued-products/discontinued-products/model-331-cryogenic-temperature-controller">LakeShore 331 controller</a>,
+used to control temperature for the cryostat shown to the left.</span><a class="headerlink" href="#fig-displexinst" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Extensive <a class="reference internal" href="automation.html#auto-lakeshore"><span class="std std-numref">automation (Section 11.5)</span></a> is available
+for the Displex using the LakeShore 331 temperature controller..</p>
+</section>
+</section>
+<section id="glancing-angle-and-thin-film-stage">
+<span id="glancing-angle-stage"></span><h2><span class="section-number">5.8. </span>Glancing angle and thin film stage<a class="headerlink" href="#glancing-angle-and-thin-film-stage" title="Permalink to this heading">#</a></h2>
+<p>We use this glancing angle stage for high-throughput studies of thin
+film and other flat samples.  The apparatus shown below rests on a
+rotation stage for moving up to 8 samples into and out of the beam.
+The rotation stage sits on a tilt stage, allowing fine control of the
+incident angle.  Each sample position is a spinner, which is used to
+suppress diffraction from the substrate.</p>
+<p>In most cases, sample translation and sample alignment is
+<a class="reference internal" href="automation.html#auto-ga"><span class="std std-numref">fully automated (Section 11.6)</span></a></p>
+<figure class="align-center" id="id9">
+<span id="fig-glancinganglestageinst"></span><a class="reference external image-reference" href="_images/glancing_angle_stage.jpg"><img alt="_images/glancing_angle_stage.jpg" src="_images/glancing_angle_stage.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">The glancing angle stage with 8 sample positions.</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>While a standing wave experiment might be feasible at BMM, the much
+more typical application is a simple glancing angle measurement in
+which the point of the shallow angle is to spread the beam out over
+the full length of the sample.  This significantly increases the
+number of atoms involved in the measurement.</p>
+</section>
+<section id="tilt-and-rotation-stages">
+<span id="tilt-stage"></span><h2><span class="section-number">5.9. </span>Tilt and rotation stages<a class="headerlink" href="#tilt-and-rotation-stages" title="Permalink to this heading">#</a></h2>
+<p>Also available are a <a class="reference external" href="https://www.xhuber.com/en/products/1-components/12-rotation/2-circle-segments/520310/">Huber pitch and roll stage</a>
+in the form of an Eulerian cradle and a <a class="reference external" href="https://www.newmarksystems.com/rotary-positioners/rt-2-motorized-rotary-stage/">compact rotary stage</a>.</p>
+<figure class="sphinx-subfigure align-default" id="fig-pitchroll-rotation">
+<div class="sphinx-subfigure-grid ss-layout-default-AB ss-layout-sm-AB outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/tilt_stage.jpg" src="_images/tilt_stage.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/small_rotation_stage.jpg" src="_images/small_rotation_stage.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">(Left) The pitch and roll stage.  (Right) The small rotation stage</span><a class="headerlink" href="#fig-pitchroll-rotation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here are mechanical drawings, including bolt hole patterns.  Consult
+these if designing an instrument intended to be mounted for rotation
+about the Z axis (Rz, yaw), pitch (Rx), or roll (Ry).</p>
+<ul class="simple">
+<li><p>Tilt stage mechanical drawing: <a class="reference download internal" download="" href="_downloads/cc3bb6345510248846628dfa6ac1c77b/5203_10--32263_131839.pdf"><code class="xref download docutils literal notranslate"><span class="pre">PDF</span></code></a></p></li>
+<li><p>Rotation stage mechanical drawing: <a class="reference download internal" download="" href="_downloads/e50b981fbdda59942b7c7b1b1337a8a2/RT-2-11-DIMENSIONS.JPG"><code class="xref download docutils literal notranslate"><span class="pre">JPG</span></code></a></p></li>
+</ul>
+</section>
+<section id="future-instrumentation">
+<span id="future-instruments"></span><h2><span class="section-number">5.10. </span>Future Instrumentation<a class="headerlink" href="#future-instrumentation" title="Permalink to this heading">#</a></h2>
+<p>This is an unordered list of instrumentation developments that will
+hopefully happen in the coming years. (This is being written in
+2026-1.)</p>
+<ul class="simple">
+<li><p>Integration of <a class="reference external" href="https://www.anton-paar.com/us-en/products/details/domed-hot-stage-for-four-circle-goniometers-dhs-1100/">Anton-Parr heating stage</a>,
+including spreadsheet automation and a dedicated IOC.</p></li>
+<li><p>Full integration of <a class="reference internal" href="details.html#eiger"><span class="std std-numref">Eiger4 (see Section E.10)</span></a></p></li>
+<li><p>Workflows for using Pilatus &amp; Eiger with XAS experiments,
+e.g. monitor one or more closely spaced diffraction peaks during an
+<em>in situ</em> experiment</p></li>
+<li><p>Fly-scanning the monochromator, integration of fly-scanning
+into XAS workflow</p></li>
+<li><p>Speadsheet-to-queueserver</p></li>
+<li><p>Trigger-in and trigger-out with <a class="reference internal" href="#electrochemisty"><span class="std std-numref">BioLogic (see Section 5.6)</span></a>, electrochemistry spreadsheets</p></li>
+<li><p>More regular use of electron yield</p></li>
+<li><p>Feedback on mirror pitch to maintain peak intensity while moving
+energy in fixed exit mode</p></li>
+</ul>
+<p>See also <a class="reference internal" href="details.html#unfinished-controls"><span class="std std-numref">Section E.4</span></a> for the related
+topic of unfinished controls chores.</p>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Data access</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="motors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Moving and querying motors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ionization-chambers">5.1. Ionization chambers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluorescence-detectors">5.2. Fluorescence detectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electron-yield-detector">5.3. Electron yield detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-detector">5.4. Area detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-wheel">5.5. Sample wheel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrochemistry">5.6. Electrochemistry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-control">5.7. Temperature control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linkam-stage">5.7.1. Linkam stage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displex-cryostat">5.7.2. Displex Cryostat</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glancing-angle-and-thin-film-stage">5.8. Glancing angle and thin film stage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilt-and-rotation-stages">5.9. Tilt and rotation stages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-instrumentation">5.10. Future Instrumentation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

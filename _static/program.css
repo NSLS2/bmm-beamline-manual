@@ -1,0 +1,40 @@
+
+/* color of top/bottom bars in nature theme */
+/* div.related { */
+/*     background-color: #bc00bc; */
+/* } */
+
+
+/* div.body h1 { font-size: 150%; background-color: #ebb3c0; } */
+/* div.body h2 { font-size: 150%; background-color: #e2acb9; } */
+/* div.body h3 { font-size: 120%; background-color: #d3a1ac; } */
+/* div.body h4 { font-size: 110%; background-color: #d3a1ac; } */
+/* div.body h5 { font-size: 100%; background-color: #d3a1ac; } */
+/* div.body h6 { font-size: 100%; background-color: #d3a1ac; } */
+
+/* div.body h1 { font-size: 150%; background-color: #BED4EB; } */
+/* div.body h2 { font-size: 150%; background-color: #C8D5E3; } */
+/* div.body h3 { font-size: 120%; background-color: #D8DEE3; } */
+/* div.body h4 { font-size: 110%; background-color: #D8DEE3; } */
+/* div.body h5 { font-size: 100%; background-color: #D8DEE3; } */
+/* div.body h6 { font-size: 100%; background-color: #D8DEE3; } */
+
+
+
+
+/* guzzle needs some table padding */
+
+th, td {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+
+.strike {
+  text-decoration: line-through;
+}
+
+ 
+#right-column {
+  max-width: 1100px;
+}

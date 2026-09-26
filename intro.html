@@ -1,0 +1,884 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>1. Introduction to BMM &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Proposal Writing for BMM" href="proposal.html" />
+    <link rel="prev" title="BMM Users Manual" href="index.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="before.html">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to BMM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">1.1. TL;DR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-links">1.2. Essential links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-user-experience">1.3. The user experience</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ca-dashboard">1.3.1. CA Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slack-and-data-access">1.3.2. Slack and Data Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-at-the-command-line">1.3.3. Getting help at the command line</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bmm-and-building-743">1.4. BMM and Building 743</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-about-bmm">1.5. A Bit about BMM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">1.6. Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-copyright">1.7. A note about copyright</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  
+<style>
+  .ss-layout-default-ABC { grid-template-areas: 'A B C'; }
+@media (max-width: 576px) {
+  .ss-layout-sm-ABC { grid-template-areas: 'A B C'; }
+}
+</style>
+<section id="introduction-to-bmm">
+<span id="intro"></span><h1><span class="section-number">1. </span>Introduction to BMM<a class="headerlink" href="#introduction-to-bmm" title="Permalink to this heading">#</a></h1>
+<p>BMM is NIST’s <span class="red">B</span>eamline for <span class="red">M</span>aterials <span class="red">M</span>easurement.</p>
+<p>At the unix command line, do this to start the Bluesky user
+interface</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ipython/profile_collection
+pixi<span class="w"> </span>run<span class="w"> </span>start
+</pre></div>
+</div>
+<p><span class="bolditalic">bsui</span> is simply an <a class="reference external" href="https://ipython.org/">IPython shell</a>
+with some customizations specific to Bluesky.  On top of that, there
+are a number of customizations specific to BMM.</p>
+<p>In this user manual, there are chapters covering most of the chores
+one will need to do at the beamline, including:</p>
+<ol class="arabic simple">
+<li><p>moving motors</p></li>
+<li><p>changing the state of the photon delivery system</p></li>
+<li><p>making motor scans</p></li>
+<li><p>making energy scans</p></li>
+<li><p>interacting with the beamline’s electronic log book</p></li>
+<li><p>troubleshooting common problems</p></li>
+</ol>
+<section id="tl-dr">
+<h2><span class="section-number">1.1. </span>TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this heading">#</a></h2>
+<dl class="simple">
+<dt><strong>Open/close the shutter</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">shb.open()</span></code> and <code class="docutils literal notranslate"><span class="pre">shb.close()</span></code>, see <a class="reference internal" href="pds.html#shutters"><span class="std std-numref">Shutters, Section 7.3</span></a></p>
+</dd>
+<dt><strong>Change energy</strong></dt><dd><p>Use the <code class="docutils literal notranslate"><span class="pre">RE(change_edge())</span></code> command, see <a class="reference internal" href="pds.html#pds"><span class="std std-numref">Photon Delivery System, Section 7</span></a></p>
+</dd>
+<dt><strong>Sample alignment scans</strong></dt><dd><p>Use the <code class="docutils literal notranslate"><span class="pre">RE(linescan())</span></code> command, see <a class="reference internal" href="linescans.html#linescan"><span class="std std-numref">Sample position scans, Section 8</span></a></p>
+</dd>
+<dt><strong>XAFS scan</strong></dt><dd><p>Use the <code class="docutils literal notranslate"><span class="pre">RE(xafs())</span></code> command, see <a class="reference internal" href="xafs.html#xafsscan"><span class="std std-numref">Run an XAFS scan, Section 9.4</span></a></p>
+</dd>
+<dt><strong>Import an automation spreadsheet</strong></dt><dd><p>Prepare a spreadsheet, then <code class="docutils literal notranslate"><span class="pre">xlsx()</span></code>, see <a class="reference internal" href="automation.html#automation"><span class="std std-numref">Beamline automation, Section 11</span></a></p>
+</dd>
+<dt><strong>Details, details, details</strong></dt><dd><p><a class="reference internal" href="cheatsheet.html#cheatsheet"><span class="std std-numref">Command cheatsheet, Section 15</span></a></p>
+</dd>
+</dl>
+</section>
+<section id="essential-links">
+<h2><span class="section-number">1.2. </span>Essential links<a class="headerlink" href="#essential-links" title="Permalink to this heading">#</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">NSLS-II<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.bnl.gov/nsls2/">https://www.bnl.gov/nsls2/</a></p>
+</dd>
+<dt class="field-even">BMM’s page<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://www.bnl.gov/nsls2/beamlines/beamline.php?r=6-BM">https://www.bnl.gov/nsls2/beamlines/beamline.php?r=6-BM</a></p>
+</dd>
+<dt class="field-odd">Operations schedule<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.bnl.gov/nsls2/schedule/">https://www.bnl.gov/nsls2/schedule/</a></p>
+</dd>
+<dt class="field-even">Beamtime schedule<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://scheduler.nsls2.bnl.gov/">https://scheduler.nsls2.bnl.gov/</a></p>
+</dd>
+<dt class="field-odd">NSLS Status<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.bnl.gov/nsls2/operating-status.php">https://www.bnl.gov/nsls2/operating-status.php</a></p>
+</dd>
+<dt class="field-even">BMM at Github<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="github reference external" href="https://github.com/orgs/NSLS2/teams/bmm/repositories">orgs/NSLS2</a></p>
+</dd>
+</dl>
+</section>
+<section id="the-user-experience">
+<h2><span class="section-number">1.3. </span>The user experience<a class="headerlink" href="#the-user-experience" title="Permalink to this heading">#</a></h2>
+<p>The IPython/<span class="bolditalic">bsui</span> prompt at BMM is modified to provide at-a-glance
+information about the state of the beamline.</p>
+<figure class="align-center" id="id2">
+<span id="fig-prompt"></span><a class="reference external image-reference" href="_images/prompt.png"><img alt="_images/prompt.png" src="_images/prompt.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">The BlueSky user prompt at BMM</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>The green <code class="docutils literal notranslate"><span class="pre">BMM</span></code> indicates that the beamline is <a class="reference internal" href="manage.html#start-end"><span class="std std-numref">set up and
+ready for the user (see Section 13.1)</span></a>.  When the beamline
+is not ready for users, the <code class="docutils literal notranslate"><span class="pre">BMM</span></code> string is red.</p></li>
+<li><p>The string <code class="docutils literal notranslate"><span class="pre">D.111</span></code> indicates that the photon delivery system is in
+<a class="reference internal" href="pds.html#pds-modes"><span class="std std-numref">mode D (see Table 7.3)</span></a> and that <a class="reference internal" href="pds.html#change-crystals"><span class="std std-numref">the
+Si(111) monochromator (Section 7.8.2)</span></a> is in use.</p></li>
+<li><p>The green number in square brackets is an incremented count of how
+many commands have been issued since <span class="bolditalic">bsui</span> was started.</p></li>
+<li><p>If the prompt starts with three red exclamation points – something like</p>
+<blockquote>
+<div><p><span class="red">!!!</span> <span class="green">BMM</span> D.111 <span class="green">[1]</span></p>
+</div></blockquote>
+<p>that means that some motors were not connected when Bluesky started.
+Contact beamline staff immediately!</p>
+</li>
+</ul>
+<section id="ca-dashboard">
+<span id="cadashboard"></span><h3><span class="section-number">1.3.1. </span>CA Dashboard<a class="headerlink" href="#ca-dashboard" title="Permalink to this heading">#</a></h3>
+<p>At the top of the some screens, you see a crude-but-handy beamline
+monitor.  It looks something like this:</p>
+<figure class="align-center" id="id3">
+<span id="fig-cadashboard"></span><a class="reference external image-reference" href="_images/cadashboard.png"><img alt="_images/cadashboard.png" src="_images/cadashboard.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">The CA dashboard beamline monitor</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This provides a concise (but rather color-blind-unfriendly) overview of
+the state of the beamline.</p>
+<dl class="simple">
+<dt><strong>Top line</strong></dt><dd><p>In short, if the top line has no red text, the beamline is all ready to go.</p>
+<ul class="simple">
+<li><p>BMM is enabled (<span class="green">green</span>) or disabled (<span class="gray">gray</span>)</p></li>
+<li><p>The BM, FE, &amp; user photon shutters are open (<span class="green">green</span>) or closed (<span class="gray">gray</span>)</p></li>
+<li><p>Indicators that the temperature sensors in the racks are in range
+(<span class="green">green</span>) or running hot (<span class="red">red</span>)</p></li>
+<li><p>The state of vacuum sections 1 through 7 – <span class="green">green</span>
+means vacuum level is OK, <span class="darkyellow">yellow</span> means vacuum level is
+not great but not a problem, <span class="red">red</span> means vacuum level is
+high</p></li>
+<li><p>The state of the in-vacuum motors, 4 on the DCM, 2 on the
+focusing mirror, 2 on the harmonic rejection mirror – <span class="green">green</span>
+means temperature is OK, <span class="red">red</span> means temperature is high</p></li>
+<li><p>The open (<span class="green">green</span>) or closed (<span class="red">red</span>) state of the 3 front end gate
+valves and the 6 beamline gate valves</p></li>
+<li><p>The open (<span class="blue">blue</span>) or closed (<span class="gray">gray</span>) state of the liquid nitrogen
+valve on the roof of the hitch</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Middle line</strong></dt><dd><ul class="simple">
+<li><p>The energy position of the monochromator</p></li>
+<li><p>The current element and edge configuration of the beamline</p></li>
+<li><p>The ring current</p></li>
+<li><p>The signals on the I<sub>0</sub>, I<sub>t</sub>, and I<sub>r</sub> ion
+chambers, measured in nanoamps</p></li>
+<li><p>The current operation at the beamline, options are: idle (white),
+XAFS scan (<span class="hlmagenta">pink</span>), line scan (<span class="hlcyan">cyan</span>), area scan (<span class="hlyellow">yellow</span>), or time
+scan (<span class="hlblue">blue</span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt><strong>Bottom line</strong></dt><dd><ul class="simple">
+<li><p>The positions of several common sample motors</p></li>
+<li><p>The size of the sample slits</p></li>
+<li><p>The element currently in the reference position</p></li>
+<li><p>The state of the instrument being used – in this example, <em>the
+ex-situ</em> sample wheel</p></li>
+<li><p>The <span class="brown">brown</span> block at the end is a heartbeat monitor to visually
+verify that the dashboard is functioning correctly</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Document cadashboard in appendix of this manual.</p>
+</div>
+</section>
+<section id="slack-and-data-access">
+<span id="slack"></span><h3><span class="section-number">1.3.2. </span>Slack and Data Access<a class="headerlink" href="#slack-and-data-access" title="Permalink to this heading">#</a></h3>
+<p>At the beginning of your experiment, you will be invited to the BMM
+Slack workspace.  There you can follow along with the progress of the
+experiment in the <code class="docutils literal notranslate"><span class="pre">#pass-123456-bmm</span> <span class="pre">channel</span></code>, where <code class="docutils literal notranslate"><span class="pre">123456</span></code> will
+be the proposal number of your experiment.</p>
+<p>There is also a channel called <code class="docutils literal notranslate"><span class="pre">#pass-123456</span></code> which is for use as a
+discussion channel.</p>
+<p>Throughout the course of the experiment, messages and figures will be
+automatically posted to that channel.  This allows someone to keep
+track of progress and to keep an eye on data quality without being
+physically at the beamline.</p>
+<figure class="align-center" id="id4">
+<span id="fig-slack"></span><a class="reference external image-reference" href="_images/slack.png"><img alt="_images/slack.png" src="_images/slack.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">An example of messages and a picture of measured data posted to the
+beamline Slack channel.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>As of the 2024-1 cycle, BMM is no longer syncing data automatically
+to Google Drive.  Data are now available to users via sftp with
+proper authentication.  See <a class="reference internal" href="data.html#data"><span class="std std-numref">Data Access (Section 4)</span></a>.</p>
+<p>As of the 2025-2 cycle, BMM is using the NSLS-II Slack channels.
+The old BMM Slack with the <code class="docutils literal notranslate"><span class="pre">#beamtime</span></code> channel has been retired.</p>
+</div>
+</section>
+<section id="getting-help-at-the-command-line">
+<h3><span class="section-number">1.3.3. </span>Getting help at the command line<a class="headerlink" href="#getting-help-at-the-command-line" title="Permalink to this heading">#</a></h3>
+<p>To see a summary of common commands, use <code class="docutils literal notranslate"><span class="pre">%h</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Open the shutter:                 shb.open()
+Close the shutter:                shb.close()
+
+Change energy:                    RE(mv(dcm.energy, &lt;energy&gt;))
+Move a motor, absolute:           RE(mv(&lt;motor&gt;, &lt;position&gt;))
+Move a motor, relative:           RE(mvr(&lt;motor&gt;, &lt;delta&gt;))
+Where is a motor?                 %w &lt;motor&gt;
+
+Where is the DCM?                 %w dcm
+Where is M2?                      %w m2
+Where is M3?                      %w m3
+Where are the slits?              %w slits3
+Where is the XAFS table?          %w xafs_table
+
+Summarize all motor positions:    %m
+Summarize utilities:              %ut
+
+How long will a scan seq. be?     howlong(&#39;scan.ini&#39;)
+Run a scan sequence:              RE(xafs(&#39;scan.ini&#39;))
+Scan a motor, plot a detector:    RE(linescan(&lt;det&gt;, &lt;motor&gt;, &lt;start&gt;, &lt;stop&gt;, &lt;nsteps&gt;))
+Scan 2 motors, plot a detector:   RE(areascan(&lt;det&gt;, &lt;slow motor&gt;, &lt;start&gt;, &lt;stop&gt;, &lt;nsteps&gt;, &lt;fast motor&gt;, &lt;start&gt;, &lt;stop&gt;, &lt;nsteps&gt;))
+Make a log entry:                 BMM_log_info(&quot;blah blah blah&quot;)
+
+DATA = /home/bravel/BMM_Data/bucket
+
+All the details: https://nsls-ii-bmm.github.io/BeamlineManual/index.html
+</pre></div>
+</div>
+<p>and to see a summary of some useful command line hotkeys, use <code class="docutils literal notranslate"><span class="pre">%k</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Abort scan:             Ctrl-c twice!
+Search backwards:       Ctrl-r
+Quit search:            Ctrl-g
+Beginning of line:      Ctrl-a
+End of line:            Ctrl-e
+Delete character        Ctrl-d
+Cut text to eol         Ctrl-k
+Cut text from bol       Ctrl-u
+Paste text              Ctrl-y
+
+More details: http://readline.kablamo.org/emacs.html
+</pre></div>
+</div>
+<p>The day will come that we have a GUI for running XAFS experiments at
+BMM.  For now, we have the command line.  Read on – it’s not too
+difficult!</p>
+</section>
+</section>
+<section id="bmm-and-building-743">
+<h2><span class="section-number">1.4. </span>BMM and Building 743<a class="headerlink" href="#bmm-and-building-743" title="Permalink to this heading">#</a></h2>
+<p>BMM is on the south side of the NSLS-II building: <a class="reference external" href="https://what3words.com/width.corrugated.support">what3words:
+///width.corrugated.support</a></p>
+<p>You should park at building 743 and enter through the main entrance
+of 743.</p>
+<figure class="align-center" id="id5">
+<span id="fig-sitemap"></span><a class="reference external image-reference" href="_images/map.png"><img alt="_images/map.png" src="_images/map.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Route from the Main Gate to Building 743</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Walk though the lobby to the doors that lead out onto the experimental
+floor.  BMM is just across the walk way from the doors to the 743 lobby.</p>
+<figure class="sphinx-subfigure align-default" id="fig-bmmlocation">
+<div class="sphinx-subfigure-grid ss-layout-default-ABC ss-layout-sm-ABC outline" style="display: grid; gap: 8px; grid-gap: 8px;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/743lobby.jpg" src="_images/743lobby.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/corridor.jpg" src="_images/corridor.jpg" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: C;">
+<img alt="_images/BMMcontrolstation.jpg" src="_images/BMMcontrolstation.jpg" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">(Left) Approaching the floor through the lobby of
+Building 743. (Center) BMM is just across the corridor from the
+door to the 743 lobby. (Right) Walk past the diagonal support beam
+and head into the BMM control station</span><a class="headerlink" href="#fig-bmmlocation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>BMM’s staff have offices on the outer hallway of Building 743.</p>
+<figure class="align-center" id="id6">
+<span id="fig-lob3"></span><a class="reference external image-reference" href="_images/LOB-3.png"><img alt="_images/LOB-3.png" src="_images/LOB-3.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Bruce’s, Jean’s and Vesna’s offices in Building 743</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="a-bit-about-bmm">
+<h2><span class="section-number">1.5. </span>A Bit about BMM<a class="headerlink" href="#a-bit-about-bmm" title="Permalink to this heading">#</a></h2>
+<p>BMM is an XAS beamline.  As such it is on the simpler end of things at
+NSLS-II.  We use an NSLS-II <a class="reference external" href="https://www.bnl.gov/nsls2/project/source_properties.asp">three-pole wiggler (3PW)</a> as our
+photon source.  This provides broadband radiation throughout the hard
+X-ray range, up to about 30 keV.  It is a small device – only about
+40 cm long and with a magnetic path length of about 12 cm – which
+is inserted in a short section between the two bend magnets in the
+dual-bend achromat lattice at NSLS-II.  The flux is certainly not the
+equal of any of the many-pole insertion devices in the straight, but
+it is highly performant for many XAS experiment.</p>
+<p>About 13 meters from the source, we have a paraboloid collimating
+mirror.  This position is well within the storage ring tunnel and
+about 12 meters from the entrance to the BMM first optical enclosure.
+We placed a mirror at that location to capture the largest possible
+swath of the divergent light coming from the 3PW source.  A paraboloid
+is the correct shape for focusing light in both the horizontal and
+vertical directions.  However, a paraboloid must be a fixed figure,
+fixed angle device in order to optimally collimate the light.  Because
+the mirror is in the front end, thus inaccessible during operations,
+we found the paraboloid to be an attractive solution.  Once aligned in
+the beam, it should never need adjustment.</p>
+<p>The collimated light is delivered to a double crystal monochromator
+(DCM).  The DCM has pairs of Si(111) and Si(311) crystals which are
+accessed by <a class="reference internal" href="pds.html#change-crystals"><span class="std std-numref">translating the DCM vacuum vessel laterally
+(Section 7.8.2)</span></a> .  A transition between the two
+crystal sets takes about 2 minutes.</p>
+<p>After the DCM, we have a toroidal focusing mirror followed by a flat
+harmonic rejection mirror.  One or both of these mirrors is in the
+beam depending on <a class="reference internal" href="pds.html#change-mode"><span class="std std-numref">the configuration of the XAS experiment
+(Section 7.8.1)</span></a> in the end station.  Because the beam is
+deflected upward after the collimating mirror, at least one of the
+mirrors after the DCM must be used in order to deflect the beam
+through the lengthy transport pipe and into the end station.</p>
+<p>Because the collimating mirror is at a fixed angle, it only serves as
+a harmonic rejection mirror above an energy determined by its
+operating angle.  That turns out to be about 23.5 keV.  For XAS
+experiments conducted above 8 keV, then, the harmonic rejection
+provided by the collimating mirror is adequate.  At lower energies,
+the flat harmonic rejection mirror is used to provide clean beam.</p>
+<p>With just the harmonic rejection mirror in place, a beam of size 8 mm
+by 1 mm is delivered to the end station.  For many XAS experiments,
+this rather large beam is desirable.  Indeed, many of the visitors to
+BMM specifically request the large beam for their experiments.  With
+the focusing mirror in place, that large swath is reduced to a spot of
+about 300 μm by 250 μm.</p>
+</section>
+<section id="acknowledgements">
+<h2><span class="section-number">1.6. </span>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
+<p>Pride of place goes to the late Jimmy Biancarosa, Don Abel, and Matt
+Shaw, the excellent technicians who helped build BMM and outfit it
+with kit that works.  Truly nothing would have ever happened at BMM
+without them.</p>
+<p>BMM’s <a class="reference external" href="https://blueskyproject.io/">Bluesky</a> profile was mostly
+written by Bruce.  But this would not have happened without the help
+of several members of NSLS-II’s DSSI program.  In particular, I want
+to thank Dan Allan, Tom Caswell, Josh Lynch, Jakub Wlodek, Max
+Rakitin, Roman Chermikov, AJ Sliger, Jun Ma, John Sinsheimer, Dmitri
+Gavrilov, Stuart Campbell, Abby Giles, Garrett Bishof, Nate Maytan,
+Matt Snyder, and Oksana Ivashkevych.</p>
+<p>Thanks to every BMM user – being a BMM user means being a beta tester
+for the beamline software!</p>
+<p>BMM makes use of <a class="reference external" href="https://speakerdeck.com/jakevdp/the-unexpected-effectiveness-of-python-in-science?slide=52">lots of great python tools</a>.
+Matt Newville’s <a class="reference external" href="http://xraypy.github.io/xraylarch/">Larch</a> is used
+to process every XAS scan that gets measured and Matt’s <a class="reference external" href="https://lmfit.github.io/lmfit-py/">lmfit</a> is used for many alignment
+chores.</p>
+<p>This documentation project uses <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a> and the lovely
+<a class="reference external" href="https://sphinx-book-theme.readthedocs.io/en/latest/index.html">{book}theme</a>
+from the <a class="reference external" href="https://ebp.jupyterbook.org/">The Executable Book Project</a>.  Appendices are numbered properly
+using the <code class="docutils literal notranslate"><span class="pre">appendix.py</span></code> extension from
+<a class="github reference external" href="https://github.com/heig-tin-info/handout">heig-tin-info/handout</a>.</p>
+<p>This manual uses a GitHub action to build and deploy <a class="reference external" href="https://github.com/marketplace/actions/sphinx-docs-to-github-pages">(see details
+here)</a>
+this document whenever a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> happens.  We are grateful to the
+<a class="reference external" href="https://github.com/uibcdf/action-sphinx-docs-to-gh-pages">UIBCDF</a>
+developers, whose continuous deployment tooling drives this document..</p>
+</section>
+<section id="a-note-about-copyright">
+<h2><span class="section-number">1.7. </span>A note about copyright<a class="headerlink" href="#a-note-about-copyright" title="Permalink to this heading">#</a></h2>
+<p>This document and <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection">the BlueSky data collection profile</a> it covers was
+developed primarily by a NIST employee. Pursuant to title 17 United
+States Code Section 105, works of NIST employees are not subject to
+copyright protection in the United States.  Thus this repository may
+not be licensed under the same terms as Bluesky itself or its
+documentation.</p>
+<p>See the <a class="reference external" href="https://github.com/NSLS2/bmm-profile-collection/blob/main/LICENSE">LICENSE file</a>
+for details.</p>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">BMM Users Manual</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="proposal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Proposal Writing for BMM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">1.1. TL;DR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#essential-links">1.2. Essential links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-user-experience">1.3. The user experience</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ca-dashboard">1.3.1. CA Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slack-and-data-access">1.3.2. Slack and Data Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-at-the-command-line">1.3.3. Getting help at the command line</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bmm-and-building-743">1.4. BMM and Building 743</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-about-bmm">1.5. A Bit about BMM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">1.6. Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-copyright">1.7. A note about copyright</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

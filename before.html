@@ -1,0 +1,815 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>3. Before your Beamtime &#8212; BMM Beamline Manual 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'before';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Data access" href="data.html" />
+    <link rel="prev" title="2. Proposal Writing for BMM" href="proposal.html" />
+
+    <link rel="stylesheet" type="text/css" href="_static/demeter.css" />
+    <link rel="stylesheet" type="text/css" href="_static/keys.css" />
+    <link rel="stylesheet" type="text/css" href="_static/program.css" />
+    <link rel="stylesheet" type="text/css" href="_static/color.css" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/floor_mat.png" class="logo__image only-light" alt="BMM Beamline Manual 0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/floor_mat.png" class="logo__image only-dark" alt="BMM Beamline Manual 0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">User documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">2. Proposal Writing for BMM</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Before your Beamtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">4. Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruments.html">5. Beamline instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motors.html">6. Moving and querying motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pds.html">7. Photon Delivery System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linescans.html">8. Sample position scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xafs.html">9. XAFS scans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">10. Other measurement needs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automation.html">11. Beamline automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">12. Experimental Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">13. Managing the beamline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commonchores.html">14. Common chores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">15. Command cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trouble.html">16. Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Staff documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desktop.html">A. BMM’s Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">B. An overview of BMM’s profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka.html">C. Kafka workers at BMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ionchambers.html">D. Ion chamber signal chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">E. Instrumentation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflectivity.html">F. Reflectivity Set-Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore.html">G. Power outage recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="photos.html">H. Photo Galleries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">I. To Do List</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS2/bmm-beamline-manual/issues/new?title=Issue%20on%20page%20%2Fbefore.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/before.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Before your Beamtime</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-for-bnl-site-access">3.1. Register for BNL Site Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bnl-domain-account">3.2. BNL Domain Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety-approval-form">3.3. Safety Approval Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-laboratories">3.4. Support Laboratories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">3.5. Training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiological-training">3.5.1. Radiological training</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-equipment">3.6. Electrical Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-equipment-pool">3.7. Research Equipment Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shipping-things-to-the-beamline">3.8. Shipping things to the beamline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-day-of-your-experiment">3.9. The Day of your Experiment</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="before-your-beamtime">
+<span id="before"></span><h1><span class="section-number">3. </span>Before your Beamtime<a class="headerlink" href="#before-your-beamtime" title="Permalink to this heading">#</a></h1>
+<p>This page is a check list of things each user must do before beamtime
+at BMM.  Several tasks on this page are called out in caution boxes
+that look like this:</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This is a caution box.</p>
+</div>
+<p>Failure to do the tasks on this page will result in delay or
+cancellation of your experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">TL;DR<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>pay attention to the caution boxes.</em></p>
+</dd>
+</dl>
+<section id="register-for-bnl-site-access">
+<h2><span class="section-number">3.1. </span>Register for BNL Site Access<a class="headerlink" href="#register-for-bnl-site-access" title="Permalink to this heading">#</a></h2>
+<p>Upon receipt of notification of your beamtime, verify that all
+the team members attending your experiment have a valid BNL Guest
+registration.</p>
+<p>An experimenter who is not listed on the original proposal (for
+example, a student who recently joined the research group), will not
+receive reminder emails about the need for a BNL appointment.  So, be
+sure <strong>everyone</strong> coming to the beamline has a valid appointment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>New registration requests as well as extension requests for
+expired registrations should be submitted as soon as possible.</p></li>
+<li><p>Time required for approval of a guest registrations:</p>
+<ul>
+<li><p><strong>US citizens</strong>: 7 days</p></li>
+<li><p><strong>Citizens of non-sensitive countries</strong>: 14 days</p></li>
+<li><p><strong>Citizens of sensitive countries</strong>: 45 days</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.state.gov/countries-of-particular-concern-special-watch-list-countries-entities-of-particular-concern/">Definition of sensitive country</a></p></li>
+</ul>
+</div>
+<p>Apply for a BNL Guest appointment: <a class="reference external" href="https://www.bnl.gov/ps/userguide/beforearrival.php">https://www.bnl.gov/ps/userguide/beforearrival.php</a></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Without an active appointment, you will not be allowed
+on site and will be turned away at the main gate.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you arrive at BNL, you must have proper identification.
+Here is guidance on the identification requirements:
+<a class="reference external" href="https://www.bnl.gov/guv/id.php">https://www.bnl.gov/guv/id.php</a>. In short, you need a Real-ID
+drivers license or a passport.</p>
+</div>
+</section>
+<section id="bnl-domain-account">
+<h2><span class="section-number">3.2. </span>BNL Domain Account<a class="headerlink" href="#bnl-domain-account" title="Permalink to this heading">#</a></h2>
+<p>When your BNL Guest registration becomes active, you should receive an
+email with instructions for enabling your BNL domain account. You must
+do this, including setting your password and signing up for DUO
+Federal two-factor authentication.</p>
+<p>If you need to request an account, go to <a class="reference external" href="https://www.bnl.gov/accounts/">https://www.bnl.gov/accounts/</a>
+and click the button that says “Submit account registration form”.</p>
+<p>Enabling your BNL account is non-optional. You must have an active
+account in order to unlock the computers at the beamline or to access
+your data.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Without an active account, a known password, and DUO
+Federal two-factor authentication, you will be unable to
+perform your experiment and unable to access the data
+from the experiment.</p>
+</div>
+</section>
+<section id="safety-approval-form">
+<h2><span class="section-number">3.3. </span>Safety Approval Form<a class="headerlink" href="#safety-approval-form" title="Permalink to this heading">#</a></h2>
+<p>Submit your Safety Approval Form (SAF) <strong>at least</strong> two weeks before
+the start date for your experiment.  Your SAF should provide a
+complete and accurate description of the experiment, including all
+samples, chemicals, solvents, reference materials, and equipment that
+will be used during the experiment and for sample preparation.  In
+addition, any additional equipment not provided by the beamline has to
+be identified and described in the SAF.  Provide detailed information
+on sample processing and any safety measures necessary.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>An approved SAF is required on the first day of beamtime.
+An experiment cannot begin without an approved SAF.  If
+you do not allow adequate time for approval, you may lose
+your beamtime.</p>
+</div>
+<p>To submit a SAF: <a class="reference external" href="https://pass.bnl.gov">https://pass.bnl.gov</a></p>
+<p>If your experiment requires <strong>chemicals, compressed gases, lab access,
+or other equipment</strong>, please contact Bruce Ravel (<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>) well
+ahead of your experiment.</p>
+<p>If your experiment involves <strong>radiological materials</strong>, it is
+essential that you submit your SAF as early as possible to allow
+plenty of time for safety review. The SAF should include an attachment
+that clearly itemizes isotopes present including masses and activities
+for each isotope.  <em>Depleted uranium</em> and <em>naturally occurring uranium
+or thorium</em> are considered radiological materials and must be handled
+as such at BNL.</p>
+</section>
+<section id="support-laboratories">
+<span id="id1"></span><h2><span class="section-number">3.4. </span>Support Laboratories<a class="headerlink" href="#support-laboratories" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Note</p>
+<p>Each lab you select on your safety approval form makes work
+for the lab stewards.  Only request the lab(s) that you
+actually intend to use.</p>
+</div>
+<p>Four labs cover most user activities at BMM.  They are:</p>
+<ul class="simple">
+<li><p>Lab 3L-L06: XAS Sample Prep Lab</p></li>
+<li><p>Lab 3L-L07: Environmental Science Wet Lab</p></li>
+<li><p>Lab 3L-L09: XAS Chemistry Lab</p></li>
+<li><p>Lab 4L-L09: Electrochemistry Lab</p></li>
+</ul>
+<p>See <a class="reference external" href="https://www.bnl.gov/nsls2/labs/">https://www.bnl.gov/nsls2/labs/</a> for details of what equipment is
+available in each lab.</p>
+<p>If you prepare or treat samples on-site, you <strong>must</strong> request use of
+the appropriate NSLS-II User Laboratory when you submit your Safety
+Approval Form.</p>
+<p>You cannot request a laboratory after an SAF has been approved.</p>
+<p>Here is some advice on selecting the correct lab:</p>
+<dl class="simple">
+<dt>Unbound nanoparticles</dt><dd><p>Please note that supported nanoparticles or nanoparticles in
+solution are not considered “unbound”.  If your samples are indeed
+unbound, please contact BMM beamline scientist Bruce Ravel
+(<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>) as soon as possible.</p>
+</dd>
+<dt>Solid sample preparation (pellet pressing, spreading on tape, etc)</dt><dd><p>Request Lab 3L-L06.</p>
+</dd>
+<dt>Liquid samples (organic solvents, acids, bases) and simple chemistry</dt><dd><p>Request Lab 3L-L09.</p>
+</dd>
+</dl>
+<dl>
+<dt>Environmental and earth science sample preparation and treatment</dt><dd><p>Request Lab 3L-L07.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If your lab work can be performed in Lab 3L-L09, the
+XAS Chemistry Lab, please select that lab
+instead. Only select 3L-L07 if you need a specific
+feature of the Environmental Science Wet Lab.</p>
+</div>
+</dd>
+<dt>Electrochemistry and battery science</dt><dd><p>Request Lab 4L-L09.</p>
+</dd>
+<dt>Special chemistry</dt><dd><p>There are some activities that cannot be performed in the 4 labs
+above. For example, nitric acid, hydrochloric acid, or Piranha etch
+can only be used in lab 4LL08. A tube furnace for preparation of
+catalysts is available in Lb 1LL07. You are certainly welcome to
+request other labs if required by your experiment.  <span class="red">Please
+make sure that beamline staff is aware of your needs prior to
+submitting your SAF.</span></p>
+</dd>
+</dl>
+<div class="caution admonition">
+<p class="admonition-title">Radiological samples</p>
+<p>Radionuclide samples must be prepared and properly contained at the
+home institution.  NSLS-II has no lab available for work on
+radiological materials.  Samples with depleted uranium, uranium at
+low or environmentally relevant concentrations, or naturally
+occurring uranium or thorium <strong>are</strong> considered to be radiological
+samples at NSLS-II and must be treated as such.</p>
+</div>
+<p>Requests for using gloveboxes should be discussed prior to submitting
+the SAF, contact Bruce Ravel (<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>) and/or the relevantlab
+manager listed at <a class="reference external" href="https://www.bnl.gov/nsls2/labs">https://www.bnl.gov/nsls2/labs</a>.</p>
+<div class="important admonition">
+<p class="admonition-title">Note</p>
+<p>Each lab you select on your safety approval form makes work
+for the lab stewards.  Only request the lab(s) that you
+actually intend to use.</p>
+</div>
+</section>
+<section id="training">
+<h2><span class="section-number">3.5. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">#</a></h2>
+<p>Please complete all required online user training at least one week
+before the starting date.</p>
+<p>To complete your training, follow the training instructions at:
+<a class="reference external" href="https://www.bnl.gov/nsls2/userguide/before-arrival.php#step2">https://www.bnl.gov/nsls2/userguide/before-arrival.php#step2</a></p>
+<p>Links to specific courses:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://training.bnl.gov/portal/GE-CYBERSEC">Cyber Security Training (GE-CYBERSEC)</a></p></li>
+<li><p><a class="reference external" href="https://training.bnl.gov/portal/GE-COMPUSE-AGREE">Computer Use Agreement (GE-COMPUSE-AGREE)</a></p></li>
+<li><p><a class="reference external" href="https://training.bnl.gov/portal/TQ-GERT">General Employee Radiation Training (TQ-GERT)</a></p></li>
+<li><p><a class="reference external" href="https://training.bnl.gov/portal/PS-NSLS-II-USER-MOD">NSLS-II Safety Module (PS-NSLS-II-USER-MOD)</a></p></li>
+<li><p><a class="reference external" href="https://training.bnl.gov/portal/TQ-GSO">Guest Site Orientation (TQ-GSO)</a></p></li>
+</ul>
+<p>Returning users can <a class="reference external" href="https://www.bnl.gov/training/">check training status online</a>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Failure to complete training will result in a delay starting your
+experiment.</p>
+</div>
+<section id="radiological-training">
+<h3><span class="section-number">3.5.1. </span>Radiological training<a class="headerlink" href="#radiological-training" title="Permalink to this heading">#</a></h3>
+<p>If your experiment requires Rad Worker I or Rad Worker II for handling
+samples at NSLS-II – for example, experiments involving
+transuranics or technicium – you must have completed that level of
+training well in advance of your beamtime.  If you wait until you
+arrive at BNL to take the Rad Worker challenge exam, it is very
+unlikely that will receive credit before the end of your beamtime.</p>
+<p>BNL has reciprocity agreements for Rad Worker certification with some
+Department of Energy labs, notably Los Alamos and Oak Ridge.  You
+should request reciprocity well in advance of your beamtime.  It can
+take a week or longer to process the request.</p>
+</section>
+</section>
+<section id="electrical-equipment">
+<h2><span class="section-number">3.6. </span>Electrical Equipment<a class="headerlink" href="#electrical-equipment" title="Permalink to this heading">#</a></h2>
+<p>Any equipment with an electrical cable – including low-voltage
+instruments and some sample holders – is considered electrical
+equipment (laptop computers are excluded) and is subject to an
+electrical equipment inspection (EEI).</p>
+<p>If you plan to bring electrical equipment for your experiment, go to
+<a class="reference external" href="http://bit.ly/m/eei">http://bit.ly/m/eei</a> to fill out the EEI request form.</p>
+<p>The EEI request form includes questions describing the user supplied
+equipment, thus is a chore better suited for the user who has
+knowledge of the equipment coming to the beamline.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Failure to schedule an EEI will result in a delay to your
+experiment.  Equipment that cannot pass EEI may not be used
+at NSLS-II.</p>
+</div>
+<p>Note that some already-approved electrical equipment (notably, a
+potentiostat, heaters, cryostats, temperature controllers, sample
+spinners, and more) is available at the beamline.</p>
+</section>
+<section id="research-equipment-pool">
+<h2><span class="section-number">3.7. </span>Research Equipment Pool<a class="headerlink" href="#research-equipment-pool" title="Permalink to this heading">#</a></h2>
+<p>Some experimental tools are available from <a class="reference external" href="https://public.bnl.gov/sites/rep/SitePages/Home.aspx">the NSLS-II Research
+Equipment Pool</a>.  If you
+wish to use any items from the equipment pool, contact Bruce Ravel
+(<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>) well ahead of your experiment.</p>
+<p>If you wish to use a potentiostat in lab 4L-L09 to pre-condition
+battery or other electrochemical samples, contact Bruce
+(<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>) to have a potentiostat from the equipment
+pool reserved for you.</p>
+</section>
+<section id="shipping-things-to-the-beamline">
+<h2><span class="section-number">3.8. </span>Shipping things to the beamline<a class="headerlink" href="#shipping-things-to-the-beamline" title="Permalink to this heading">#</a></h2>
+<p>Packages should be shipped to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Bruce Ravel / Beamline 6BM
+Building 740
+Brookhaven National Laboratory
+Upton NY 11973
+</pre></div>
+</div>
+<p>If shipping radiological materials, <strong>do not ship samples directly to
+the beamline</strong>.  Follow the <a class="reference external" href="https://www.bnl.gov/nsls2/userguide/shipping.php#tabs-2">instructions for radiological materials
+transport</a>.</p>
+<p>Allow sufficient time for your samples to arrive before your
+experiment begins.  Plan for shipping delays.  Be aware that the
+transport company will report a package as “delivered” when it arrives
+at BNL shipping and receiving.  It takes additional time for a package
+to arrive at the beamline.</p>
+<p>While samples cannot be stored after your experiment, it is OK for
+samples to arrive a few days prior to your experiment.  The same is
+true for radiological samples.  The radiological control technicians
+can hold onto samples for a few days before delivery to the beamline.</p>
+<p>You will not compensated for beamtime lost to delays in sample delivery.</p>
+</section>
+<section id="the-day-of-your-experiment">
+<h2><span class="section-number">3.9. </span>The Day of your Experiment<a class="headerlink" href="#the-day-of-your-experiment" title="Permalink to this heading">#</a></h2>
+<div class="hint admonition">
+<p class="admonition-title">Note</p>
+<p>Unless told otherwise, your experiment starts at 8 a.m.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">As of May 2025</p>
+<p>First time visitors to BNL (and those needing to renew their
+badges) should now check in at the new Science and User Support
+Center (SUSC), building 101.  Take a right at the roundabout before
+reaching the main gate.  The visitor and badging offices which used
+to be in Building 400 are now located at SUSC.</p>
+</div>
+<p>You should consider having all team members arrive the afternoon prior
+to the first day of the beamtime to check in at <a class="reference external" href="https://www.bnl.gov/guv/">the GUV Center</a> and to complete beamline specific
+training.</p>
+<p>The GUV Center opens at <a class="reference external" href="https://www.bnl.gov/guv/check-in.php">7 a.m. on weekdays</a>, so it is possible to obtain
+badges and access cards prior to the 8 a.m. start time of your
+experiment.</p>
+<p>Please consult <a class="reference external" href="https://www.bnl.gov/ps/userguide/">NSLS-II user guide</a>
+or contact BMM beamline staff for more information.</p>
+<div class="caution admonition">
+<p class="admonition-title"><strong>NSLS-II Attire</strong></p>
+<p>At a minimum, all users are required to wear long pants or
+skirt/dress that extends to the ankle, short-sleeve or long sleeve
+shirts, and shoes that enclose the entire foot for entry to NSLS-II
+non-office areas, which includes the experimental floor and sample
+preparation laboratories.</p>
+<p>Note that jeans with extensive ripping do not meet this PPE
+requirement.</p>
+</div>
+
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="proposal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Proposal Writing for BMM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Data access</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-for-bnl-site-access">3.1. Register for BNL Site Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bnl-domain-account">3.2. BNL Domain Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety-approval-form">3.3. Safety Approval Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-laboratories">3.4. Support Laboratories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">3.5. Training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiological-training">3.5.1. Radiological training</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-equipment">3.6. Electrical Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-equipment-pool">3.7. Research Equipment Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shipping-things-to-the-beamline">3.8. Shipping things to the beamline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-day-of-your-experiment">3.9. The Day of your Experiment</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
